@@ -43,10 +43,9 @@ export function Heroi() {
               Falar no WhatsApp
               <Seta className="size-4 transition-transform group-hover:translate-x-1" />
             </a>
+            {/* Leva ao bloco de visita, onde ficam Google Maps, Waze e horário. */}
             <a
-              href={negocio.mapa}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#visite"
               className="inline-flex items-center gap-2.5 rounded-full border border-creme/25 px-7 py-4 font-medium text-creme transition-colors hover:border-ouro hover:text-ouro"
             >
               Como chegar

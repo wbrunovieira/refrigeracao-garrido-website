@@ -26,8 +26,11 @@ export function Galeria() {
           <div className="max-w-xl">
             <p className="etiqueta text-ouro/80">Por dentro da loja</p>
             <h2 className="display mt-4 text-[clamp(2rem,4.5vw,3.25rem)] text-creme">
-              O estoque não é foto de banco de imagem.
+              Uma volta pelo corredor.
             </h2>
+            <p className="mt-5 leading-relaxed text-creme/65">
+              Tudo aqui foi fotografado na própria loja e está na prateleira.
+            </p>
           </div>
           <a
             href={negocio.instagram.url}

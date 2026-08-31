@@ -187,6 +187,27 @@ export function Whatsapp(p: Props) {
   );
 }
 
+export function GoogleMaps(p: Props) {
+  return (
+    <Base {...p}>
+      <path d="M12 21.5s7-6.3 7-11.2A7 7 0 0 0 5 10.3c0 4.9 7 11.2 7 11.2z" />
+      <circle cx="12" cy="10" r="2.6" />
+      <path d="M7.4 5.6 16.6 17" />
+    </Base>
+  );
+}
+
+export function Waze(p: Props) {
+  return (
+    <Base {...p}>
+      <path d="M20.5 10.2c0 4.1-3.8 7.4-8.5 7.4-.9 0-1.7-.1-2.5-.3-1 .9-2.6 1.6-4.2 1.6.7-.7 1.2-1.6 1.3-2.5A6.9 6.9 0 0 1 3.5 10.2c0-4.1 3.8-7.4 8.5-7.4s8.5 3.3 8.5 7.4z" />
+      <circle cx="9.4" cy="9.4" r=".9" fill="currentColor" stroke="none" />
+      <circle cx="14.6" cy="9.4" r=".9" fill="currentColor" stroke="none" />
+      <path d="M9.6 13c.6.7 1.4 1.1 2.4 1.1s1.8-.4 2.4-1.1" />
+    </Base>
+  );
+}
+
 export function Estrela({ preenchida = 1, ...p }: Props & { preenchida?: number }) {
   const id = `estrela-${Math.round(preenchida * 100)}`;
   return (

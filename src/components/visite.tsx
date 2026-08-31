@@ -1,6 +1,7 @@
+import { BotoesRota } from "@/components/botoes-rota";
 import { NotaGoogle } from "@/components/nota-google";
 import { StatusLoja } from "@/components/status-loja";
-import { Instagram, Pino, Relogio, Seta, Telefone, Whatsapp } from "@/components/icones";
+import { Instagram, Pino, Relogio, Telefone, Whatsapp } from "@/components/icones";
 import { horaLegivel, horarios, negocio, whatsapp } from "@/lib/negocio";
 
 const enderecoCompleto = `${negocio.endereco.rua} — ${negocio.endereco.bairro}, ${negocio.endereco.cidade}/${negocio.endereco.uf}`;
@@ -40,15 +41,10 @@ export function Visite() {
                   CEP {negocio.endereco.cep}
                 </span>
               </p>
-              <a
-                href={negocio.mapa}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-verde-700 hover:text-verde-600"
-              >
-                Traçar rota no Google Maps
-                <Seta className="size-4 transition-transform group-hover:translate-x-1" />
-              </a>
+              <p className="etiqueta mt-6 text-verde-800/45">Traçar rota</p>
+              <div className="mt-3">
+                <BotoesRota />
+              </div>
             </div>
 
             <div className="rounded-2xl border border-verde-900/12 bg-creme p-7">

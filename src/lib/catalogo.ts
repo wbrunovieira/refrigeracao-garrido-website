@@ -127,6 +127,8 @@ export type Servico = {
   id: string;
   nome: string;
   descricao: string;
+  /** Quem costuma abrir esse chamado — separa a casa do comércio. */
+  publico: "residencia" | "comercio";
   Icone: Icone;
 };
 
@@ -136,36 +138,42 @@ export const servicos: Servico[] = [
     id: "geladeira",
     nome: "Geladeira e freezer",
     descricao: "Não gela, faz gelo demais, vaza água ou não liga.",
+    publico: "residencia",
     Icone: Geladeira,
   },
   {
     id: "lavar",
     nome: "Máquina de lavar",
     descricao: "Não centrifuga, não enche, faz barulho ou trava no ciclo.",
+    publico: "residencia",
     Icone: MaquinaLavar,
   },
   {
     id: "balcao",
     nome: "Balcão e expositor",
     descricao: "Manutenção do que segura a mercadoria do seu comércio.",
+    publico: "comercio",
     Icone: BalcaoRefrigerado,
   },
   {
     id: "camara",
     nome: "Câmara fria",
     descricao: "Instalação, carga de gás e correção de temperatura.",
+    publico: "comercio",
     Icone: CamaraFria,
   },
   {
     id: "fogao",
     nome: "Fogão e forno industrial",
     descricao: "Regulagem, troca de queimador e revisão de gás.",
+    publico: "comercio",
     Icone: FogaoIndustrial,
   },
   {
     id: "ar",
     nome: "Ar-condicionado",
     descricao: "Limpeza, recarga e conserto de split e janela.",
+    publico: "residencia",
     Icone: ArCondicionado,
   },
 ];
