@@ -1,36 +1,65 @@
 # Refrigeração Garrido — Website
 
-Site institucional da Refrigeração Garrido, construído com Next.js (App Router).
+Site institucional da **Refrigeração Garrido**, loja de peças, equipamentos e
+assistência técnica em refrigeração no Centro de Petrópolis (RJ) desde 1971.
+
+Página única, estática, em português, com foco em uma coisa: fazer quem chega
+falar com a loja no WhatsApp ou aparecer no balcão.
 
 ## Stack
 
-- [Next.js 16](https://nextjs.org) (App Router + Turbopack)
-- React 19
-- TypeScript
-- Tailwind CSS 4
-- ESLint
+- Next.js 16 (App Router, Turbopack) · React 19 · TypeScript
+- Tailwind CSS 4 com tokens amostrados da própria fachada da loja
+- Sem dependências de UI: ícones, animações e componentes são do projeto
+
+## Design
+
+A identidade sai do letreiro: o verde do toldo, o amarelo das letras e o creme
+da placa. A tipografia usa Bricolage Grotesque no display, Instrument Sans no
+corpo e Space Mono nos rótulos — a mono imita as etiquetas amarelas coladas nas
+caixas de peça da prateleira.
+
+O elemento central é **o balcão**: seis "gavetas" de categoria onde o visitante
+marca o que precisa e manda a lista pronta pelo WhatsApp.
+
+## Seções
+
+| Seção | Conteúdo |
+| --- | --- |
+| Herói | Proposta, fachada, telefones do letreiro e status de aberto/fechado ao vivo |
+| Prateleira | Marcas e tipos de peça em movimento |
+| O balcão | Seis gavetas de produto + montagem de pedido para o WhatsApp |
+| Assistência | Seis frentes de conserto e instalação |
+| História | 55 anos, equipe e o texto da própria loja |
+| Depoimentos | Avaliações públicas e nota do Google |
+| Galeria | Fotos reais do estoque e da loja |
+| Visite | Endereço, horário completo, contatos e mapa |
 
 ## Desenvolvimento
 
 ```bash
 pnpm install
-pnpm dev
+pnpm dev     # http://localhost:3000
+pnpm build
+pnpm lint
 ```
 
-Acesse [http://localhost:3000](http://localhost:3000).
+## Antes de publicar
 
-## Scripts
+Os dados vieram do perfil `@refrigeracaogarrido`, da fachada e de listas
+públicas. Confirmar com a cliente:
 
-| Comando      | Descrição                       |
-| ------------ | ------------------------------- |
-| `pnpm dev`   | Servidor de desenvolvimento     |
-| `pnpm build` | Build de produção               |
-| `pnpm start` | Servidor de produção            |
-| `pnpm lint`  | Verificação de lint             |
+- [ ] Telefones, WhatsApp e horários (`src/lib/negocio.ts`)
+- [ ] Lista de serviços de assistência técnica (`src/lib/catalogo.ts`)
+- [ ] Itens de cada gaveta e marcas trabalhadas
+- [ ] Substituir os depoimentos pelas avaliações reais do Google
+- [ ] Domínio definitivo (hoje `refrigeracaogarrido.com.br` nos metadados)
 
 ## Estrutura
 
 ```
-src/app/        # rotas, layouts e páginas (App Router)
-public/         # arquivos estáticos
+src/app/          layout, metadados, JSON-LD, robots e sitemap
+src/components/   seções da página e o conjunto de ícones
+src/lib/          dados do negócio e catálogo
+public/fotos/     fotos da loja, otimizadas em WebP
 ```
