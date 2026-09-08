@@ -8,34 +8,7 @@ Vetorização do logo a partir da foto do cartão de visita
 Um **G** compartilhado por REFRI**G**ERAÇÃO e **G**ARRIDO, com um **pinguim**
 apoiado nele, em pé sobre um bloco de gelo, diante de icebergs e água.
 
-## Duas versões
-
-| Pasta | O que é |
-| --- | --- |
-| `public/marca/original/` | fiel ao cartão — a marca como ela existe hoje |
-| `public/marca/moderna/` | proposta de atualização, mesma marca com acabamento refeito |
-
-Os dois lados têm os **mesmos seis arquivos** e os **mesmos grupos nomeados**,
-então dá pra trocar um pelo outro sem mexer em código.
-
-### O que muda na moderna
-
-- **Pinguim**: o mesmo pinguim. O tremido da impressão vira curva resolvida
-  (fechamento morfológico, borrado e limiarizado antes de traçar).
-- **G**: a mesma letra, com a curva resolvida e o contorno **regenerado por
-  dilatação**, de espessura constante — no cartão a espessura oscila.
-- **Icebergs, água e palavras**: mesma limpeza, em dose menor.
-
-### Por que o G não foi redesenhado do zero
-
-Foi tentado. A proporção é 2,86:1 — alta e estreita demais para uma construção
-geométrica regular. Todas as versões testadas (estádio, ombro quadrado, gancho
-para dentro, barra em várias alturas e espessuras) liam como **6**, **8**, **B**
-ou **P**, nunca como G. O que faz o original ler G é justamente ser desenhado à
-mão: traço de espessura irregular e gancho afilado. Redesenhar geometricamente
-destruía a letra. A decisão foi preservar a forma e refazer só o acabamento.
-
-## Arquivos em cada pasta
+## Arquivos em `public/marca/`
 
 | Arquivo | Contém | Uso |
 | --- | --- | --- |
@@ -83,7 +56,12 @@ impressão, trocar.
    separação usa o preenchimento azul como semente e dilata 9px para isolar só
    o anel escuro em volta.
 4. `potrace -a 1.0 -O 0.2 -t 10 -u 10 --flat` em cada parte.
-5. Montagem dos SVGs com `viewBox` apertado no conteúdo de cada variante.
+5. **Correção de registro do G.** No cartão o azul foi impresso deslocado para a
+   esquerda e para baixo, e escapa do contorno preto — é falha de registro da
+   impressão, não desenho. O azul é recortado ao interior do contorno
+   (`fill_holes` do anel escuro somado ao pinguim, que cobre parte do anel e sem
+   o qual o buraco não fecha). Foram 3.334 px de 37.886 removidos.
+6. Montagem dos SVGs com `viewBox` apertado no conteúdo de cada variante.
 
 Refazer com outra foto: os scripts do processo estão descritos aqui passo a
 passo; os pontos sensíveis são o passo 1, que precisa ser medido e não estimado, e
