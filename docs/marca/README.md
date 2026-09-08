@@ -44,7 +44,10 @@ impressão, trocar.
 
 ## Como foi vetorizado
 
-1. HEIC → PNG, cartão girado e endireitado (−1,4°).
+1. HEIC → PNG, cartão girado e endireitado. O ângulo NÃO é chute: mede-se a
+   linha de base das letras (centro-x, base-y de cada componente, ajuste linear
+   robusto com descarte de outliers) e corrige-se por ele. Aqui deu +0,354°,
+   deixando as duas palavras em −0,11° e +0,19° — abaixo do perceptível.
 2. As duas tintas separadas por **cor**, não por brilho: azul onde `B−R > 12`;
    grafite onde `L < 132` e `B−R ≤ 12`. Filtro de mediana (5) tira o granulado
    do papel sem comer o traço.
@@ -56,4 +59,5 @@ impressão, trocar.
 5. Montagem dos SVGs com `viewBox` apertado no conteúdo de cada variante.
 
 Refazer com outra foto: os scripts do processo estão descritos aqui passo a
-passo; o ponto sensível é o passo 2, cujos limiares dependem da iluminação.
+passo; os pontos sensíveis são o passo 1, que precisa ser medido e não estimado, e
+os limiares do passo 2, que dependem da iluminação.
