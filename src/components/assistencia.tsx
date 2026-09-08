@@ -1,5 +1,6 @@
 import { servicos, type Servico } from "@/lib/catalogo";
 import { Seta, Whatsapp } from "@/components/icones";
+import { LinhaDagua } from "@/components/cenario";
 import { negocio, whatsapp } from "@/lib/negocio";
 
 /**
@@ -49,6 +50,7 @@ function Linha({ servico }: { servico: Servico }) {
 export function Assistencia() {
   return (
     <section id="assistencia" className="painel relative py-24 sm:py-32">
+      <LinhaDagua className="absolute inset-x-0 top-6 text-azul-marca/25" />
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid gap-14 lg:grid-cols-[minmax(0,26rem)_1fr] lg:gap-20">
           {/* Coluna fixa: o argumento fica à vista enquanto a lista rola. */}

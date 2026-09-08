@@ -69,6 +69,25 @@ Como os arquivos `-mono` dependem de `currentColor`, são embutidos via
 Lá os grupos viram `data-parte` em vez de `id`: cabeçalho e rodapé desenham a
 marca na mesma página e ids repetidos seriam HTML inválido.
 
+## A cena como mobiliário da página
+
+Os três elementos da cena do logo saem dele e viram estrutura, em
+`src/components/marca-elementos.tsx` (gerado das mesmas máscaras) e
+`src/components/cenario.tsx` (a composição):
+
+| Elemento | Onde | Papel |
+| --- | --- | --- |
+| Água | rodapé da barra do topo e abertura das duas faixas claras | divisa entre as faixas; corre em 80s |
+| Icebergs | pé do herói | horizonte, a 12% |
+| Pinguim | balcão, quando a lista está vazia | atende enquanto não há pedido; some ao primeiro item |
+
+A água entra como **máscara CSS** (`public/marca/elementos/agua.svg`) e não como
+imagem, para herdar `currentColor` e poder repetir na horizontal. O movimento é
+`mask-position`, e respeita `prefers-reduced-motion`.
+
+Dose baixa de propósito: quem tem que chamar atenção é o título e o botão de
+WhatsApp. Se um dia parecer enfeite, o primeiro a sair é o horizonte.
+
 ## Cores
 
 | | Hex | O que é |

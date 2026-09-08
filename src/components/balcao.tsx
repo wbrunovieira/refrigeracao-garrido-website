@@ -5,6 +5,7 @@ import Image from "next/image";
 import { gavetas } from "@/lib/catalogo";
 import { whatsapp } from "@/lib/negocio";
 import { Seta, Whatsapp } from "@/components/icones";
+import { Pinguim } from "@/components/marca-elementos";
 
 /**
  * O balcão: o visitante abre uma gaveta, marca o que precisa e o pedido vai
@@ -136,7 +137,13 @@ export function Balcao() {
               </div>
 
               <div className="mt-8 flex flex-col gap-4 border-t border-verde-600/25 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                <p className="font-mono text-sm text-aco/70">
+                <p className="flex items-center gap-3 font-mono text-sm text-aco/70">
+                  {/* O pinguim do logo espera enquanto não há pedido. */}
+                  <Pinguim
+                    className={`h-9 w-auto shrink-0 text-aco/45 transition-all duration-500 ${
+                      pedido.length === 0 ? "opacity-100" : "w-0 opacity-0"
+                    }`}
+                  />
                   {pedido.length === 0
                     ? "Nenhum item na lista ainda"
                     : `${pedido.length} ${pedido.length === 1 ? "item" : "itens"} na lista`}

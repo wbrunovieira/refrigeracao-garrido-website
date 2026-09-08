@@ -109,6 +109,14 @@ body {
   background-image: linear-gradient(90deg, transparent, var(--color-ouro), transparent);
 }
 
+/* A linha d'água do logo, repetida na horizontal como divisa entre as faixas.
+   Entra como máscara e não como imagem para herdar a cor de quem a coloca. */
+.linha-dagua {
+  background-color: currentColor;
+  -webkit-mask: url("/marca/elementos/agua.svg") repeat-x center / auto 100%;
+  mask: url("/marca/elementos/agua.svg") repeat-x center / auto 100%;
+}
+
 /* Textura de serralheria: listras finas na diagonal, bem discretas. */
 .hachura {
   background-image: repeating-linear-gradient(
@@ -137,6 +145,12 @@ body {
   to   { transform: translate3d(-50%, 0, 0); }
 }
 
+/* Deriva lenta da água: 80s para uma volta, quase imperceptível de perto. */
+@keyframes marejar {
+  from { -webkit-mask-position: 0 center; mask-position: 0 center; }
+  to   { -webkit-mask-position: -400px center; mask-position: -400px center; }
+}
+
 @keyframes pulsar {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%      { opacity: .35; transform: scale(.82); }
@@ -158,6 +172,10 @@ body {
 
 .marquise {
   animation: deslizar 34s linear infinite;
+}
+
+.mareja {
+  animation: marejar 80s linear infinite;
 }
 
 .ponto-vivo {
@@ -183,7 +201,8 @@ body {
   .entrada > *,
   .acende,
   .marquise,
-  .ponto-vivo {
+  .ponto-vivo,
+  .mareja {
     animation: none !important;
   }
   .js-ativo [data-revelar],

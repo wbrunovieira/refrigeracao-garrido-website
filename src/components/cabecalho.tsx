@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { LinhaDagua } from "@/components/cenario";
 import { Marca } from "@/components/marca";
 import { StatusLoja } from "@/components/status-loja";
 import { Whatsapp } from "@/components/icones";
@@ -90,7 +91,7 @@ export function Cabecalho() {
   return (
     <>
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b border-verde-800 bg-creme
+      className={`fixed inset-x-0 top-0 z-50 overflow-hidden border-b border-verde-800 bg-creme
         transition-shadow duration-500 ${
           compacto
             ? "shadow-[0_1px_0_rgba(4,18,15,.06),0_10px_28px_-14px_rgba(4,18,15,.30)]"
@@ -103,7 +104,8 @@ export function Cabecalho() {
             compacto ? "h-23" : "h-32 sm:h-36"
           }`}
       >
-        <a href="#topo" className="mr-6 shrink-0" aria-label="Início">
+        <LinhaDagua className="absolute inset-x-0 bottom-0 text-azul-marca/30" />
+        <a href="#topo" className="relative mr-6 shrink-0" aria-label="Início">
           {/* Chega grande e encolhe ao rolar: a marca ganha a primeira vista
               sem custar altura de tela pelo resto da navegação. */}
           <Marca

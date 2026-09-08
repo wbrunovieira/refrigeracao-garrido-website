@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HorizonteIcebergs } from "@/components/cenario";
 import { StatusLoja } from "@/components/status-loja";
 import { Pino, Seta, Whatsapp } from "@/components/icones";
 import { anosDeCasa, negocio, whatsapp } from "@/lib/negocio";
@@ -8,6 +9,7 @@ export function Heroi() {
     <section id="topo" className="relative isolate overflow-hidden pt-52 pb-20 sm:pt-64 sm:pb-28">
       <div className="aura absolute inset-0 -z-10" aria-hidden="true" />
       <div className="hachura absolute inset-0 -z-10 opacity-40" aria-hidden="true" />
+      <HorizonteIcebergs className="-z-10" />
 
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.05fr_.95fr] lg:gap-16">
         <div className="entrada">
