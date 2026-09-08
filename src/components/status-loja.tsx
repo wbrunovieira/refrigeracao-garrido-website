@@ -44,13 +44,24 @@ function calcular(chave: string) {
   return { aberto: false, texto: "Fechado" };
 }
 
-export function StatusLoja({ className = "" }: { className?: string }) {
+export function StatusLoja({
+  className = "",
+  claro = false,
+}: {
+  className?: string;
+  /** Sobre fundo claro o ouro não tem contraste; o verde assume. */
+  claro?: boolean;
+}) {
   // O horário só existe no navegador: no servidor o snapshot é nulo e a
   // marcação sai neutra, sem divergência de hidratação.
   const chave = useSyncExternalStore(assinar, chaveDoMinuto, () => null);
 
   if (!chave) {
-    return <span className={`etiqueta text-aco/60 ${className}`}>Horário da loja</span>;
+    return (
+      <span className={`etiqueta ${claro ? "text-verde-800/60" : "text-aco/60"} ${className}`}>
+        Horário da loja
+      </span>
+    );
   }
 
   const estado = calcular(chave);
@@ -58,10 +69,24 @@ export function StatusLoja({ className = "" }: { className?: string }) {
   return (
     <span className={`items-center gap-2 etiqueta ${className}`}>
       <span
-        className={`ponto-vivo size-2 rounded-full ${estado.aberto ? "bg-ouro" : "bg-aco/50"}`}
+        className={`ponto-vivo size-2 rounded-full ${
+          estado.aberto ? (claro ? "bg-verde-500" : "bg-ouro") : claro ? "bg-verde-800/35" : "bg-aco/50"
+        }`}
         aria-hidden="true"
       />
-      <span className={estado.aberto ? "text-ouro-claro" : "text-aco/80"}>{estado.texto}</span>
+      <span
+        className={
+          estado.aberto
+            ? claro
+              ? "text-verde-700"
+              : "text-ouro-claro"
+            : claro
+              ? "text-verde-800/70"
+              : "text-aco/80"
+        }
+      >
+        {estado.texto}
+      </span>
     </span>
   );
 }

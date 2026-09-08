@@ -17,6 +17,11 @@
   --color-ouro-claro: #FFDC7A;
   --color-ouro-escuro: #C99A24;
 
+  /* Eco do azul do logo, escurecido para ter contraste sobre o creme (~4.6:1).
+     Uso restrito aos rótulos das seções claras — em botão ou link brigaria com
+     o ouro, que é a cor de ação. */
+  --color-azul-marca: #3F6B88;
+
   --color-creme: #FBF6EA;
   --color-creme-2: #F1E9D7;
   --color-aco: #B7C4BF;
@@ -33,7 +38,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 8rem;
+  scroll-padding-top: 7rem;
 }
 
 body {
@@ -74,10 +79,15 @@ body {
 
 /* --- Superfícies ------------------------------------------------------- */
 
-/* O painel creme da placa do toldo, usado como "papel" do conteúdo. */
+/* O papel do conteúdo. Começa no creme-2 e não no creme porque a barra do topo
+   é creme: sem essa diferença o cabeçalho some ao passar por estas seções. */
 .painel {
   background:
-    linear-gradient(180deg, var(--color-creme) 0%, var(--color-creme-2) 100%);
+    linear-gradient(
+      180deg,
+      var(--color-creme-2) 0%,
+      color-mix(in oklab, var(--color-creme-2) 93%, var(--color-tinta)) 100%
+    );
   color: var(--color-tinta);
 }
 

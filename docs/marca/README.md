@@ -35,14 +35,25 @@ receber a cor — via `<img>` saem pretos.
 
 | Lugar | O que usa |
 | --- | --- |
-| Cabeçalho e menu | marca completa, cores do cartão, sobre placa creme |
-| Rodapé | a mesma placa, um pouco maior |
+| Cabeçalho | marca completa, cores do cartão — a **barra inteira é creme**, sem placa |
+| Rodapé | marca completa sobre placa creme, porque o rodapé é verde |
 | Favicon (`src/app/icon.svg`) | símbolo (pinguim + G) nas cores do cartão, sobre creme |
 
 **A marca nunca é recolorida.** Ela aparece sempre em azul e grafite, como no
-cartão. Para conviver com o verde do site, entra montada numa **placa creme** —
-que é o arranjo da própria fachada: o letreiro é um painel claro preso ao toldo
-verde. Sem a placa o grafite do pinguim sumiria no fundo escuro.
+cartão. Ela foi desenhada para papel claro e só funciona sobre creme — então
+quem se adapta é o layout.
+
+No topo, a **barra inteira** é creme (`#FBF6EA`), com peitoril de 1px em
+`--verde-800` e sombra ao rolar. É a fachada: letreiro claro de ponta a ponta
+apoiado na loja verde. Uma placa solta ali lia como adesivo. No rodapé, que é
+verde, a marca volta a precisar de placa.
+
+Por isso as seções claras usam `--creme-2` e não `--creme`: sem essa diferença
+o cabeçalho desaparece ao passar por elas.
+
+O azul do logo tem um eco na interface, em dose única: os rótulos das seções
+claras usam `--azul-marca #3F6B88` (o azul escurecido para ter contraste).
+Não entra em botão nem link — ali brigaria com o ouro, que é a cor de ação.
 
 O componente aceita `mono`, que faz a marca inteira herdar `currentColor`. Existe
 para casos de exceção (marca d'água, impressão em uma cor só) — não para

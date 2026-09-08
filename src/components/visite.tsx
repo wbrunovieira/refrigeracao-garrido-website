@@ -16,7 +16,7 @@ export function Visite() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-6" data-revelar>
           <div className="max-w-2xl">
-            <p className="etiqueta text-verde-600">Visite a loja</p>
+            <p className="etiqueta text-azul-marca">Visite a loja</p>
             <h2 className="display mt-4 text-[clamp(2.25rem,5.5vw,4rem)] text-verde-900">
               Fica no Centro,
               <br />
@@ -68,7 +68,7 @@ export function Visite() {
                 </tbody>
               </table>
               <div className="mt-4 rounded-lg bg-verde-900/6 px-3 py-2">
-                <StatusLoja className="inline-flex [&_span]:text-verde-800" />
+                <StatusLoja className="inline-flex" claro />
               </div>
             </div>
 

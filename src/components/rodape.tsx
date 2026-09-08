@@ -15,8 +15,8 @@ export function Rodape() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
-            {/* No rodapé a placa cabe maior, com a marca inteira. */}
-            <Marca />
+            {/* O rodapé é verde: aqui a marca precisa da placa para ter fundo claro. */}
+            <Marca placa altura="h-24" />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-creme/60">
               Peças de reposição, refrigeração comercial, cozinha industrial e assistência
               técnica no Centro de {negocio.endereco.cidade} desde {negocio.fundacao}.

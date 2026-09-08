@@ -53,7 +53,7 @@ export function Assistencia() {
         <div className="grid gap-14 lg:grid-cols-[minmax(0,26rem)_1fr] lg:gap-20">
           {/* Coluna fixa: o argumento fica à vista enquanto a lista rola. */}
           <div className="lg:sticky lg:top-28 lg:self-start" data-revelar>
-            <p className="etiqueta text-verde-600">Assistência técnica</p>
+            <p className="etiqueta text-azul-marca">Assistência técnica</p>
             <h2 className="display mt-4 text-[clamp(2.25rem,5vw,3.5rem)] text-verde-900">
               Quando a peça
               <br />
