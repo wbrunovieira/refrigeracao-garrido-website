@@ -35,9 +35,18 @@ receber a cor — via `<img>` saem pretos.
 
 | Lugar | O que usa |
 | --- | --- |
-| Cabeçalho e menu | marca completa, em ouro, a 88px |
-| Rodapé | marca completa, em ouro |
-| Favicon (`src/app/icon.svg`) | símbolo (pinguim + G) em ouro sobre o verde |
+| Cabeçalho e menu | marca completa, cores do cartão, sobre placa creme |
+| Rodapé | a mesma placa, um pouco maior |
+| Favicon (`src/app/icon.svg`) | símbolo (pinguim + G) nas cores do cartão, sobre creme |
+
+**A marca nunca é recolorida.** Ela aparece sempre em azul e grafite, como no
+cartão. Para conviver com o verde do site, entra montada numa **placa creme** —
+que é o arranjo da própria fachada: o letreiro é um painel claro preso ao toldo
+verde. Sem a placa o grafite do pinguim sumiria no fundo escuro.
+
+O componente aceita `mono`, que faz a marca inteira herdar `currentColor`. Existe
+para casos de exceção (marca d'água, impressão em uma cor só) — não para
+encaixar a marca numa paleta.
 
 **A barra do topo tem 112px por causa da marca.** Abaixo de ~88px de altura as
 duas palavras deixam de ser legíveis — medido, não estimado. Quem for encolher o
@@ -58,7 +67,8 @@ marca na mesma página e ids repetidos seriam HTML inválido.
 
 **São aproximações.** Vieram de uma foto de celular, com correção de branco
 pelo papel do cartão. Se a cliente tiver a arte original ou souber as cores de
-impressão, trocar.
+impressão, trocar — e é só editar `--marca-gelo` e `--marca-tinta` em
+`src/components/marca-svg.tsx`.
 
 ## Como foi vetorizado
 

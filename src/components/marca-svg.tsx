@@ -1,24 +1,42 @@
 /**
- * A marca vetorizada do cartão, embutida como componente porque os arquivos em
- * public/marca usam `currentColor` — via <img> sairiam pretos. Gerado a partir
- * de public/marca/*-mono.svg; para atualizar, regere a partir de lá.
+ * A marca vetorizada do cartão, embutida como componente — via <img> não daria
+ * para trocar as cores nem herdar o contexto. Gerado a partir de
+ * public/marca/garrido-*.svg; para atualizar, regere a partir de lá.
  *
- * Os grupos viram `data-parte` e não `id`: o cabeçalho e o rodapé desenham a
+ * As cores saem de duas variáveis CSS, com as originais do cartão por padrão:
+ * `--marca-gelo` (o azul do G, dos icebergs e da água) e `--marca-tinta` (o
+ * grafite do pinguim, das letras e do contorno). Passando `mono`, as duas
+ * apontam para `currentColor` e a marca inteira assume a cor de quem a coloca.
+ *
+ * Os grupos são `data-parte` e não `id` porque cabeçalho e rodapé desenham a
  * marca na mesma página, e ids repetidos seriam HTML inválido.
  */
-type Props = { className?: string; titulo?: string };
+const ORIGINAIS = {
+  "--marca-gelo": "#5B87A6",
+  "--marca-tinta": "#2E302C",
+} as React.CSSProperties;
 
-function rotulo(titulo?: string) {
-  return titulo
-    ? { role: "img" as const, "aria-label": titulo }
-    : { "aria-hidden": true as const };
+const MONO = {
+  "--marca-gelo": "currentColor",
+  "--marca-tinta": "currentColor",
+} as React.CSSProperties;
+
+type Props = { className?: string; titulo?: string; mono?: boolean };
+
+function atributos({ titulo, mono }: Props) {
+  return {
+    style: mono ? MONO : ORIGINAIS,
+    ...(titulo
+      ? { role: "img" as const, "aria-label": titulo }
+      : { "aria-hidden": true as const }),
+  };
 }
 
-/** Pinguim apoiado no G. Usar quando o nome já aparece escrito ao lado. */
-export function SimboloGarrido({ className, titulo }: Props) {
+/** Pinguim apoiado no G, sem as palavras nem a cena de gelo. */
+export function SimboloGarrido(props: Props) {
   return (
-    <svg viewBox="190 56 446 863" className={className} {...rotulo(titulo)}>
-      <g data-parte="letra-g" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="currentColor">
+    <svg viewBox="190 56 446 863" className={props.className} {...atributos(props)}>
+      <g data-parte="letra-g" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="var(--marca-gelo)">
         <path d="M5232 8595 c-81 -29 -162 -98 -227 -190 -30 -44 -55 -83 -55 -88 0
   -5 -12 -32 -26 -61 -38 -72 -53 -154 -54 -280 0 -92 -3 -114 -21 -142 -19 -32
   -20 -50 -24 -496 -2 -255 -9 -483 -14 -508 -6 -27 -10 -307 -11 -700 0 -591
@@ -40,7 +58,7 @@ export function SimboloGarrido({ className, titulo }: Props) {
   -149 29 -9 58 11 79 55 20 42 13 60 -24 60 -28 0 -45 19 -45 51 0 32 -31 74
   -70 94 -27 14 -30 13 -54 -16z"/>
     </g>
-      <g data-parte="contorno-g" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="currentColor" opacity=".42">
+      <g data-parte="contorno-g" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="var(--marca-tinta)">
         <path d="M5470 8809 c-52 -4 -111 -12 -130 -17 -19 -6 -51 -15 -70 -20 -89
   -23 -239 -136 -337 -252 -74 -89 -166 -281 -193 -405 -5 -22 -18 -61 -30 -87
   -22 -50 -20 -83 8 -126 19 -29 22 -362 8 -952 -4 -212 -10 -582 -11 -823 -3
@@ -84,7 +102,7 @@ export function SimboloGarrido({ className, titulo }: Props) {
   20 -5 18 -17z m-224 -132 c7 -10 -22 -37 -30 -28 -9 8 3 37 15 37 5 0 12 -4
   15 -9z"/>
     </g>
-      <g data-parte="pinguim" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="currentColor">
+      <g data-parte="pinguim" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="var(--marca-tinta)">
         <path d="M4397 5982 c-3 -4 1 -54 9 -112 8 -58 13 -143 12 -190 -1 -52 3 -94
   10 -107 7 -12 12 -50 12 -85 0 -35 5 -69 11 -75 7 -7 12 -65 13 -149 1 -77 6
   -160 10 -186 6 -35 4 -57 -8 -88 -9 -22 -16 -52 -16 -67 0 -27 -24 -72 -95
@@ -153,10 +171,10 @@ export function SimboloGarrido({ className, titulo }: Props) {
 }
 
 /** A marca inteira: pinguim, G, as duas palavras e a cena de gelo. */
-export function MarcaCompletaGarrido({ className, titulo }: Props) {
+export function MarcaCompletaGarrido(props: Props) {
   return (
-    <svg viewBox="0 56 1082 863" className={className} {...rotulo(titulo)}>
-      <g data-parte="agua" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="currentColor" opacity=".42">
+    <svg viewBox="0 56 1082 863" className={props.className} {...atributos(props)}>
+      <g data-parte="agua" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="var(--marca-gelo)">
         <path d="M4520 1842 c-25 -20 -20 -44 14 -60 12 -5 58 -13 102 -17 43 -4 102
   -15 131 -25 28 -11 75 -22 105 -26 29 -3 85 -17 123 -29 97 -32 236 -56 274
   -49 34 7 71 46 71 74 0 20 -31 50 -52 50 -9 0 -32 7 -51 15 -20 8 -52 15 -72
@@ -201,7 +219,7 @@ export function MarcaCompletaGarrido({ className, titulo }: Props) {
   354 -3 372 15 23 23 24 57 3 88 -14 19 -23 22 -51 18 -45 -8 -361 9 -433 23
   -63 11 -548 18 -586 8z"/>
     </g>
-      <g data-parte="icebergs" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="currentColor" opacity=".42">
+      <g data-parte="icebergs" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="var(--marca-gelo)">
         <path d="M5455 3561 c-64 -16 -118 -55 -218 -158 -116 -119 -221 -268 -287
   -408 -38 -79 -57 -103 -198 -249 -85 -88 -171 -172 -190 -186 -19 -14 -65 -53
   -101 -87 -99 -92 -271 -211 -406 -281 -112 -58 -139 -83 -147 -132 -14 -80
@@ -264,7 +282,7 @@ export function MarcaCompletaGarrido({ className, titulo }: Props) {
   52 -11 22 -31 67 -44 99 -28 66 -90 154 -144 203 -33 30 -41 32 -101 32 -49
   -1 -83 -9 -140 -33z"/>
     </g>
-      <g data-parte="letra-g" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="currentColor">
+      <g data-parte="letra-g" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="var(--marca-gelo)">
         <path d="M5232 8595 c-81 -29 -162 -98 -227 -190 -30 -44 -55 -83 -55 -88 0
   -5 -12 -32 -26 -61 -38 -72 -53 -154 -54 -280 0 -92 -3 -114 -21 -142 -19 -32
   -20 -50 -24 -496 -2 -255 -9 -483 -14 -508 -6 -27 -10 -307 -11 -700 0 -591
@@ -286,7 +304,7 @@ export function MarcaCompletaGarrido({ className, titulo }: Props) {
   -149 29 -9 58 11 79 55 20 42 13 60 -24 60 -28 0 -45 19 -45 51 0 32 -31 74
   -70 94 -27 14 -30 13 -54 -16z"/>
     </g>
-      <g data-parte="contorno-g" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="currentColor" opacity=".42">
+      <g data-parte="contorno-g" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="var(--marca-tinta)">
         <path d="M5470 8809 c-52 -4 -111 -12 -130 -17 -19 -6 -51 -15 -70 -20 -89
   -23 -239 -136 -337 -252 -74 -89 -166 -281 -193 -405 -5 -22 -18 -61 -30 -87
   -22 -50 -20 -83 8 -126 19 -29 22 -362 8 -952 -4 -212 -10 -582 -11 -823 -3
@@ -330,7 +348,7 @@ export function MarcaCompletaGarrido({ className, titulo }: Props) {
   20 -5 18 -17z m-224 -132 c7 -10 -22 -37 -30 -28 -9 8 3 37 15 37 5 0 12 -4
   15 -9z"/>
     </g>
-      <g data-parte="pinguim" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="currentColor">
+      <g data-parte="pinguim" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="var(--marca-tinta)">
         <path d="M4397 5982 c-3 -4 1 -54 9 -112 8 -58 13 -143 12 -190 -1 -52 3 -94
   10 -107 7 -12 12 -50 12 -85 0 -35 5 -69 11 -75 7 -7 12 -65 13 -149 1 -77 6
   -160 10 -186 6 -35 4 -57 -8 -88 -9 -22 -16 -52 -16 -67 0 -27 -24 -72 -95
@@ -394,7 +412,7 @@ export function MarcaCompletaGarrido({ className, titulo }: Props) {
   c0 -15 -37 -32 -47 -22 -9 8 17 36 33 36 8 0 14 -6 14 -14z m520 -2146 c14
   -10 22 -22 18 -25 -11 -12 -63 11 -66 28 -5 22 17 21 48 -3z"/>
     </g>
-      <g data-parte="palavra-refrigeracao" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="currentColor">
+      <g data-parte="palavra-refrigeracao" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="var(--marca-tinta)">
         <path d="M9553 7567 c-34 -44 -58 -50 -102 -27 -52 26 -120 26 -154 0 -32 -25
   -62 -107 -46 -127 18 -20 38 -16 76 17 40 36 38 35 103 10 67 -27 102 -25 138
   5 37 31 67 111 51 132 -17 20 -45 16 -66 -10z M1865 7353 c-50 -14 -52 -24
@@ -476,7 +494,7 @@ export function MarcaCompletaGarrido({ className, titulo }: Props) {
   -129 9 -66 2 -124 6 -130 10 -15 9 -2 305 14 322 7 8 54 13 135 14 137 3 151
   9 151 64 0 61 -17 65 -251 65 -157 0 -209 -3 -217 -13z"/>
     </g>
-      <g data-parte="palavra-garrido" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="currentColor">
+      <g data-parte="palavra-garrido" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="var(--marca-tinta)">
         <path d="M10045 5350 c-76 -30 -96 -49 -141 -135 -37 -70 -43 -89 -54 -194
   -11 -110 -9 -294 5 -391 9 -65 83 -200 123 -227 139 -92 376 -79 465 26 38 46
   73 128 85 201 17 97 18 365 3 430 -38 163 -76 223 -168 270 -62 32 -75 35
