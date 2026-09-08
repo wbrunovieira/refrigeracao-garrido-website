@@ -93,7 +93,7 @@ export function Cabecalho() {
           : "border-b border-transparent"
       }`}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center gap-5 px-5 sm:px-8">
+      <div className="mx-auto flex h-28 max-w-7xl items-center gap-5 px-5 sm:px-8">
         <a href="#topo" className="shrink-0" aria-label="Início">
           <Marca compacto />
         </a>
@@ -170,7 +170,7 @@ export function Cabecalho() {
     </header>
 
       {aberto && (
-        <div className="fixed inset-x-0 bottom-0 top-20 z-50 flex flex-col overflow-y-auto border-t border-verde-600/25 bg-verde-950 px-5 pb-10 pt-8 lg:hidden">
+        <div className="fixed inset-x-0 bottom-0 top-28 z-50 flex flex-col overflow-y-auto border-t border-verde-600/25 bg-verde-950 px-5 pb-10 pt-8 lg:hidden">
           <nav className="flex flex-col" aria-label="Seções do site">
             {secoes.map((s) => (
               <a

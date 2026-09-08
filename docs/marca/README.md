@@ -31,6 +31,24 @@ Nos arquivos `-mono` tudo herda `currentColor`; `icebergs`, `agua` e
 o foco. Como usam `currentColor`, precisam ser embutidos no HTML (inline) para
 receber a cor — via `<img>` saem pretos.
 
+## Onde a marca entra no site
+
+| Lugar | O que usa |
+| --- | --- |
+| Cabeçalho e menu | marca completa, em ouro, a 88px |
+| Rodapé | marca completa, em ouro |
+| Favicon (`src/app/icon.svg`) | símbolo (pinguim + G) em ouro sobre o verde |
+
+**A barra do topo tem 112px por causa da marca.** Abaixo de ~88px de altura as
+duas palavras deixam de ser legíveis — medido, não estimado. Quem for encolher o
+cabeçalho precisa trocar para `garrido-logotipo`, que dispensa a cena de gelo e
+aguenta 56px.
+
+Como os arquivos `-mono` dependem de `currentColor`, são embutidos via
+`src/components/marca-svg.tsx`, gerado a partir de `public/marca/*-mono.svg`.
+Lá os grupos viram `data-parte` em vez de `id`: cabeçalho e rodapé desenham a
+marca na mesma página e ids repetidos seriam HTML inválido.
+
 ## Cores
 
 | | Hex | O que é |

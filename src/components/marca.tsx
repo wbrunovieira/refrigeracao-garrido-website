@@ -1,21 +1,17 @@
-import { negocio } from "@/lib/negocio";
+import { MarcaCompletaGarrido } from "@/components/marca-svg";
 
 /**
- * Assinatura tipográfica tirada do letreiro do toldo: nome em caixa alta,
- * bem apertado, com o ano da fundação preso embaixo como na placa antiga.
+ * A marca do cartão, inteira: pinguim, G, as duas palavras e a cena de gelo.
+ * Herda a cor de quem a coloca — no fundo verde do site, sai em ouro.
+ *
+ * Abaixo de ~88px de altura as duas palavras deixam de ser legíveis, e é por
+ * isso que a barra do topo tem 112px em vez dos 80px de praxe.
  */
 export function Marca({ compacto = false }: { compacto?: boolean }) {
   return (
-    <span className="inline-flex flex-col leading-none">
-      <span
-        className={`display uppercase text-creme ${compacto ? "text-lg" : "text-xl"}`}
-        style={{ letterSpacing: "-0.04em" }}
-      >
-        Refrigeração <span className="text-ouro">Garrido</span>
-      </span>
-      <span className="etiqueta mt-1 text-aco/55" style={{ fontSize: "0.5625rem" }}>
-        Petrópolis · desde {negocio.fundacao}
-      </span>
-    </span>
+    <MarcaCompletaGarrido
+      className={`w-auto text-ouro ${compacto ? "h-22" : "h-28"}`}
+      titulo="Refrigeração Garrido"
+    />
   );
 }
