@@ -8,7 +8,34 @@ Vetorização do logo a partir da foto do cartão de visita
 Um **G** compartilhado por REFRI**G**ERAÇÃO e **G**ARRIDO, com um **pinguim**
 apoiado nele, em pé sobre um bloco de gelo, diante de icebergs e água.
 
-## Arquivos em `public/marca/`
+## Duas versões
+
+| Pasta | O que é |
+| --- | --- |
+| `public/marca/original/` | fiel ao cartão — a marca como ela existe hoje |
+| `public/marca/moderna/` | proposta de atualização, mesma marca com acabamento refeito |
+
+Os dois lados têm os **mesmos seis arquivos** e os **mesmos grupos nomeados**,
+então dá pra trocar um pelo outro sem mexer em código.
+
+### O que muda na moderna
+
+- **Pinguim**: o mesmo pinguim. O tremido da impressão vira curva resolvida
+  (fechamento morfológico, borrado e limiarizado antes de traçar).
+- **G**: a mesma letra, com a curva resolvida e o contorno **regenerado por
+  dilatação**, de espessura constante — no cartão a espessura oscila.
+- **Icebergs, água e palavras**: mesma limpeza, em dose menor.
+
+### Por que o G não foi redesenhado do zero
+
+Foi tentado. A proporção é 2,86:1 — alta e estreita demais para uma construção
+geométrica regular. Todas as versões testadas (estádio, ombro quadrado, gancho
+para dentro, barra em várias alturas e espessuras) liam como **6**, **8**, **B**
+ou **P**, nunca como G. O que faz o original ler G é justamente ser desenhado à
+mão: traço de espessura irregular e gancho afilado. Redesenhar geometricamente
+destruía a letra. A decisão foi preservar a forma e refazer só o acabamento.
+
+## Arquivos em cada pasta
 
 | Arquivo | Contém | Uso |
 | --- | --- | --- |
