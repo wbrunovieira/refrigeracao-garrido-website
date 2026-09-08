@@ -5,7 +5,7 @@ import { anosDeCasa, negocio, whatsapp } from "@/lib/negocio";
 
 export function Heroi() {
   return (
-    <section id="topo" className="relative isolate overflow-hidden pt-44 pb-20 sm:pt-56 sm:pb-28">
+    <section id="topo" className="relative isolate overflow-hidden pt-52 pb-20 sm:pt-64 sm:pb-28">
       <div className="aura absolute inset-0 -z-10" aria-hidden="true" />
       <div className="hachura absolute inset-0 -z-10 opacity-40" aria-hidden="true" />
 

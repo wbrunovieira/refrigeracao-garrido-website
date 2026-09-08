@@ -84,19 +84,33 @@ export function Cabecalho() {
     };
   }, [aberto]);
 
+  // Com o menu aberto a barra também encolhe, para o painel abrir logo abaixo.
+  const compacto = rolou || aberto;
+
   return (
     <>
     <header
       className={`fixed inset-x-0 top-0 z-50 border-b border-verde-800 bg-creme
         transition-shadow duration-500 ${
-          rolou || aberto
+          compacto
             ? "shadow-[0_1px_0_rgba(4,18,15,.06),0_10px_28px_-14px_rgba(4,18,15,.30)]"
             : "shadow-none"
         }`}
     >
-      <div className="mx-auto flex h-23 max-w-7xl items-center gap-5 px-5 sm:px-8">
+      <div
+        className={`mx-auto flex max-w-7xl items-center gap-5 px-5 transition-[height]
+          duration-500 ease-[cubic-bezier(.16,1,.3,1)] sm:px-8 ${
+            compacto ? "h-23" : "h-32 sm:h-36"
+          }`}
+      >
         <a href="#topo" className="mr-6 shrink-0" aria-label="Início">
-          <Marca altura="h-18" />
+          {/* Chega grande e encolhe ao rolar: a marca ganha a primeira vista
+              sem custar altura de tela pelo resto da navegação. */}
+          <Marca
+            altura={`transition-[height] duration-500 ease-[cubic-bezier(.16,1,.3,1)] ${
+              compacto ? "h-18" : "h-24 sm:h-28"
+            }`}
+          />
         </a>
 
         <nav
