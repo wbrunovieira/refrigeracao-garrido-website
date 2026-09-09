@@ -8,14 +8,14 @@ const destino = encodeURIComponent(
 const rotas = [
   {
     nome: "Google Maps",
-    href: `https://www.google.com/maps/dir/?api=1&destination=${destino}`,
+    href: `https://www.google.com/maps/dir/?api=1&destination=${destino}&destination_place_id=${negocio.google.placeId}`,
     Icone: GoogleMaps,
     // Azul da rota do Google e ciano da marca do Waze.
     classes: "hover:border-[#1A73E8] hover:bg-[#1A73E8] hover:text-white",
   },
   {
     nome: "Waze",
-    href: `https://waze.com/ul?ll=${negocio.endereco.lat},${negocio.endereco.lng}&navigate=yes`,
+    href: `https://waze.com/ul?q=${destino}&ll=${negocio.endereco.lat},${negocio.endereco.lng}&navigate=yes`,
     Icone: Waze,
     classes: "hover:border-[#33CCFF] hover:bg-[#33CCFF] hover:text-[#052B38]",
   },

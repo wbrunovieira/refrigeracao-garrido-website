@@ -39,8 +39,9 @@ export const negocio = {
     cidade: "Petrópolis",
     uf: "RJ",
     cep: "25610-081",
-    lat: -22.5064684,
-    lng: -43.1683773,
+    /** Pino da ficha no Google Maps (o que a dona vê no perfil). */
+    lat: -22.5059183,
+    lng: -43.1680264,
   },
   telefones: TELEFONES.map((e164) => ({ rotulo: "Loja", numero: formataBR(e164), href: `tel:+${e164}` })),
   whatsapp: { numero: formataBR(WHATSAPP), e164: WHATSAPP },

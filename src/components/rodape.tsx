@@ -1,3 +1,4 @@
+import { AssinaturaWB } from "@/components/assinatura-wb";
 import { Marca } from "@/components/marca";
 import { Instagram, Whatsapp } from "@/components/icones";
 import { negocio, whatsapp } from "@/lib/negocio";
@@ -85,17 +86,7 @@ export function Rodape() {
             {negocio.razaoSocial} · CNPJ {negocio.cnpj} · IE {negocio.inscricaoEstadual} · Insc.
             Municipal {negocio.inscricaoMunicipal} · © {new Date().getFullYear()}
           </p>
-          <p>
-            Site por{" "}
-            <a
-              href="https://wbdigitalsolutions.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-texto text-creme/70 hover:text-ouro"
-            >
-              WB Digital Solutions
-            </a>
-          </p>
+          <AssinaturaWB className="text-creme/70" />
         </div>
       </div>
     </footer>
