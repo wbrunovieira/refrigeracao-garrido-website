@@ -114,14 +114,14 @@ export function Cabecalho() {
           }`}
       >
         <LinhaDagua className="absolute inset-x-0 bottom-0 text-azul-marca/30" />
-        <a href="#topo" className="relative mr-6 shrink-0" aria-label="Início">
+        <a href="#topo" className="relative mr-3 shrink-0 sm:mr-6" aria-label="Início">
           {/* Chega grande e encolhe ao rolar: a marca ganha a primeira vista
               sem custar altura de tela pelo resto da navegação. */}
           <MarcaAnimada
             modo="sempre"
             pularSeRolado
             className={`w-auto transition-[height] duration-500 ease-[cubic-bezier(.16,1,.3,1)] ${
-              compacto ? "h-18" : "h-24 sm:h-28"
+              compacto ? "h-18" : "h-22 sm:h-28"
             }`}
           />
         </a>
@@ -160,9 +160,17 @@ export function Cabecalho() {
         </nav>
 
         {/* Estado da loja e ação ficam em um bloco próprio, longe da navegação. */}
-        <div className="ml-auto flex shrink-0 items-center gap-4 lg:ml-6">
+        <div className="ml-auto flex shrink-0 items-center gap-3 sm:gap-4 lg:ml-6">
           <span className="surge hidden h-7 w-px bg-verde-950/15 xl:block" style={{ "--i": 5 } as React.CSSProperties} aria-hidden="true" />
           <StatusLoja className="surge hidden rounded-full border border-verde-950/18 px-3.5 py-2 xl:inline-flex" style={{ "--i": 6 } as React.CSSProperties} claro />
+          {/* Em telas menores o status encurta: "Aberto até 18h30" cabe ao lado do menu.
+              O WhatsApp no celular é o botão flutuante — não repete aqui. */}
+          <StatusLoja
+            curto
+            claro
+            className="surge hidden rounded-full border border-verde-950/18 px-2.5 py-1 text-[0.62rem] tracking-[0.1em] min-[390px]:inline-flex sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-[0.14em] xl:hidden"
+            style={{ "--i": 6 } as React.CSSProperties}
+          />
           <a
             href={whatsapp("Olá! Vim pelo site da Refrigeração Garrido.")}
             target="_blank"
@@ -177,7 +185,7 @@ export function Cabecalho() {
           <button
             type="button"
             onClick={() => setAberto((v) => !v)}
-            className="icone-circulo grid size-10 place-items-center rounded-full border border-verde-950/20 text-verde-900 lg:hidden"
+            className="icone-circulo grid size-11 place-items-center rounded-full border border-verde-950/20 text-verde-900 lg:hidden"
             aria-expanded={aberto}
             aria-label={aberto ? "Fechar menu" : "Abrir menu"}
           >

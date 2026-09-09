@@ -24,21 +24,21 @@ function assinar(avisar: () => void) {
   return () => window.clearInterval(id);
 }
 
-function calcular(chave: string) {
+function calcular(chave: string, curto = false) {
   const [dia, minutos] = chave.split(":").map(Number);
   const hoje = horarios.find((h) => h.dia === dia);
 
   if (hoje?.abre != null && hoje.fecha != null && minutos >= hoje.abre && minutos < hoje.fecha) {
-    return { aberto: true, texto: `Aberto agora · fecha às ${horaLegivel(hoje.fecha)}` };
+    return { aberto: true, texto: curto ? `Aberto até ${horaLegivel(hoje.fecha)}` : `Aberto agora · fecha às ${horaLegivel(hoje.fecha)}` };
   }
   if (hoje?.abre != null && minutos < hoje.abre) {
-    return { aberto: false, texto: `Fechado · abre hoje às ${horaLegivel(hoje.abre)}` };
+    return { aberto: false, texto: curto ? `Abre às ${horaLegivel(hoje.abre)}` : `Fechado · abre hoje às ${horaLegivel(hoje.abre)}` };
   }
   for (let i = 1; i <= 7; i++) {
     const proximo = horarios.find((h) => h.dia === (dia + i) % 7);
     if (proximo?.abre != null) {
       const quando = i === 1 ? "amanhã" : proximo.rotulo.toLowerCase();
-      return { aberto: false, texto: `Fechado · abre ${quando} às ${horaLegivel(proximo.abre)}` };
+      return { aberto: false, texto: curto ? `Abre ${quando}` : `Fechado · abre ${quando} às ${horaLegivel(proximo.abre)}` };
     }
   }
   return { aberto: false, texto: "Fechado" };
@@ -47,11 +47,14 @@ function calcular(chave: string) {
 export function StatusLoja({
   className = "",
   claro = false,
+  curto = false,
   style,
 }: {
   className?: string;
   /** Sobre fundo claro o ouro não tem contraste; o verde assume. */
   claro?: boolean;
+  /** Versão curta para espaços apertados: "Aberto até 18h30". */
+  curto?: boolean;
   style?: React.CSSProperties;
 }) {
   // O horário só existe no navegador: no servidor o snapshot é nulo e a
@@ -66,7 +69,7 @@ export function StatusLoja({
     );
   }
 
-  const estado = calcular(chave);
+  const estado = calcular(chave, curto);
 
   return (
     <span className={`items-center gap-2 etiqueta ${className}`} style={style}>
