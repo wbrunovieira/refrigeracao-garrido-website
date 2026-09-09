@@ -335,6 +335,20 @@ html[data-anima] [data-cena="pinguim"] > [data-parte="corpo"] {
 /* no menu do celular a abertura é o gatilho, então sem a espera inicial */
 .surge-menu { animation-delay: calc(60ms + var(--i, 0) * 70ms); }
 
+/* Na história: a foto chega com um leve zoom se fechando, e o risco dourado
+   da citação se desenha de cima para baixo antes de o texto entrar. */
+.js-ativo .foto-chega img { transform: scale(1.06); transition: transform 1.4s cubic-bezier(.16,1,.3,1); }
+.js-ativo .foto-chega[data-revelar="visivel"] img { transform: none; }
+
+.risco-cresce::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+  background: color-mix(in oklab, var(--color-ouro) 60%, transparent);
+  transform: scaleY(0); transform-origin: top;
+  transition: transform .9s cubic-bezier(.16,1,.3,1) .1s;
+}
+.risco-cresce[data-revelar="visivel"]::before { transform: scaleY(1); }
+html:not(.js-ativo) .risco-cresce::before { transform: none; }
+
 /* Revelação no scroll. A classe .js-ativo só entra quando o observador sobe,
    então sem JavaScript o conteúdo aparece normalmente. */
 .js-ativo [data-revelar] {
@@ -359,6 +373,8 @@ html[data-anima] [data-cena="pinguim"] > [data-parte="corpo"] {
   .surge {
     animation: none !important;
   }
+  .js-ativo .foto-chega img { transform: none !important; transition: none !important; }
+  .risco-cresce::before { transform: none !important; transition: none !important; }
   .js-ativo [data-revelar],
   .js-ativo [data-revelar="visivel"] {
     opacity: 1 !important;
