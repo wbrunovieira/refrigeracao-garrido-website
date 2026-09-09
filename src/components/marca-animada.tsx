@@ -38,6 +38,54 @@ type Props = {
 
 const CHAVE_SESSAO = "garrido:marca-animada";
 
+/**
+ * Neve: poucos flocos, lentos, em duas camadas — atrás do pinguim e do G (menores,
+ * mais apagados) e na frente (maiores). A diferença de tamanho e velocidade entre
+ * as camadas é o que dá profundidade. Posições fixas para o servidor e o cliente
+ * renderizarem a mesma coisa; o movimento vem depois, por GSAP.
+ */
+type Floco = { x: number; r: number; dur: number; fase: number; balanco: number; op: number };
+const NEVE_FUNDO: Floco[] = [
+  { x: 120, r: 11, dur: 11.5, fase: 0.10, balanco: 14, op: 0.26 },
+  { x: 300, r: 9,  dur: 13.0, fase: 0.55, balanco: 10, op: 0.22 },
+  { x: 430, r: 12, dur: 10.5, fase: 0.30, balanco: 16, op: 0.28 },
+  { x: 610, r: 10, dur: 12.5, fase: 0.80, balanco: 12, op: 0.24 },
+  { x: 760, r: 11, dur: 11.0, fase: 0.45, balanco: 15, op: 0.26 },
+  { x: 900, r: 9,  dur: 13.5, fase: 0.05, balanco: 11, op: 0.22 },
+  { x: 1000, r: 12, dur: 10.0, fase: 0.68, balanco: 14, op: 0.28 },
+  { x: 520, r: 8,  dur: 14.0, fase: 0.92, balanco: 9,  op: 0.20 },
+  { x: 220, r: 10, dur: 12.0, fase: 0.38, balanco: 13, op: 0.24 },
+];
+const NEVE_FRENTE: Floco[] = [
+  { x: 70,  r: 17, dur: 8.5, fase: 0.20, balanco: 22, op: 0.42 },
+  { x: 360, r: 15, dur: 9.5, fase: 0.72, balanco: 18, op: 0.38 },
+  { x: 680, r: 18, dur: 8.0, fase: 0.48, balanco: 24, op: 0.44 },
+  { x: 860, r: 14, dur: 10.0, fase: 0.05, balanco: 17, op: 0.36 },
+  { x: 990, r: 16, dur: 9.0, fase: 0.85, balanco: 20, op: 0.40 },
+];
+const NEVE_TOPO = 10;    // y de onde caem (acima da caixa: o svg tem overflow visível)
+const NEVE_CHAO = 720;   // y onde somem, na água
+
+function Neve({ camada, flocos }: { camada: string; flocos: Floco[] }) {
+  return (
+    <g data-cena={camada} opacity={0}>
+      {flocos.map((f, i) => (
+        <circle
+          key={i}
+          cx={f.x}
+          cy={NEVE_TOPO}
+          r={f.r}
+          fill="var(--marca-gelo)"
+          opacity={f.op}
+          data-dur={f.dur}
+          data-fase={f.fase}
+          data-balanco={f.balanco}
+        />
+      ))}
+    </g>
+  );
+}
+
 export function MarcaAnimada({ className, modo = "sessao", aoPronta }: Props) {
   const ref = useRef<SVGSVGElement>(null);
 
@@ -176,6 +224,7 @@ export function MarcaAnimada({ className, modo = "sessao", aoPronta }: Props) {
         -1 -83 -9 -140 -33z"/>
           </g>
       </g>
+      <Neve camada="neve-fundo" flocos={NEVE_FUNDO} />
       <g data-cena="g">
         <g data-parte="letra-g" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="var(--marca-gelo)">
               <path d="M5208 8601 c-23 -8 -47 -18 -53 -23 -5 -5 -38 -30 -72 -56 -50 -38
@@ -392,11 +441,12 @@ export function MarcaAnimada({ className, modo = "sessao", aoPronta }: Props) {
         </g>
         <g className="parte" data-parte="cabeca" style={{ transformBox: "view-box", transformOrigin: "288px 468px" }}>
           <g fill="var(--marca-papel, #FBF6EA)" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)">
-            <path d="M2928 5379 c-43 -22 -88 -99 -88 -149 0 -36 23 -96 48 -123 62 -69
+            <path data-parte="olho" style={{ transformBox: "fill-box", transformOrigin: "center" }} d="M2928 5379 c-43 -22 -88 -99 -88 -149 0 -36 23 -96 48 -123 62 -69
     155 -68 228 4 86 84 85 168 -1 248 -41 37 -49 41 -97 41 -33 -1 -67 -8 -90
-    -21z M3484 5249 c-12 -19 -7 -181 5 -189 18 -10 248 -2 271 10 10 5 28 10 40
-    10 32 0 100 38 94 53 -5 14 -59 37 -85 37 -8 0 -48 13 -89 29 -120 47 -224 69
-    -236 50z"/>
+    -21z"/>
+            <path d="M3484 5249 c-12 -19 -7 -181 5 -189 18 -10 248 -2 271 10 10 5 28 10
+    40 10 32 0 100 38 94 53 -5 14 -59 37 -85 37 -8 0 -48 13 -89 29 -120 47 -224
+    69 -236 50z"/>
           </g>
           <g fill="var(--marca-tinta)" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)">
             <path d="M2920 5730 c-8 -5 -25 -10 -38 -10 -36 0 -121 -48 -185 -104 -63 -55
@@ -580,6 +630,7 @@ export function MarcaAnimada({ className, modo = "sessao", aoPronta }: Props) {
         -138 l-67 3 -1 45 c-8 465 -6 701 6 715 17 20 128 20 178 0z"/>
           </g>
       </g>
+      <Neve camada="neve-frente" flocos={NEVE_FRENTE} />
     </svg>
   );
 }
@@ -638,6 +689,14 @@ function montarCena(gsap: Gsap, svg: SVGSVGElement, aoPronta?: (c: Cena) => void
     .to(garrido, { y: 2, duration: 0.1, ease: "power2.out" }, 3.07)
     .to(garrido, { y: 0, duration: 0.2, ease: "power2.inOut" }, 3.17);
 
+  // A neve começa quando o G começa a descer — o frio chega junto — e nunca para.
+  const neve = montarNeve(gsap, svg);
+  tl.call(neve.comecar, [], 1.1);
+
+  // Depois do encaixe, a cena não congela: vida ociosa em dose mínima.
+  const ocio = montarOcio(gsap, svg, G, gingado, px);
+  tl.eventCallback("onComplete", ocio.comecar);
+
   // play antes de entregar o controle: quem chamar progress() pausa por cima.
   tl.play();
   aoPronta?.({
@@ -648,5 +707,96 @@ function montarCena(gsap: Gsap, svg: SVGSVGElement, aoPronta?: (c: Cena) => void
     restart: () => tl.restart(),
     duration: () => tl.duration(),
   });
-  return () => { tl.kill(); gingado.repouso(); };
+  return () => { tl.kill(); neve.parar(); ocio.parar(); gingado.repouso(); };
+}
+
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Cada floco cai em loop com duração própria, balança de lado num período que
+ * não é múltiplo da queda (senão a repetição fica visível) e some ao chegar na
+ * água. As fases iniciais espalham os flocos pela altura desde o primeiro quadro.
+ */
+function montarNeve(gsap: Gsap, svg: SVGSVGElement) {
+  const camadas = [...svg.querySelectorAll<SVGGElement>('[data-cena^="neve-"]')];
+  const tweens: gsap.core.Tween[] = [];
+
+  function comecar() {
+    for (const camada of camadas) {
+      tweens.push(gsap.to(camada, { opacity: 1, duration: 1.6, ease: "power1.in" }));
+      for (const floco of camada.querySelectorAll<SVGCircleElement>("circle")) {
+        const dur = Number(floco.dataset.dur), fase = Number(floco.dataset.fase);
+        const balanco = Number(floco.dataset.balanco), op = Number(floco.getAttribute("opacity"));
+        const queda = NEVE_CHAO - NEVE_TOPO;
+        // queda: linear, repetindo; a fase inicial (progress) espalha pela altura
+        const t1 = gsap.fromTo(floco, { y: 0 }, { y: queda, duration: dur, ease: "none", repeat: -1 });
+        t1.progress(fase);
+        // visível no meio da queda, some nas pontas
+        const t2 = gsap.fromTo(floco, { opacity: 0 }, {
+          keyframes: [{ opacity: op, duration: dur * 0.12 }, { opacity: op, duration: dur * 0.66 }, { opacity: 0, duration: dur * 0.22 }],
+          repeat: -1, ease: "none",
+        });
+        t2.progress(fase);
+        // balanço lateral em período irracional em relação à queda
+        const t3 = gsap.to(floco, { x: balanco, duration: dur * 0.37, ease: "sine.inOut", yoyo: true, repeat: -1 });
+        t3.progress((fase * 7.3) % 1);
+        tweens.push(t1, t2, t3);
+      }
+    }
+  }
+  function parar() { tweens.forEach((t) => t.kill()); tweens.length = 0; }
+  return { comecar, parar };
+}
+
+/**
+ * Vida ociosa: o pinguim ajusta o apoio de vez em quando (o G sente), e pisca.
+ * Intervalos aleatórios — nunca métricos, senão vira relógio. Pausa quando a aba
+ * perde o foco (o rAF do navegador já para) e quando a marca sai da tela.
+ */
+function montarOcio(
+  gsap: Gsap, svg: SVGSVGElement, G: SVGGElement,
+  gingado: ReturnType<typeof criarGingado>,
+  px: { t: number },
+) {
+  const olho = svg.querySelector<SVGPathElement>('[data-parte="olho"]');
+  const chamadas: gsap.core.Tween[] = [];
+  let ativo = false, visivel = true;
+  const entre = (a: number, b: number) => a + Math.random() * (b - a);
+  const agenda = (seg: number, fn: () => void) => { chamadas.push(gsap.delayedCall(seg, fn)); };
+
+  function ajuste() {
+    if (!ativo) return;
+    if (visivel) {
+      const alvo = { y: 0 };
+      gsap.to(alvo, { y: 2, duration: 0.45, ease: "power1.inOut", yoyo: true, repeat: 1,
+        onUpdate: () => gingado.aplicar(px.t, 0, 0, alvo.y, 0, 0) });
+      gsap.to(G, { scaleY: 0.997, duration: 0.45, ease: "power1.inOut", yoyo: true, repeat: 1 });
+    }
+    agenda(entre(9, 14), ajuste);
+  }
+  function piscar() {
+    if (!ativo) return;
+    if (visivel && olho) {
+      gsap.to(olho, { scaleY: 0.08, duration: 0.07, ease: "power2.in", yoyo: true, repeat: 1 });
+    }
+    agenda(entre(4, 7.5), piscar);
+  }
+
+  const obs = typeof IntersectionObserver !== "undefined"
+    ? new IntersectionObserver(([e]) => { visivel = e.isIntersecting; })
+    : null;
+
+  function comecar() {
+    if (ativo) return;
+    ativo = true;
+    obs?.observe(svg);
+    agenda(entre(3, 6), ajuste);
+    agenda(entre(2, 4), piscar);
+  }
+  function parar() {
+    ativo = false;
+    obs?.disconnect();
+    chamadas.forEach((c) => c.kill()); chamadas.length = 0;
+  }
+  return { comecar, parar };
 }

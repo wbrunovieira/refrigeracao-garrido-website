@@ -113,6 +113,21 @@ longo do arco, pivôs pelo contato) e cada elo repete o anterior com atraso de 5
 do ciclo e ganho de 0,8 (`ondaAtraso`, `ondaGanho`). A onda corre da base para a
 ponta — como um corpo que se mexe, não uma peça girando.
 
+## Etapa 4 — Neve e vida ociosa ✔
+
+**Neve** em duas camadas: nove flocos atrás do pinguim e do G (menores, mais
+apagados) e cinco na frente (maiores). A diferença de tamanho e velocidade é o
+que dá profundidade. Começa quando o G começa a descer — o frio chega junto — e
+não para. Cada floco cai em loop com duração própria (8 a 14 s), balança de lado
+num período que não é múltiplo da queda (senão a repetição fica visível) e some
+ao chegar na água. Posições fixas no código, para servidor e cliente renderizarem
+igual; só o movimento vem por GSAP.
+
+**Vida ociosa**, depois do encaixe: a cada 9–14 s o pinguim ajusta o apoio em 2 px
+e o G responde com 0,3 %; a cada 4–7,5 s ele pisca (o olho ganhou path próprio no
+rig, `data-parte="olho"`). Intervalos aleatórios — nunca métricos. Para quando a
+marca sai da tela; na aba em segundo plano o próprio navegador congela o rAF.
+
 ## Etapas seguintes
 
-4. Neve e vida ociosa · 5. Integração · 6. Polimento
+5. Integração · 6. Polimento
