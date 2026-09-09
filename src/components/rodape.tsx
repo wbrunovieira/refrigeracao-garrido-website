@@ -27,7 +27,7 @@ export function Rodape() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Falar no WhatsApp"
-                className="grid size-11 place-items-center rounded-full border border-creme/20 text-creme transition-colors hover:border-ouro hover:text-ouro"
+                className="icone-circulo grid size-11 place-items-center rounded-full border border-creme/20 text-creme"
               >
                 <Whatsapp className="size-5" />
               </a>
@@ -36,7 +36,7 @@ export function Rodape() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram da loja"
-                className="grid size-11 place-items-center rounded-full border border-creme/20 text-creme transition-colors hover:border-ouro hover:text-ouro"
+                className="icone-circulo grid size-11 place-items-center rounded-full border border-creme/20 text-creme"
               >
                 <Instagram className="size-5" />
               </a>
@@ -48,7 +48,7 @@ export function Rodape() {
             <ul className="mt-4 space-y-2.5">
               {secoes.map((s) => (
                 <li key={s.href}>
-                  <a href={s.href} className="text-sm text-creme/70 hover:text-ouro">
+                  <a href={s.href} className="link-texto text-sm text-creme/70 hover:text-ouro">
                     {s.texto}
                   </a>
                 </li>
@@ -61,7 +61,7 @@ export function Rodape() {
             <ul className="mt-4 space-y-2.5 font-mono text-sm text-creme/70">
               {negocio.telefones.map((t) => (
                 <li key={t.numero}>
-                  <a href={t.href} className="hover:text-ouro">
+                  <a href={t.href} className="link-texto hover:text-ouro">
                     {t.numero}
                   </a>
                 </li>
@@ -85,7 +85,7 @@ export function Rodape() {
               href="https://wbdigitalsolutions.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-creme/70 hover:text-ouro"
+              className="link-texto text-creme/70 hover:text-ouro"
             >
               WB Digital Solutions
             </a>

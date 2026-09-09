@@ -83,7 +83,7 @@ export function Visite() {
                   <a
                     key={t.numero}
                     href={t.href}
-                    className="font-mono text-lg text-verde-900 hover:text-verde-600"
+                    className="link-texto font-mono text-lg text-verde-900 hover:text-verde-600"
                   >
                     {t.numero}
                   </a>
@@ -92,7 +92,7 @@ export function Visite() {
                   href={whatsapp("Olá! Vim pelo site da Refrigeração Garrido.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-fit items-center gap-2.5 rounded-full bg-verde-700 px-5 py-3 text-sm font-semibold text-creme transition-transform hover:scale-[1.03]"
+                  className="acao-verde inline-flex w-fit items-center gap-2.5 rounded-full bg-verde-700 px-5 py-3 text-sm font-semibold text-creme"
                 >
                   <Whatsapp className="size-4" />
                   {negocio.whatsapp.numero}
@@ -101,7 +101,7 @@ export function Visite() {
                   href={negocio.instagram.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-fit items-center gap-2 text-sm text-verde-800/80 hover:text-verde-600"
+                  className="link-texto inline-flex w-fit items-center gap-2 text-sm text-verde-800/80 hover:text-verde-600"
                 >
                   <Instagram className="size-4" />
                   {negocio.instagram.handle}

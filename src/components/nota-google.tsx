@@ -10,10 +10,10 @@ export function NotaGoogle({ escuro = false }: { escuro?: boolean }) {
       href={negocio.mapa}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group inline-flex items-center gap-3 rounded-full border px-5 py-3 transition-colors ${
+      className={`contorno group inline-flex items-center gap-3 rounded-full border px-5 py-3 ${
         escuro
-          ? "border-verde-900/15 bg-creme hover:border-verde-600"
-          : "border-creme/20 bg-verde-900/60 hover:border-ouro/60"
+          ? "contorno-verde border-verde-900/15 bg-creme"
+          : "contorno-ouro border-creme/20 bg-verde-900/60"
       }`}
     >
       <span className="flex gap-0.5 text-ouro" aria-hidden="true">
@@ -26,7 +26,7 @@ export function NotaGoogle({ escuro = false }: { escuro?: boolean }) {
         <span className={`whitespace-nowrap ${escuro ? "text-verde-800/60" : "text-creme/55"}`}> · {avaliacoes} avaliações</span>
       </span>
       <Seta
-        className={`size-4 transition-transform group-hover:translate-x-1 ${
+        className={`seta-vai size-4 ${
           escuro ? "text-verde-600" : "text-ouro"
         }`}
       />

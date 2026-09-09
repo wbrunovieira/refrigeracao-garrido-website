@@ -43,7 +43,7 @@ export default function EmConstrucao() {
             href={whatsapp("Olá! Preciso falar com a Refrigeração Garrido.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 rounded-full bg-ouro px-7 py-4 font-semibold text-tinta shadow-[inset_0_0_0_1px_rgba(10,22,19,.12)] transition-transform hover:scale-[1.03]"
+            className="acao inline-flex items-center gap-2.5 rounded-full bg-ouro px-7 py-4 font-semibold text-tinta shadow-[inset_0_0_0_1px_rgba(10,22,19,.12)]"
           >
             <Whatsapp className="size-5" />
             Falar no WhatsApp
@@ -52,7 +52,7 @@ export default function EmConstrucao() {
             href={negocio.mapa}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 rounded-full border border-verde-900/20 px-7 py-4 font-medium text-verde-900 transition-colors hover:border-verde-600"
+            className="contorno contorno-verde inline-flex items-center gap-2.5 rounded-full border border-verde-900/20 px-7 py-4 font-medium text-verde-900"
           >
             <Pino className="size-4.5" />
             Como chegar
@@ -69,7 +69,7 @@ export default function EmConstrucao() {
                 <a
                   key={t.numero}
                   href={t.href}
-                  className="block font-mono text-sm text-verde-900 hover:text-verde-600"
+                  className="link-texto block font-mono text-sm text-verde-900 hover:text-verde-600"
                 >
                   {t.numero}
                 </a>
@@ -104,7 +104,7 @@ export default function EmConstrucao() {
             href={negocio.instagram.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-verde-800/70 hover:text-verde-600"
+            className="link-texto inline-flex items-center gap-2 text-sm text-verde-800/70 hover:text-verde-600"
           >
             <Instagram className="size-4" />
             {negocio.instagram.handle}

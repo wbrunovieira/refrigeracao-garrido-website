@@ -25,9 +25,9 @@ function Linha({ servico }: { servico: Servico }) {
         href={chamado(servico)}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex items-center gap-5 py-5 transition-[padding] duration-300 hover:pl-3"
+        className="group flex items-center gap-5 py-5 transition-[padding] duration-[var(--dur-hover)] ease-[var(--ease-suave)] hover:pl-3"
       >
-        <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-verde-900/6 text-verde-700 transition-colors duration-300 group-hover:bg-verde-700 group-hover:text-creme">
+        <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-verde-900/6 text-verde-700 transition-[background-color,color,transform] duration-[var(--dur-hover)] ease-[var(--ease-suave)] group-hover:-translate-y-0.5 group-hover:bg-verde-700 group-hover:text-creme">
           <servico.Icone className="size-6" />
         </span>
 
@@ -38,7 +38,7 @@ function Linha({ servico }: { servico: Servico }) {
           </span>
         </span>
 
-        <span className="etiqueta hidden shrink-0 items-center gap-2 text-verde-700 opacity-0 transition-opacity duration-300 group-hover:opacity-100 sm:flex">
+        <span className="etiqueta hidden shrink-0 items-center gap-2 text-verde-700 opacity-0 transition-[opacity,transform] duration-[var(--dur-hover)] ease-[var(--ease-suave)] translate-x-1 group-hover:translate-x-0 group-hover:opacity-100 sm:flex">
           Chamar
           <Seta className="size-4" />
         </span>
@@ -73,11 +73,11 @@ export function Assistencia() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-8 inline-flex items-center gap-2.5 rounded-full bg-verde-700 px-7 py-4 font-semibold text-creme transition-transform hover:scale-[1.03]"
+              className="acao-verde group mt-8 inline-flex items-center gap-2.5 rounded-full bg-verde-700 px-7 py-4 font-semibold text-creme"
             >
               <Whatsapp className="size-5" />
               Descrever o problema
-              <Seta className="size-4 transition-transform group-hover:translate-x-1" />
+              <Seta className="seta-vai size-4" />
             </a>
 
             <p className="mt-8 border-t border-verde-900/10 pt-6 text-sm leading-relaxed text-verde-800/55">

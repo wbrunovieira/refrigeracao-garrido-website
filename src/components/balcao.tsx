@@ -59,7 +59,7 @@ export function Balcao() {
                   type="button"
                   onClick={() => setAtiva(g.id)}
                   aria-current={selecionada}
-                  className={`group flex items-center gap-4 rounded-xl border px-5 py-4 text-left transition-all duration-300 ${
+                  className={`cartao group flex items-center gap-4 rounded-xl border px-5 py-4 text-left ${
                     selecionada
                       ? "translate-x-0 border-ouro/70 bg-verde-800 lg:translate-x-3"
                       : "border-verde-600/25 bg-verde-900/50 hover:border-verde-500/50 hover:bg-verde-800/60"
@@ -124,7 +124,7 @@ export function Balcao() {
                       type="button"
                       onClick={() => alternar(item)}
                       aria-pressed={marcado}
-                      className={`rounded-full border px-4 py-2 text-sm transition-all ${
+                      className={`contorno rounded-full border px-4 py-2 text-sm ${
                         marcado
                           ? "border-ouro bg-ouro text-verde-950 font-semibold"
                           : "border-creme/20 text-creme/80 hover:border-ouro/60 hover:text-creme"
@@ -151,7 +151,7 @@ export function Balcao() {
                     <button
                       type="button"
                       onClick={() => setPedido([])}
-                      className="ml-3 underline underline-offset-4 hover:text-ouro"
+                      className="link-texto ml-3 underline underline-offset-4 hover:text-ouro"
                     >
                       limpar
                     </button>
@@ -161,11 +161,11 @@ export function Balcao() {
                   href={whatsapp(mensagem)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-ouro px-6 py-3.5 font-semibold text-verde-950 transition-transform hover:scale-[1.03]"
+                  className="acao group inline-flex items-center justify-center gap-2.5 rounded-full bg-ouro px-6 py-3.5 font-semibold text-verde-950"
                 >
                   <Whatsapp className="size-5" />
                   {pedido.length === 0 ? "Perguntar no WhatsApp" : "Enviar a lista"}
-                  <Seta className="size-4 transition-transform group-hover:translate-x-1" />
+                  <Seta className="seta-vai size-4" />
                 </a>
               </div>
             </div>

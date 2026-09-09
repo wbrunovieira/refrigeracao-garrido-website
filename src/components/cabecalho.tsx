@@ -150,7 +150,7 @@ export function Cabecalho() {
               }}
               aria-current={ativa === s.id ? "true" : undefined}
               style={{ "--i": i } as React.CSSProperties}
-              className={`surge relative px-4 py-2 text-[15px] font-medium transition-colors duration-300 ${
+              className={`surge link-nav relative px-4 py-2 text-[15px] font-medium ${
                 ativa === s.id ? "text-verde-900" : "text-tinta/75 hover:text-verde-900"
               }`}
             >
@@ -168,7 +168,7 @@ export function Cabecalho() {
             target="_blank"
             rel="noopener noreferrer"
             style={{ "--i": 7 } as React.CSSProperties}
-            className="surge surge-botao hidden h-11 items-center gap-2 rounded-full bg-ouro px-5 text-sm font-semibold text-tinta shadow-[inset_0_0_0_1px_rgba(10,22,19,.12)] transition-transform hover:scale-[1.03] sm:inline-flex"
+            className="surge surge-botao acao hidden h-11 items-center gap-2 rounded-full bg-ouro px-5 text-sm font-semibold text-tinta shadow-[inset_0_0_0_1px_rgba(10,22,19,.12)] sm:inline-flex"
           >
             <Whatsapp className="size-4" />
             WhatsApp
@@ -177,7 +177,7 @@ export function Cabecalho() {
           <button
             type="button"
             onClick={() => setAberto((v) => !v)}
-            className="grid size-10 place-items-center rounded-full border border-verde-950/20 text-verde-900 lg:hidden"
+            className="icone-circulo grid size-10 place-items-center rounded-full border border-verde-950/20 text-verde-900 lg:hidden"
             aria-expanded={aberto}
             aria-label={aberto ? "Fechar menu" : "Abrir menu"}
           >
@@ -231,7 +231,7 @@ export function Cabecalho() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setAberto(false)}
-              className="mt-5 flex items-center justify-center gap-2.5 rounded-full bg-ouro px-6 py-4 font-semibold text-verde-950"
+              className="acao mt-5 flex items-center justify-center gap-2.5 rounded-full bg-ouro px-6 py-4 font-semibold text-verde-950"
             >
               <Whatsapp className="size-5" />
               Falar no WhatsApp

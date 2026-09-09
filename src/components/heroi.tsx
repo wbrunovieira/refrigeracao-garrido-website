@@ -39,16 +39,16 @@ export function Heroi() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2.5 rounded-full bg-linear-to-r from-ouro to-ouro-claro px-7 py-4 font-semibold text-verde-950 shadow-[0_10px_40px_-12px] shadow-ouro/60 transition-transform hover:scale-[1.03]"
+              className="acao group inline-flex items-center gap-2.5 rounded-full bg-linear-to-r from-ouro to-ouro-claro px-7 py-4 font-semibold text-verde-950 shadow-[0_10px_40px_-12px] shadow-ouro/60"
             >
               <Whatsapp className="size-5" />
               Falar no WhatsApp
-              <Seta className="size-4 transition-transform group-hover:translate-x-1" />
+              <Seta className="seta-vai size-4" />
             </a>
             {/* Leva ao bloco de visita, onde ficam Google Maps, Waze e horário. */}
             <a
               href="#visite"
-              className="inline-flex items-center gap-2.5 rounded-full border border-creme/25 px-7 py-4 font-medium text-creme transition-colors hover:border-ouro hover:text-ouro"
+              className="contorno contorno-ouro inline-flex items-center gap-2.5 rounded-full border border-creme/25 px-7 py-4 font-medium text-creme"
             >
               Como chegar
             </a>
@@ -82,7 +82,7 @@ export function Heroi() {
                 <a
                   key={t.numero}
                   href={t.href}
-                  className="block font-mono text-lg text-creme transition-colors hover:text-ouro"
+                  className="link-texto block font-mono text-lg text-creme hover:text-ouro"
                 >
                   {t.numero}
                 </a>

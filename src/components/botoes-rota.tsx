@@ -31,7 +31,7 @@ export function BotoesRota({ escuro = false }: { escuro?: boolean }) {
           href={r.href}
           target="_blank"
           rel="noopener noreferrer"
-          className={`inline-flex items-center gap-2.5 rounded-full border px-5 py-3 text-sm font-semibold transition-colors duration-300 ${
+          className={`contorno inline-flex items-center gap-2.5 rounded-full border px-5 py-3 text-sm font-semibold ${
             escuro
               ? "border-creme/25 text-creme"
               : "border-verde-900/15 bg-creme text-verde-900"

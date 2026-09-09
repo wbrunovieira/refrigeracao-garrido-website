@@ -156,6 +156,108 @@ html[data-anima] [data-cena="pinguim"] > [data-parte="corpo"] {
   transform: translate(-290px, 0);
 }
 
+/* --- Hover: um sistema, não um caso por vez -------------------------------
+   Um easing só, durações curtas, propriedades explícitas (nunca `all`), e
+   sempre um estado de pressionado — botão que não afunda parece imagem. */
+:root {
+  --ease-suave: cubic-bezier(.22, .75, .28, 1);
+  --dur-hover: 260ms;
+}
+
+/* botão de ação (ouro): levanta 1px, brilha, a sombra cresce */
+.acao {
+  transition:
+    transform var(--dur-hover) var(--ease-suave),
+    box-shadow var(--dur-hover) var(--ease-suave),
+    filter var(--dur-hover) var(--ease-suave);
+}
+.acao:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04) saturate(1.05);
+  box-shadow: 0 12px 30px -12px color-mix(in oklab, var(--color-ouro) 70%, transparent);
+}
+.acao:active {
+  transform: translateY(0) scale(.985);
+  transition-duration: 110ms;
+  box-shadow: 0 4px 12px -8px color-mix(in oklab, var(--color-ouro) 60%, transparent);
+}
+/* a mesma ação em verde, sobre fundo claro */
+.acao-verde {
+  transition:
+    transform var(--dur-hover) var(--ease-suave),
+    box-shadow var(--dur-hover) var(--ease-suave),
+    background-color var(--dur-hover) var(--ease-suave);
+}
+.acao-verde:hover {
+  transform: translateY(-1px);
+  background-color: var(--color-verde-600);
+  box-shadow: 0 12px 30px -12px color-mix(in oklab, var(--color-verde-700) 60%, transparent);
+}
+.acao-verde:active { transform: translateY(0) scale(.985); transition-duration: 110ms; }
+
+/* botão de contorno: borda acende, fundo ganha um véu, levanta 1px */
+.contorno {
+  transition:
+    transform var(--dur-hover) var(--ease-suave),
+    border-color var(--dur-hover) var(--ease-suave),
+    background-color var(--dur-hover) var(--ease-suave),
+    color var(--dur-hover) var(--ease-suave),
+    box-shadow var(--dur-hover) var(--ease-suave);
+}
+.contorno:hover { transform: translateY(-1px); }
+.contorno:active { transform: translateY(0) scale(.985); transition-duration: 110ms; }
+.contorno-ouro:hover  { border-color: var(--color-ouro); color: var(--color-ouro); background-color: color-mix(in oklab, var(--color-ouro) 8%, transparent); }
+.contorno-verde:hover { border-color: var(--color-verde-600); color: var(--color-verde-700); background-color: color-mix(in oklab, var(--color-verde-600) 7%, transparent); }
+
+/* link de navegação: sublinhado que cresce a partir da esquerda */
+.link-nav { position: relative; transition: color var(--dur-hover) var(--ease-suave); }
+.link-nav::after {
+  content: ""; position: absolute; left: 1rem; right: 1rem; bottom: .25rem; height: 2px;
+  border-radius: 999px; background: color-mix(in oklab, var(--color-ouro) 55%, transparent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform var(--dur-hover) var(--ease-suave);
+}
+.link-nav:hover::after { transform: scaleX(1); }
+.link-nav[aria-current]::after { display: none; }   /* o ativo já tem o indicador */
+
+/* link de texto: cor e o sublinhado se aproxima do texto */
+.link-texto {
+  text-underline-offset: 6px; text-decoration-color: transparent;
+  transition: color var(--dur-hover) var(--ease-suave), text-decoration-color var(--dur-hover) var(--ease-suave), text-underline-offset var(--dur-hover) var(--ease-suave);
+}
+.link-texto:hover { text-decoration-line: underline; text-decoration-color: currentColor; text-underline-offset: 3px; }
+
+/* cartão/linha: levanta 2px e ganha sombra; o conteúdo cuida do resto */
+.cartao {
+  transition:
+    transform var(--dur-hover) var(--ease-suave),
+    box-shadow var(--dur-hover) var(--ease-suave),
+    border-color var(--dur-hover) var(--ease-suave),
+    background-color var(--dur-hover) var(--ease-suave);
+}
+.cartao:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -20px rgba(4, 18, 15, .55); }
+.cartao:active { transform: translateY(0); transition-duration: 110ms; }
+
+/* botão redondo de ícone: preenche de ouro */
+.icone-circulo {
+  transition:
+    transform var(--dur-hover) var(--ease-suave),
+    background-color var(--dur-hover) var(--ease-suave),
+    border-color var(--dur-hover) var(--ease-suave),
+    color var(--dur-hover) var(--ease-suave);
+}
+.icone-circulo:hover { transform: translateY(-1px); background-color: var(--color-ouro); border-color: var(--color-ouro); color: var(--color-verde-950); }
+.icone-circulo:active { transform: translateY(0) scale(.95); transition-duration: 110ms; }
+
+/* seta que acompanha: deslocamento com o mesmo easing */
+.seta-vai { transition: transform var(--dur-hover) var(--ease-suave); }
+.group:hover .seta-vai { transform: translateX(4px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .acao, .acao-verde, .contorno, .cartao, .icone-circulo, .link-nav::after, .seta-vai { transition: none; }
+  .acao:hover, .acao-verde:hover, .contorno:hover, .cartao:hover, .icone-circulo:hover { transform: none; }
+}
+
 /* --- Movimento --------------------------------------------------------- */
 
 @keyframes subir {
