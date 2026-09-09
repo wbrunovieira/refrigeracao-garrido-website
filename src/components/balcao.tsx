@@ -25,7 +25,7 @@ export function Balcao() {
 
   const mensagem = useMemo(() => {
     if (pedido.length === 0) {
-      return `Olá! Vim pelo site e queria saber o que vocês têm de ${gaveta.nome.toLowerCase()}.`;
+      return `Olá! Vim pelo site da Refrigeração Garrido e queria saber o que vocês têm de ${gaveta.nome.toLowerCase()}.`;
     }
     return `Olá! Vim pelo site da Refrigeração Garrido. Vocês têm:\n\n${pedido
       .map((i) => `• ${i}`)

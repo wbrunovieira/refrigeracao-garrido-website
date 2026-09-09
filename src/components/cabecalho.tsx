@@ -164,7 +164,7 @@ export function Cabecalho() {
           <span className="surge hidden h-7 w-px bg-verde-950/15 xl:block" style={{ "--i": 5 } as React.CSSProperties} aria-hidden="true" />
           <StatusLoja className="surge hidden rounded-full border border-verde-950/18 px-3.5 py-2 xl:inline-flex" style={{ "--i": 6 } as React.CSSProperties} claro />
           <a
-            href={whatsapp("Olá! Vim pelo site da Refrigeração Garrido e preciso de uma peça.")}
+            href={whatsapp("Olá! Vim pelo site da Refrigeração Garrido.")}
             target="_blank"
             rel="noopener noreferrer"
             style={{ "--i": 7 } as React.CSSProperties}
@@ -227,7 +227,7 @@ export function Cabecalho() {
           <div className="mt-auto pt-10">
             <StatusLoja className="inline-flex rounded-full border border-verde-600/40 bg-verde-900/60 px-3.5 py-2" />
             <a
-              href={whatsapp("Olá! Vim pelo site da Refrigeração Garrido e preciso de uma peça.")}
+              href={whatsapp("Olá! Vim pelo site da Refrigeração Garrido.")}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setAberto(false)}

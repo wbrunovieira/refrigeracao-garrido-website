@@ -37,9 +37,7 @@ export function Heroi() {
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <a
-              href={whatsapp(
-                "Olá! Vim pelo site da Refrigeração Garrido. Preciso de ajuda com:",
-              )}
+              href={whatsapp("Olá! Vim pelo site da Refrigeração Garrido.")}
               target="_blank"
               rel="noopener noreferrer"
               className="acao group inline-flex items-center gap-2.5 rounded-full bg-linear-to-r from-ouro to-ouro-claro px-7 py-4 font-semibold text-verde-950 shadow-[0_10px_40px_-12px] shadow-ouro/60"

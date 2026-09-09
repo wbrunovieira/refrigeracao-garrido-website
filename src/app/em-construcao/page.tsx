@@ -43,7 +43,7 @@ export default function EmConstrucao() {
 
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
           <a
-            href={whatsapp("Olá! Preciso falar com a Refrigeração Garrido.")}
+            href={whatsapp("Olá! Vim pelo site da Refrigeração Garrido.")}
             target="_blank"
             rel="noopener noreferrer"
             className="acao inline-flex items-center gap-2.5 rounded-full bg-ouro px-7 py-4 font-semibold text-tinta shadow-[inset_0_0_0_1px_rgba(10,22,19,.12)]"

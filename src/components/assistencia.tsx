@@ -12,9 +12,14 @@ const grupos = [
   { chave: "comercio" as const, titulo: "No seu comércio", nota: "Bar, padaria, mercado e restaurante" },
 ];
 
+/**
+ * A mensagem lê natural mesmo enviada sem editar: diz o equipamento e abre a
+ * conversa. Campo em branco ("Problema:") chegava vazio quando a pessoa
+ * mandava direto — e muita gente manda direto.
+ */
 function chamado(s: Servico) {
   return whatsapp(
-    `Olá! Vim pelo site da Refrigeração Garrido e preciso de assistência técnica.\n\nEquipamento: ${s.nome}\nProblema:\nEndereço:`,
+    `Olá! Vim pelo site da Refrigeração Garrido. ${s.chamado} Vocês atendem? Posso descrever aqui.`,
   );
 }
 
@@ -69,7 +74,7 @@ export function Assistencia() {
 
             <a
               href={whatsapp(
-                "Olá! Vim pelo site da Refrigeração Garrido e preciso de assistência técnica.\n\nEquipamento:\nProblema:\nEndereço:",
+                "Olá! Vim pelo site da Refrigeração Garrido e preciso de assistência técnica. Posso descrever o problema aqui?",
               )}
               target="_blank"
               rel="noopener noreferrer"

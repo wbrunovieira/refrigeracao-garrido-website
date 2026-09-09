@@ -150,6 +150,8 @@ export type Servico = {
   id: string;
   nome: string;
   descricao: string;
+  /** Como o cliente diz o problema no WhatsApp — lê natural mesmo enviado sem editar. */
+  chamado: string;
   /** Quem costuma abrir esse chamado — separa a casa do comércio. */
   publico: "residencia" | "comercio";
   Icone: Icone;
@@ -165,6 +167,7 @@ export const servicos: Servico[] = [
     id: "geladeira",
     nome: "Geladeira e freezer",
     descricao: "Doméstica ou comercial: não gela, faz gelo demais, vaza água ou não liga.",
+    chamado: "Minha geladeira (ou freezer) está com problema.",
     publico: "residencia",
     Icone: Geladeira,
   },
@@ -172,6 +175,7 @@ export const servicos: Servico[] = [
     id: "lavar",
     nome: "Máquina de lavar e secadora",
     descricao: "Não centrifuga, não enche, não seca, faz barulho ou trava no ciclo.",
+    chamado: "Minha máquina de lavar (ou secadora) está com problema.",
     publico: "residencia",
     Icone: MaquinaLavar,
   },
@@ -179,6 +183,7 @@ export const servicos: Servico[] = [
     id: "balcao",
     nome: "Balcão e expositor",
     descricao: "Manutenção do que segura a mercadoria do seu comércio.",
+    chamado: "O balcão refrigerado do meu comércio está com problema.",
     publico: "comercio",
     Icone: BalcaoRefrigerado,
   },
@@ -186,6 +191,7 @@ export const servicos: Servico[] = [
     id: "camara",
     nome: "Câmara fria",
     descricao: "Instalação, carga de gás e correção de temperatura.",
+    chamado: "A câmara fria do meu comércio precisa de manutenção.",
     publico: "comercio",
     Icone: CamaraFria,
   },
@@ -193,6 +199,7 @@ export const servicos: Servico[] = [
     id: "fogao",
     nome: "Fogão e forno industrial",
     descricao: "Regulagem, troca de queimador e revisão de gás.",
+    chamado: "O fogão (ou forno) industrial do meu comércio está com problema.",
     publico: "comercio",
     Icone: FogaoIndustrial,
   },
@@ -200,6 +207,7 @@ export const servicos: Servico[] = [
     id: "ar",
     nome: "Ar-condicionado",
     descricao: "Limpeza, recarga e conserto de split e janela.",
+    chamado: "Meu ar-condicionado está com problema.",
     publico: "residencia",
     Icone: ArCondicionado,
   },
