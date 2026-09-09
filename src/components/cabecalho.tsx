@@ -91,7 +91,7 @@ export function Cabecalho() {
   return (
     <>
     <header
-      className={`fixed inset-x-0 top-0 z-50 overflow-hidden border-b border-verde-800 bg-creme
+      className={`barra-topo fixed inset-x-0 top-0 z-50 overflow-hidden border-b border-verde-800
         transition-shadow duration-500 ${
           compacto
             ? "shadow-[0_1px_0_rgba(4,18,15,.06),0_10px_28px_-14px_rgba(4,18,15,.30)]"

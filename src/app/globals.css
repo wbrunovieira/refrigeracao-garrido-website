@@ -117,6 +117,23 @@ body {
   mask: url("/marca/elementos/agua.svg") repeat-x center / auto 100%;
 }
 
+/* A barra do topo: creme, mas não chapado. Um sopro do verde da página entra
+   pelo canto direito, um sopro do azul da marca sobe do rodapé da barra, e o
+   creme escurece um nada para baixo. Sob o logo (à esquerda) o chão fica
+   neutro: as cores originais dele precisam disso. */
+.barra-topo {
+  background:
+    radial-gradient(72% 170% at 100% 0%,
+      color-mix(in oklab, var(--color-verde-500) 26%, transparent) 0%, transparent 64%),
+    radial-gradient(40% 130% at 60% 108%,
+      color-mix(in oklab, var(--color-azul-marca) 14%, transparent) 0%, transparent 70%),
+    radial-gradient(28% 110% at 36% -10%,
+      color-mix(in oklab, var(--color-ouro) 10%, transparent) 0%, transparent 70%),
+    linear-gradient(180deg,
+      var(--color-creme) 0%,
+      color-mix(in oklab, var(--color-creme) 96%, var(--color-verde-800)) 100%);
+}
+
 /* Textura de serralheria: listras finas na diagonal, bem discretas. */
 .hachura {
   background-image: repeating-linear-gradient(
