@@ -20,7 +20,7 @@ const fotos = [
 
 export function Galeria() {
   return (
-    <section className="pb-24 sm:pb-32">
+    <section className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-6" data-revelar>
           <div className="max-w-xl">
@@ -32,16 +32,21 @@ export function Galeria() {
               Tudo aqui foi fotografado na própria loja e está na prateleira.
             </p>
           </div>
-          <a
-            href={negocio.instagram.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="contorno contorno-ouro group inline-flex items-center gap-2.5 rounded-full border border-creme/25 px-6 py-3 text-sm text-creme"
-          >
-            <Instagram className="size-4" />
-            {negocio.instagram.handle}
-            <Seta className="seta-vai size-4" />
-          </a>
+          <div className="max-w-xs" data-revelar data-atraso={160}>
+            <p className="text-sm leading-relaxed text-creme/60">
+              O que chega de novo na loja aparece primeiro lá. Siga para ver antes de vir.
+            </p>
+            <a
+              href={negocio.instagram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contorno contorno-ouro group mt-4 inline-flex items-center gap-2.5 rounded-full border border-creme/25 px-6 py-3 text-sm text-creme"
+            >
+              <Instagram className="size-4" />
+              Seguir {negocio.instagram.handle}
+              <Seta className="seta-vai size-4" />
+            </a>
+          </div>
         </div>
 
         <div className="mt-10 grid auto-rows-[9rem] grid-cols-2 gap-3 sm:auto-rows-[11rem] md:grid-cols-4">
