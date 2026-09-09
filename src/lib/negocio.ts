@@ -47,12 +47,15 @@ export const negocio = {
   instagram: { handle: "@refrigeracaogarrido", url: "https://www.instagram.com/refrigeracaogarrido/" },
   mapa: "https://www.google.com/maps?cid=618575051065636225",
   /**
-   * Link para avaliar. Hoje é a ficha no Maps (a avaliação fica a um toque);
-   * quando a cliente pegar o link curto no painel do Google Business
-   * (Perfil → Pedir avaliações), trocar aqui. Nota e contagem ficam fora do
-   * site de propósito: 4,2 não é argumento — o convite para avaliar é.
+   * Link direto para o formulário de avaliação (o mesmo dos QR codes de
+   * balcão): quem clica avalia sem passar pela ficha e pelos comentários.
+   * placeId conferido em 09/2026 clicando em "Avaliar" na ficha do Maps.
+   * Nota e contagem ficam fora do site de propósito: 4,2 não é argumento.
    */
-  google: { avaliar: "https://www.google.com/maps?cid=618575051065636225" },
+  google: {
+    placeId: "ChIJ1dHWbbGpmQARgbWvSbuelQg",
+    avaliar: "https://search.google.com/local/writereview?placeid=ChIJ1dHWbbGpmQARgbWvSbuelQg",
+  },
 } as const;
 
 /**
