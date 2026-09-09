@@ -100,8 +100,11 @@ próprio; o resto é coberto por essa camada.
 
 **A base da linha fina entra no pé.** No original ela termina em y=820 e o pé
 começa em y=821: um pixel de encosto, zero de sobreposição. Balançando pelo topo,
-a base varria ±20px e se descolava do pé. Agora ela entra 30px dentro do pé, que
-é desenhado por cima — o que entra some, e o balanço nunca abre vão.
+a base varria ±20px e se descolava do pé. Agora ela se prolonga 30px para dentro
+do pé **no próprio eixo e com a própria largura (14px)**, e o pé é desenhado por
+cima. Regra que saiu daqui: sobreposição escondida tem que ter a forma da peça.
+Uma dilatação isotrópica ali criou um bloco do tamanho do pé que, invisível
+parado, saía pelas bordas em movimento.
 
 **O braço crescente é uma cadeia de três.** A ponta dele era um floco solto de
 79 px no original (falha de tinta), soldado no rig com 41 px de ponte. Para a
