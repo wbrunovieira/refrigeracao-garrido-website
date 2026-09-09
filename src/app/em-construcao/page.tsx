@@ -5,6 +5,9 @@ import { StatusLoja } from "@/components/status-loja";
 import { Instagram, Pino, Relogio, Telefone, Whatsapp } from "@/components/icones";
 import { anosDeCasa, horaLegivel, horarios, negocio, whatsapp } from "@/lib/negocio";
 
+// Regenerada uma vez por dia: é o que faz "há N anos" virar sozinho no ano-novo.
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   // absolute: sem isso o template do layout repetiria o nome da loja.
   title: { absolute: `${negocio.nome} — site em construção` },
@@ -35,7 +38,7 @@ export default function EmConstrucao() {
         </h1>
         <p className="mx-auto mt-5 max-w-lg leading-relaxed text-verde-800/75">
           Estamos preparando o site novo. Enquanto isso, é só chamar — há{" "}
-          {anosDeCasa} anos no mesmo balcão, no Centro de {negocio.endereco.cidade}.
+          {anosDeCasa()} anos no mesmo balcão, no Centro de {negocio.endereco.cidade}.
         </p>
 
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3">

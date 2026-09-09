@@ -4,7 +4,7 @@ import { anosDeCasa, negocio } from "@/lib/negocio";
 /** Números que a própria loja pode comprovar — nada estimado. */
 const fatos = [
   { valor: String(negocio.fundacao), rotulo: "Ano de fundação" },
-  { valor: String(anosDeCasa), rotulo: "Anos no mesmo Centro" },
+  { valor: String(anosDeCasa()), rotulo: "Anos no mesmo Centro" },
   { valor: "Seg–Sáb", rotulo: "Loja aberta ao público" },
 ];
 

@@ -27,9 +27,12 @@ export function Heroi() {
           </h1>
 
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-creme/75">
-            Há {anosDeCasa} anos no Centro de Petrópolis, vendendo peça de reposição,
+            Há {anosDeCasa()} anos no Centro de Petrópolis, vendendo peça de reposição,
             refrigeração comercial e equipamento de cozinha industrial — e consertando
-            o que dá para consertar. Você descreve o problema, a gente acha a peça.
+            o que dá para consertar.
+          </p>
+          <p className="mt-4 max-w-xl text-lg leading-relaxed text-creme">
+            Você descreve o problema, a gente acha a peça.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -76,8 +79,7 @@ export function Heroi() {
 
           {/* Os telefones estão pintados no toldo desde sempre. */}
           <div className="vidro absolute -bottom-6 left-4 right-4 rounded-2xl p-5 sm:left-8 sm:right-auto sm:w-72">
-            <p className="etiqueta text-ouro/80">Como no letreiro</p>
-            <div className="mt-3 space-y-1.5">
+            <div className="space-y-1.5">
               {negocio.telefones.map((t) => (
                 <a
                   key={t.numero}
@@ -91,7 +93,7 @@ export function Heroi() {
           </div>
 
           <div className="vidro absolute -top-5 right-2 rounded-2xl px-5 py-4 text-right sm:right-6">
-            <p className="display text-4xl text-ouro">{anosDeCasa}</p>
+            <p className="display text-4xl text-ouro">{anosDeCasa()}</p>
             <p className="etiqueta mt-1 text-creme/70">anos de balcão</p>
           </div>
         </div>

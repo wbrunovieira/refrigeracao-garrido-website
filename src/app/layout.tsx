@@ -23,7 +23,7 @@ const mono = Space_Mono({
 });
 
 const site = "https://refrigeracaogarrido.com.br";
-const descricao = `Há ${anosDeCasa} anos no Centro de Petrópolis. Peças de reposição, refrigeração comercial, cozinha industrial e assistência técnica no balcão da Rua Marechal Floriano Peixoto, 192.`;
+const descricao = `Há ${anosDeCasa()} anos no Centro de Petrópolis. Peças de reposição, refrigeração comercial, cozinha industrial e assistência técnica no balcão da Rua Marechal Floriano Peixoto, 192.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site),

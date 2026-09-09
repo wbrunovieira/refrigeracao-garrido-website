@@ -35,7 +35,11 @@ export const negocio = {
   google: { nota: 4.2, avaliacoes: 112 },
 } as const;
 
-export const anosDeCasa = new Date().getFullYear() - negocio.fundacao;
+/**
+ * Calculado a cada chamada, não ao carregar o módulo: com a página
+ * regenerada todo dia (revalidate), o número vira sozinho na virada do ano.
+ */
+export const anosDeCasa = () => new Date().getFullYear() - negocio.fundacao;
 
 /** 0 = domingo. Minutos desde a meia-noite. */
 export const horarios = [
