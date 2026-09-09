@@ -66,6 +66,11 @@ export function Rodape() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a href={`mailto:${negocio.email}`} className="link-texto hover:text-ouro">
+                  {negocio.email}
+                </a>
+              </li>
               <li className="pt-2 font-sans not-italic text-creme/60">
                 {negocio.endereco.rua}
                 <br />
@@ -77,7 +82,8 @@ export function Rodape() {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-verde-600/25 pt-7 text-xs text-aco/45 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            {negocio.razaoSocial} · CNPJ {negocio.cnpj} · © {new Date().getFullYear()}
+            {negocio.razaoSocial} · CNPJ {negocio.cnpj} · IE {negocio.inscricaoEstadual} · Insc.
+            Municipal {negocio.inscricaoMunicipal} · © {new Date().getFullYear()}
           </p>
           <p>
             Site por{" "}

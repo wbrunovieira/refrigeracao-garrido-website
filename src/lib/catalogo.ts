@@ -23,12 +23,18 @@ export type Gaveta = {
   Icone: Icone;
 };
 
-/** As seis gavetas do balcão — o que a loja vende. */
+/**
+ * As gavetas do balcão — o que a loja vende. A base é o cartão de visita
+ * ("temos para venda: balcões frigoríficos, geladeiras, máquinas de café,
+ * estufas, balanças, cortadores de frios, picadores de carne, fogões e fornos
+ * comerciais, liquidificadores, extratores de suco") mais o que aparece nas
+ * fotos da loja.
+ */
 export const gavetas: Gaveta[] = [
   {
     id: "pecas",
     nome: "Peças de reposição",
-    resumo: "A peça que a assistência autorizada demora semanas para pedir.",
+    resumo: "Para geladeira, máquina de lavar e o que mais tiver quebrado.",
     itens: [
       "Placas eletrônicas",
       "Rolamentos e retentores",
@@ -46,12 +52,12 @@ export const gavetas: Gaveta[] = [
     nome: "Refrigeração comercial",
     resumo: "Para quem vive de manter a mercadoria gelada.",
     itens: [
-      "Balcões e expositores",
-      "Freezers e conservadores",
+      "Balcões frigoríficos",
+      "Geladeiras e freezers",
+      "Expositores",
       "Compressores",
       "Filtros secadores",
       "Gás refrigerante",
-      "Pressostatos",
     ],
     foto: "/fotos/fachada-toldo.webp",
     alt: "Fachada da Refrigeração Garrido na Rua Marechal Floriano Peixoto",
@@ -62,7 +68,7 @@ export const gavetas: Gaveta[] = [
     nome: "Cozinha industrial",
     resumo: "Equipamento de linha pesada para bar, padaria e restaurante.",
     itens: [
-      "Fogões industriais",
+      "Fogões e fornos comerciais",
       "Fritadeiras",
       "Fogareiros",
       "Panelas de alumínio",
@@ -72,6 +78,23 @@ export const gavetas: Gaveta[] = [
     foto: "/fotos/fogao-industrial.webp",
     alt: "Fogão industrial vermelho de quatro bocas exposto na loja",
     Icone: FogaoIndustrial,
+  },
+  {
+    id: "comercio",
+    nome: "Equipamentos para comércio",
+    resumo: "O que o balcão da padaria, do açougue e da lanchonete precisa.",
+    itens: [
+      "Máquinas de café",
+      "Balanças",
+      "Cortadores de frios",
+      "Picadores de carne",
+      "Liquidificadores",
+      "Extratores de suco",
+      "Estufas",
+    ],
+    foto: "/fotos/fritadeira-industrial.webp",
+    alt: "Fritadeira industrial de inox exposta na loja",
+    Icone: BalcaoRefrigerado,
   },
   {
     id: "eletrica",
@@ -132,19 +155,23 @@ export type Servico = {
   Icone: Icone;
 };
 
-/** Assistência técnica. Confirmar a lista com a cliente antes de publicar. */
+/**
+ * Assistência técnica. O cartão declara consertos em geladeiras domésticas e
+ * comerciais, máquinas de lavar e secadoras. Balcão, câmara fria, fogão e
+ * ar-condicionado são inferidos — confirmar com a cliente.
+ */
 export const servicos: Servico[] = [
   {
     id: "geladeira",
     nome: "Geladeira e freezer",
-    descricao: "Não gela, faz gelo demais, vaza água ou não liga.",
+    descricao: "Doméstica ou comercial: não gela, faz gelo demais, vaza água ou não liga.",
     publico: "residencia",
     Icone: Geladeira,
   },
   {
     id: "lavar",
-    nome: "Máquina de lavar",
-    descricao: "Não centrifuga, não enche, faz barulho ou trava no ciclo.",
+    nome: "Máquina de lavar e secadora",
+    descricao: "Não centrifuga, não enche, não seca, faz barulho ou trava no ciclo.",
     publico: "residencia",
     Icone: MaquinaLavar,
   },

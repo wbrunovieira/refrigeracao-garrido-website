@@ -64,6 +64,7 @@ const dadosEstruturados = {
   url: site,
   image: `${site}/og.jpg`,
   telephone: negocio.telefones.map((t) => t.numero),
+  email: negocio.email,
   sameAs: [negocio.instagram.url, negocio.mapa],
   address: {
     "@type": "PostalAddress",

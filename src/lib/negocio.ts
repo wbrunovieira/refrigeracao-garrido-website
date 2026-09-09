@@ -1,17 +1,22 @@
 /**
  * Dados reais da Refrigeração Garrido.
- * Fonte: perfil @refrigeracaogarrido, fachada da loja e listas públicas.
- * Confirmar com a cliente antes de publicar: telefones, WhatsApp e horários.
+ * Fontes: o cartão de visita da loja (CNPJ, inscrições, e-mail, telefones,
+ * endereço, o que vende e conserta), o perfil @refrigeracaogarrido, a fachada
+ * e listas públicas. Ainda por confirmar com a cliente: WhatsApp e horários.
  */
 
 export const negocio = {
   nome: "Refrigeração Garrido",
   razaoSocial: "Refrigeração Garrido Ltda",
   cnpj: "31.173.768/0001-90",
+  inscricaoEstadual: "80.637.179",
+  inscricaoMunicipal: "4733",
+  email: "refrigeracaogarrido@yahoo.com.br",
   fundacao: 1971,
   chamada: "Peças, equipamentos e assistência técnica em Petrópolis",
   endereco: {
-    rua: "Rua Marechal Floriano Peixoto, 192",
+    /** A loja ocupa três números; o cartão diz "192 a 212". */
+    rua: "Rua Marechal Floriano Peixoto, 192 a 212",
     bairro: "Centro",
     cidade: "Petrópolis",
     uf: "RJ",

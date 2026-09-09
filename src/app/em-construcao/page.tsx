@@ -109,6 +109,12 @@ export default function EmConstrucao() {
             <Instagram className="size-4" />
             {negocio.instagram.handle}
           </a>
+          <a
+            href={`mailto:${negocio.email}`}
+            className="link-texto font-mono text-sm text-verde-800/70 hover:text-verde-600"
+          >
+            {negocio.email}
+          </a>
         </div>
       </div>
     </main>

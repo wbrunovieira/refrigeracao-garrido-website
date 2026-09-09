@@ -106,6 +106,12 @@ export function Visite() {
                   <Instagram className="size-4" />
                   {negocio.instagram.handle}
                 </a>
+                <a
+                  href={`mailto:${negocio.email}`}
+                  className="link-texto w-fit font-mono text-sm text-verde-800/80 hover:text-verde-600"
+                >
+                  {negocio.email}
+                </a>
               </div>
             </div>
           </div>

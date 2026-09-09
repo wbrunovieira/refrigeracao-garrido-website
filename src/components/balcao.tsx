@@ -42,7 +42,7 @@ export function Balcao() {
             monte o seu pedido.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-creme/70">
-            Seis gavetas, o mesmo balcão. Marque o que você precisa e mande a lista
+            Sete gavetas, o mesmo balcão. Marque o que você precisa e mande a lista
             pronta no WhatsApp — a gente confere o estoque e responde com preço.
           </p>
         </div>
