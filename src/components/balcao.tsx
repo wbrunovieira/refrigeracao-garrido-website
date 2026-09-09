@@ -8,8 +8,9 @@ import { Seta, Whatsapp } from "@/components/icones";
 import { Pinguim } from "@/components/marca-elementos";
 
 /**
- * O balcão: o visitante abre uma gaveta, marca o que precisa e o pedido vai
- * pronto para o WhatsApp. É o atendimento da loja transformado em interface.
+ * O balcão: o visitante abre uma gaveta, marca o que procura e a pergunta vai
+ * pronta para o WhatsApp. É o atendimento da loja transformado em interface —
+ * pergunta, não compra: o site não vende, quem responde é a loja.
  */
 export function Balcao() {
   const [ativa, setAtiva] = useState(gavetas[0].id);
@@ -24,11 +25,11 @@ export function Balcao() {
 
   const mensagem = useMemo(() => {
     if (pedido.length === 0) {
-      return `Olá! Vim pelo site e queria saber sobre ${gaveta.nome.toLowerCase()}.`;
+      return `Olá! Vim pelo site e queria saber o que vocês têm de ${gaveta.nome.toLowerCase()}.`;
     }
-    return `Olá! Vim pelo site da Refrigeração Garrido e preciso de:\n\n${pedido
+    return `Olá! Vim pelo site da Refrigeração Garrido. Vocês têm:\n\n${pedido
       .map((i) => `• ${i}`)
-      .join("\n")}\n\nVocês têm em estoque?`;
+      .join("\n")}\n\nQual o preço?`;
   }, [pedido, gaveta.nome]);
 
   return (
@@ -39,13 +40,13 @@ export function Balcao() {
           <h2 className="display mt-4 text-[clamp(2.25rem,5.5vw,4rem)] text-creme">
             Abra a gaveta,
             <br />
-            monte o seu pedido.
+            pergunte se tem.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-creme/70">
             Sete gavetas, o mesmo balcão.
           </p>
           <p className="mt-3 max-w-2xl text-lg leading-relaxed text-creme/70">
-            Marque o que você precisa e a mensagem para o WhatsApp da loja se monta
+            Marque o que você procura e a pergunta para o WhatsApp da loja se monta
             sozinha. A gente confere o estoque e responde com preço.
           </p>
         </div>
@@ -117,7 +118,7 @@ export function Balcao() {
             </div>
 
             <div className="p-6 sm:p-8">
-              <p className="etiqueta text-aco/60">Marque o que você precisa</p>
+              <p className="etiqueta text-aco/60">Marque o que você procura</p>
               <div className="mt-4 flex flex-wrap gap-2.5">
                 {gaveta.itens.map((item) => {
                   const marcado = pedido.includes(item);
@@ -158,7 +159,7 @@ export function Balcao() {
                       }`}
                     />
                     {pedido.length === 0
-                      ? "Marque itens acima e eles entram na mensagem"
+                      ? "Marque itens acima e eles entram na pergunta"
                       : `${pedido.length} ${pedido.length === 1 ? "item marcado" : "itens marcados"}`}
                     {pedido.length > 0 && (
                       <button
@@ -179,7 +180,7 @@ export function Balcao() {
                     <Whatsapp className="size-5" />
                     {pedido.length === 0
                       ? "Perguntar pelo WhatsApp"
-                      : `Enviar ${pedido.length === 1 ? "1 item" : `${pedido.length} itens`} pelo WhatsApp`}
+                      : `Perguntar sobre ${pedido.length === 1 ? "1 item" : `${pedido.length} itens`}`}
                     <Seta className="seta-vai size-4" />
                   </a>
                 </div>

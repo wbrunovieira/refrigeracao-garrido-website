@@ -19,8 +19,9 @@ da placa. A tipografia usa Bricolage Grotesque no display, Instrument Sans no
 corpo e Space Mono nos rótulos — a mono imita as etiquetas amarelas coladas nas
 caixas de peça da prateleira.
 
-O elemento central é **o balcão**: seis "gavetas" de categoria onde o visitante
-marca o que precisa e manda a lista pronta pelo WhatsApp.
+O elemento central é **o balcão**: sete "gavetas" de categoria onde o visitante
+marca o que procura e a pergunta vai pronta pelo WhatsApp. Não é loja online —
+o site não vende; quem responde é a loja.
 
 ## Seções
 
@@ -28,7 +29,7 @@ marca o que precisa e manda a lista pronta pelo WhatsApp.
 | --- | --- |
 | Herói | Proposta, fachada, telefones do letreiro e status de aberto/fechado ao vivo |
 | Prateleira | Marcas e tipos de peça em movimento |
-| O balcão | Seis gavetas de produto + montagem de pedido para o WhatsApp |
+| O balcão | Sete gavetas de produto; o visitante marca o que procura e a pergunta vai pronta para o WhatsApp — não é compra |
 | Assistência | Seis frentes de conserto e instalação |
 | História | 55 anos, equipe e o texto da própria loja |
 | Depoimentos | Avaliações públicas e nota do Google |

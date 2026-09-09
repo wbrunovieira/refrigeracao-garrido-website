@@ -79,7 +79,7 @@ Os três elementos da cena do logo saem dele e viram estrutura, em
 | --- | --- | --- |
 | Água | rodapé da barra do topo e abertura das duas faixas claras | divisa entre as faixas; corre em 80s |
 | Icebergs | pé do herói | horizonte, a 12% |
-| Pinguim | balcão, quando a lista está vazia | atende enquanto não há pedido; some ao primeiro item |
+| Pinguim | balcão, quando a lista está vazia | atende enquanto não há pergunta; some ao primeiro item |
 
 A água entra como **máscara CSS** (`public/marca/elementos/agua.svg`) e não como
 imagem, para herdar `currentColor` e poder repetir na horizontal. O movimento é
