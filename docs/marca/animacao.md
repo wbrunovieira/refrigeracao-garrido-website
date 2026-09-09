@@ -76,6 +76,14 @@ nadadeira que o põe no prumo — passa 0,5° e assenta a 0°.
 A marca estática mudou só nisso e na ilha de azul removida, tudo correção de
 registro e de prumo.
 
+**Os brancos do pinguim são buracos.** Olho, vão do bico e barriga são papel
+aparecendo. Parado, tanto faz; em movimento, o cenário aparece por dentro dele
+quando passa na frente dos icebergs. Cada parte ganhou um **miolo** cor de papel
+(`--marca-papel`) desenhado por baixo da tinta. A barriga ainda é cercada por
+três partes (tronco e as duas nadadeiras), e o contorno rachava quando elas se
+mexiam: o tronco ganhou um anel de 9px em volta dela — como é desenhado por
+cima, a linha fica inteira e a barriga segue orgânica.
+
 ## Etapas seguintes
 
 4. Neve e vida ociosa · 5. Integração · 6. Polimento
