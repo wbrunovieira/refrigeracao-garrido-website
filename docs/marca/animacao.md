@@ -98,6 +98,13 @@ desenhada antes de tudo. Nada do cenário atravessa o pinguim, e onde uma parte
 sai do lugar aparece papel, não iceberg. Só cabeça e tronco carregam miolo
 próprio; o resto é coberto por essa camada.
 
+**O braço crescente é uma cadeia de três.** A ponta dele era um floco solto de
+79 px no original (falha de tinta), soldado no rig com 41 px de ponte. Para a
+"onda leve" do corpo, o braço foi dividido em base, meio e fim (cortes por x ao
+longo do arco, pivôs pelo contato) e cada elo repete o anterior com atraso de 5%
+do ciclo e ganho de 0,8 (`ondaAtraso`, `ondaGanho`). A onda corre da base para a
+ponta — como um corpo que se mexe, não uma peça girando.
+
 ## Etapas seguintes
 
 4. Neve e vida ociosa · 5. Integração · 6. Polimento
