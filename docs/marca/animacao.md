@@ -130,8 +130,9 @@ marca sai da tela; na aba em segundo plano o próprio navegador congela o rAF.
 
 ## Etapa 5 — Integração ✔
 
-Onde toca: **cabeçalho em repouso** (112 px) e **home provisória** (160 px), uma
-vez por sessão (`sessionStorage`, chave `garrido:marca-animada`). Rodapé segue com
+Onde toca: **cabeçalho em repouso** (112 px) e **home provisória** (160 px), a
+**cada carga da página**, refresh incluído — é o cumprimento da loja. (O modo
+`"sessao"`, uma vez por sessão, existe no componente mas não é usado.) Rodapé segue com
 a marca estática. Página carregada já rolada não toca (`pularSeRolado`) — barra
 encolhida não é palco.
 
@@ -139,8 +140,11 @@ encolhida não é palco.
 cima depois da hidratação, a cliente veria o logo pronto por um instante e
 depois ele "desmontando". Um script inline no `<body>` roda antes do primeiro
 paint: se a cena vai tocar, marca `<html data-anima>`; o CSS pinta a cena na
-posição inicial sob essa marca; o GSAP faz `set` com os mesmos valores e tira a
-marca — nada pula. Se em 3 s nada assumiu (GSAP não carregou), a marca cai e a
+posição inicial sob essa marca; o GSAP **tira a marca e só então** faz `set` com
+os mesmos valores, tudo no mesmo tick — nada pula. A ordem importa: com a origem
+`fill-box` do CSS ainda ativa, o GSAP decompunha a transformação com outra
+origem e sobrava uma translação de 53 px no G. Foi isso que, por um commit,
+afastou a nadadeira do G. Se em 3 s nada assumiu (GSAP não carregou), a marca cai e a
 pose final aparece. `prefers-reduced-motion` nem marca.
 
 Desmontar no meio (troca de rota) limpa tudo com `clearProps` e volta à pose

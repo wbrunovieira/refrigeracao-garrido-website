@@ -27,7 +27,7 @@ export default function EmConstrucao() {
       <LinhaDagua className="absolute inset-x-0 bottom-8 text-azul-marca/25" />
 
       <div className="w-full max-w-2xl text-center">
-        <MarcaAnimada modo="sessao" className="mx-auto h-32 w-auto sm:h-40" />
+        <MarcaAnimada modo="sempre" className="mx-auto h-32 w-auto sm:h-40" />
 
         <p className="etiqueta mt-10 text-azul-marca">Site em construção</p>
         <h1 className="display mt-4 text-[clamp(1.9rem,4.5vw,3rem)] text-verde-900">

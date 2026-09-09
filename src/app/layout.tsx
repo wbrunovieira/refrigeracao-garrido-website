@@ -96,15 +96,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col overflow-x-hidden">
         {/*
-          Antes do primeiro paint: se a marca animada ainda não tocou nesta
-          sessão e o visitante aceita movimento, marca o <html>. O CSS usa a
-          marca para pintar a cena já na posição inicial (G no alto, pinguim
-          fora) — assim o GSAP assume sem o logo "desmontar" na frente de quem
-          olha. Se em 3s nada assumiu, a marca cai e a pose final aparece.
+          Antes do primeiro paint: se o visitante aceita movimento e a página
+          não carregou rolada, marca o <html>. O CSS usa a marca para pintar a
+          cena já na posição inicial (G no alto, pinguim fora) — assim o GSAP
+          assume sem o logo "desmontar" na frente de quem olha. A cena toca a
+          cada carga, refresh incluído. Se em 3s nada assumiu, a marca cai e a
+          pose final aparece.
         */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{if(sessionStorage.getItem("garrido:marca-animada"))return;if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;var h=document.documentElement;h.setAttribute("data-anima","");setTimeout(function(){h.removeAttribute("data-anima")},3000)}catch(e){}})();`,
+            __html: `(function(){try{if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;if(window.scrollY>24)return;var h=document.documentElement;h.setAttribute("data-anima","");setTimeout(function(){h.removeAttribute("data-anima")},3000)}catch(e){}})();`,
           }}
         />
         <script

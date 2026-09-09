@@ -109,7 +109,7 @@ export function Cabecalho() {
           {/* Chega grande e encolhe ao rolar: a marca ganha a primeira vista
               sem custar altura de tela pelo resto da navegação. */}
           <MarcaAnimada
-            modo="sessao"
+            modo="sempre"
             pularSeRolado
             className={`w-auto transition-[height] duration-500 ease-[cubic-bezier(.16,1,.3,1)] ${
               compacto ? "h-18" : "h-24 sm:h-28"

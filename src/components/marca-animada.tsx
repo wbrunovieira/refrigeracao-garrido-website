@@ -13,7 +13,7 @@ import { criarGingado } from "@/lib/gingado";
  * no mesmo espaço de coordenadas do logo (vieram das mesmas máscaras).
  *
  * `modo`:
- *   "sempre"  — toca ao montar (laboratório)
+ *   "sempre"  — toca a cada carga da página (padrão no site: é o cumprimento)
  *   "sessao"  — toca uma vez por sessão; depois monta na pose final
  *   "nunca"   — pose final, estática
  */
@@ -102,7 +102,7 @@ function SimboloFloco({ id }: { id: string }) {
   );
 }
 
-export function MarcaAnimada({ className, modo = "sessao", pularSeRolado = false, aoPronta }: Props) {
+export function MarcaAnimada({ className, modo = "sempre", pularSeRolado = false, aoPronta }: Props) {
   const ref = useRef<SVGSVGElement>(null);
   const simbolo = `floco-${useId().replace(/[^a-zA-Z0-9]/g, "")}`;
 
@@ -681,12 +681,15 @@ function montarCena(gsap: Gsap, svg: SVGSVGElement, aoPronta?: (c: Cena) => void
   const px = { t: 0, env: 1, x: -290, incl: 0, olhar: 0 };
   const pintar = () => gingado.aplicar(px.t, px.env, px.x, 0, px.incl, px.olhar);
 
+  // O CSS segurava a cena na posição inicial até aqui. A regra sai ANTES do
+  // gsap.set: se o GSAP lesse a transformação com a origem fill-box do CSS
+  // ainda ativa, decomporia com outra origem e sobraria uma translação — foi
+  // isso que afastou a nadadeira do G em 53px. Tudo no mesmo tick: nenhum
+  // quadro é pintado entre tirar a regra e o set, então não há flash.
+  document.documentElement.removeAttribute("data-anima");
   gsap.set(G, { y: -230, rotation: -6, transformOrigin: "50% 100%" });
   gsap.set(garrido, { y: 0 });
   pintar();
-  // O CSS segurava a cena na posição inicial; agora o GSAP tem os mesmos
-  // valores nos atributos, e a regra pode sair sem nada pular.
-  document.documentElement.removeAttribute("data-anima");
 
   const tl = gsap.timeline({ paused: true, onUpdate: pintar });
   tl.to(px, { t: 2.85, duration: 2.85, ease: "none" }, 0.2)                       // relógio do gingado
