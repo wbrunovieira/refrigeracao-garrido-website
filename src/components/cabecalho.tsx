@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { LinhaDagua } from "@/components/cenario";
-import { Marca } from "@/components/marca";
+import { MarcaAnimada } from "@/components/marca-animada";
 import { StatusLoja } from "@/components/status-loja";
 import { Whatsapp } from "@/components/icones";
 import { negocio, whatsapp } from "@/lib/negocio";
@@ -108,8 +108,10 @@ export function Cabecalho() {
         <a href="#topo" className="relative mr-6 shrink-0" aria-label="Início">
           {/* Chega grande e encolhe ao rolar: a marca ganha a primeira vista
               sem custar altura de tela pelo resto da navegação. */}
-          <Marca
-            altura={`transition-[height] duration-500 ease-[cubic-bezier(.16,1,.3,1)] ${
+          <MarcaAnimada
+            modo="sessao"
+            pularSeRolado
+            className={`w-auto transition-[height] duration-500 ease-[cubic-bezier(.16,1,.3,1)] ${
               compacto ? "h-18" : "h-24 sm:h-28"
             }`}
           />

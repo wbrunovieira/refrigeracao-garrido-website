@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useId, useRef } from "react";
 import { criarGingado } from "@/lib/gingado";
 
 /**
@@ -33,6 +33,8 @@ export type Cena = {
 type Props = {
   className?: string;
   modo?: "sempre" | "sessao" | "nunca";
+  /** Não tocar se a página já carregou rolada — a barra encolhida não é palco. */
+  pularSeRolado?: boolean;
   aoPronta?: (cena: Cena) => void;
 };
 
@@ -66,16 +68,18 @@ const NEVE_FRENTE: Floco[] = [
 const NEVE_TOPO = 10;    // y de onde caem (acima da caixa: o svg tem overflow visível)
 const NEVE_CHAO = 720;   // y onde somem, na água
 
-function Neve({ camada, flocos }: { camada: string; flocos: Floco[] }) {
+function Neve({ camada, flocos, simbolo }: { camada: string; flocos: Floco[]; simbolo: string }) {
   return (
     <g data-cena={camada} opacity={0}>
       {flocos.map((f, i) => (
-        <circle
+        <use
           key={i}
-          cx={f.x}
-          cy={NEVE_TOPO}
-          r={f.r}
-          fill="var(--marca-gelo)"
+          href={`#${simbolo}`}
+          x={f.x - f.r}
+          y={NEVE_TOPO - f.r}
+          width={f.r * 2}
+          height={f.r * 2}
+          color="var(--marca-gelo)"
           opacity={f.op}
           data-dur={f.dur}
           data-fase={f.fase}
@@ -86,20 +90,35 @@ function Neve({ camada, flocos }: { camada: string; flocos: Floco[] }) {
   );
 }
 
-export function MarcaAnimada({ className, modo = "sessao", aoPronta }: Props) {
+/** O floco: cristal de seis braços com um par de ramos cada. Só traço, sem preenchimento. */
+function SimboloFloco({ id }: { id: string }) {
+  return (
+    <symbol id={id} viewBox="-10 -10 20 20">
+      <g stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" fill="none">
+        <path d="M0 0L0.00 -9.00 M0 0L-7.79 -4.50 M0 0L-7.79 4.50 M0 0L-0.00 9.00 M0 0L7.79 4.50 M0 0L7.79 -4.50" />
+        <path d="M0.00 -6.00l-2.37 -1.48 M0.00 -6.00l2.37 -1.48 M-5.20 -3.00l-2.47 1.31 M-5.20 -3.00l-0.10 -2.80 M-5.20 3.00l-0.10 2.80 M-5.20 3.00l-2.47 -1.31 M-0.00 6.00l2.37 1.48 M-0.00 6.00l-2.37 1.48 M5.20 3.00l2.47 -1.31 M5.20 3.00l0.10 2.80 M5.20 -3.00l0.10 -2.80 M5.20 -3.00l2.47 1.31" strokeWidth={1.3} />
+      </g>
+    </symbol>
+  );
+}
+
+export function MarcaAnimada({ className, modo = "sessao", pularSeRolado = false, aoPronta }: Props) {
   const ref = useRef<SVGSVGElement>(null);
+  const simbolo = `floco-${useId().replace(/[^a-zA-Z0-9]/g, "")}`;
 
   useEffect(() => {
     const svg = ref.current;
     if (!svg) return;
-    if (modo === "nunca") return;
+    const desistir = () => document.documentElement.removeAttribute("data-anima");
+    if (modo === "nunca") { desistir(); return; }
+    if (pularSeRolado && window.scrollY > 24) { desistir(); return; }
     if (modo === "sessao") {
       try {
-        if (sessionStorage.getItem(CHAVE_SESSAO)) return;
+        if (sessionStorage.getItem(CHAVE_SESSAO)) { desistir(); return; }
         sessionStorage.setItem(CHAVE_SESSAO, "1");
       } catch { /* sem storage: toca mesmo assim */ }
     }
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { desistir(); return; }
 
     let cancelado = false;
     let limpar = () => {};
@@ -108,7 +127,7 @@ export function MarcaAnimada({ className, modo = "sessao", aoPronta }: Props) {
       limpar = montarCena(gsap, svg, aoPronta);
     });
     return () => { cancelado = true; limpar(); };
-  }, [modo, aoPronta]);
+  }, [modo, pularSeRolado, aoPronta]);
 
   return (
     <svg ref={ref} viewBox="0 56 1082 863" className={className} style={{ ...CORES, overflow: "visible" }} role="img" aria-label="Refrigeração Garrido">
@@ -224,7 +243,8 @@ export function MarcaAnimada({ className, modo = "sessao", aoPronta }: Props) {
         -1 -83 -9 -140 -33z"/>
           </g>
       </g>
-      <Neve camada="neve-fundo" flocos={NEVE_FUNDO} />
+      <SimboloFloco id={simbolo} />
+      <Neve camada="neve-fundo" flocos={NEVE_FUNDO} simbolo={simbolo} />
       <g data-cena="g">
         <g data-parte="letra-g" transform="translate(0.000000,950.000000) scale(0.100000,-0.100000)" fill="var(--marca-gelo)">
               <path d="M5208 8601 c-23 -8 -47 -18 -53 -23 -5 -5 -38 -30 -72 -56 -50 -38
@@ -630,7 +650,7 @@ export function MarcaAnimada({ className, modo = "sessao", aoPronta }: Props) {
         -138 l-67 3 -1 45 c-8 465 -6 701 6 715 17 20 128 20 178 0z"/>
           </g>
       </g>
-      <Neve camada="neve-frente" flocos={NEVE_FRENTE} />
+      <Neve camada="neve-frente" flocos={NEVE_FRENTE} simbolo={simbolo} />
     </svg>
   );
 }
@@ -664,6 +684,9 @@ function montarCena(gsap: Gsap, svg: SVGSVGElement, aoPronta?: (c: Cena) => void
   gsap.set(G, { y: -230, rotation: -6, transformOrigin: "50% 100%" });
   gsap.set(garrido, { y: 0 });
   pintar();
+  // O CSS segurava a cena na posição inicial; agora o GSAP tem os mesmos
+  // valores nos atributos, e a regra pode sair sem nada pular.
+  document.documentElement.removeAttribute("data-anima");
 
   const tl = gsap.timeline({ paused: true, onUpdate: pintar });
   tl.to(px, { t: 2.85, duration: 2.85, ease: "none" }, 0.2)                       // relógio do gingado
@@ -689,9 +712,11 @@ function montarCena(gsap: Gsap, svg: SVGSVGElement, aoPronta?: (c: Cena) => void
     .to(garrido, { y: 2, duration: 0.1, ease: "power2.out" }, 3.07)
     .to(garrido, { y: 0, duration: 0.2, ease: "power2.inOut" }, 3.17);
 
-  // A neve começa quando o G começa a descer — o frio chega junto — e nunca para.
+  // A neve não é do logo: entra quando o G começa a descer e vai embora depois
+  // do encaixe, deixando a marca limpa.
   const neve = montarNeve(gsap, svg);
   tl.call(neve.comecar, [], 1.1);
+  tl.call(neve.terminar, [], 3.45);
 
   // Depois do encaixe, a cena não congela: vida ociosa em dose mínima.
   const ocio = montarOcio(gsap, svg, G, gingado, px);
@@ -707,7 +732,15 @@ function montarCena(gsap: Gsap, svg: SVGSVGElement, aoPronta?: (c: Cena) => void
     restart: () => tl.restart(),
     duration: () => tl.duration(),
   });
-  return () => { tl.kill(); neve.parar(); ocio.parar(); gingado.repouso(); };
+  return () => {
+    tl.kill(); neve.parar(); ocio.parar(); gingado.repouso();
+    const olho = svg.querySelector('[data-parte="olho"]');
+    gsap.set([G, garrido, ...(olho ? [olho] : [])], { clearProps: "all" });
+    svg.querySelectorAll('[data-cena^="neve-"]').forEach((c) => {
+      gsap.set(c, { clearProps: "all" }); c.setAttribute("opacity", "0");
+      gsap.set([...c.querySelectorAll("use")], { clearProps: "all" });
+    });
+  };
 }
 
 /* -------------------------------------------------------------------------- */
@@ -724,7 +757,7 @@ function montarNeve(gsap: Gsap, svg: SVGSVGElement) {
   function comecar() {
     for (const camada of camadas) {
       tweens.push(gsap.to(camada, { opacity: 1, duration: 1.6, ease: "power1.in" }));
-      for (const floco of camada.querySelectorAll<SVGCircleElement>("circle")) {
+      for (const floco of camada.querySelectorAll<SVGUseElement>("use")) {
         const dur = Number(floco.dataset.dur), fase = Number(floco.dataset.fase);
         const balanco = Number(floco.dataset.balanco), op = Number(floco.getAttribute("opacity"));
         const queda = NEVE_CHAO - NEVE_TOPO;
@@ -740,12 +773,18 @@ function montarNeve(gsap: Gsap, svg: SVGSVGElement) {
         // balanço lateral em período irracional em relação à queda
         const t3 = gsap.to(floco, { x: balanco, duration: dur * 0.37, ease: "sine.inOut", yoyo: true, repeat: -1 });
         t3.progress((fase * 7.3) % 1);
-        tweens.push(t1, t2, t3);
+        // gira devagar enquanto cai, cada um num sentido
+        const t4 = gsap.to(floco, { rotation: fase > 0.5 ? 360 : -360, duration: dur * 1.3, ease: "none", repeat: -1, transformOrigin: "50% 50%" });
+        tweens.push(t1, t2, t3, t4);
       }
     }
   }
   function parar() { tweens.forEach((t) => t.kill()); tweens.length = 0; }
-  return { comecar, parar };
+  /** Some em 1,4s e libera tudo: depois da cena a marca fica só a marca. */
+  function terminar() {
+    gsap.to(camadas, { opacity: 0, duration: 1.4, ease: "power1.inOut", onComplete: parar });
+  }
+  return { comecar, terminar, parar };
 }
 
 /**

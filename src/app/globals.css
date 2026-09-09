@@ -126,6 +126,18 @@ body {
   );
 }
 
+/* --- Marca animada: estado inicial antes do GSAP assumir ---------------- */
+/* Mesmos valores do gsap.set em marca-animada.tsx. Quando o GSAP assume, o
+   componente tira o data-anima do <html> e as regras somem sem pular. */
+html[data-anima] [data-cena="g"] {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transform: translateY(-230px) rotate(-6deg);
+}
+html[data-anima] [data-cena="pinguim"] > [data-parte="corpo"] {
+  transform: translate(-290px, 0);
+}
+
 /* --- Movimento --------------------------------------------------------- */
 
 @keyframes subir {
