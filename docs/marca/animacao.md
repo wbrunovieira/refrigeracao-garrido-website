@@ -84,6 +84,20 @@ três partes (tronco e as duas nadadeiras), e o contorno rachava quando elas se
 mexiam: o tronco ganhou um anel de 9px em volta dela — como é desenhado por
 cima, a linha fica inteira e a barriga segue orgânica.
 
+**A linha fina é a ponta do braço.** No original ela flutua 10px abaixo do
+braço crescente — traço do desenhista, sem tinta no vão nem antes do filtro. Lida
+como desconexão, e em movimento vira mesmo. No rig ela ganhou uma ponte de tinta
+com a largura da própria linha, nasce no braço, gira no topo e chicoteia atrás
+dele com atraso (`pontaGanho`, `pontaAtraso`). O id passou de `perna-tras` para
+`nadadeira-tras-ponta`. A marca estática mantém o vão original; a ponte existe
+só no rig — a 112 px é 1 px de diferença.
+
+**Papel por baixo do corpo inteiro.** Além dos miolos de olho, bico e barriga,
+o corpo tem uma camada cor de papel do tamanho da silhueta (`data-parte="papel"`),
+desenhada antes de tudo. Nada do cenário atravessa o pinguim, e onde uma parte
+sai do lugar aparece papel, não iceberg. Só cabeça e tronco carregam miolo
+próprio; o resto é coberto por essa camada.
+
 ## Etapas seguintes
 
 4. Neve e vida ociosa · 5. Integração · 6. Polimento

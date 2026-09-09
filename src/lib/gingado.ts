@@ -14,7 +14,9 @@ const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 export type ParamsGingado = {
   ciclo: number; bob: number; incl: number; squash: number;
   atrasoCabeca: number; atrasoNad: number;
-  pernaF: number; pernaT: number; pe: number;
+  pernaF: number; pe: number;
+  /** ponta do braço de trás: multiplica o balanço do braço, com atraso extra */
+  pontaGanho: number; pontaAtraso: number;
   nadFrenteBase: number; nadFrenteSw: number; nadTras: number;
   cabecaContra: number; cabecaNod: number;
 };
@@ -23,7 +25,8 @@ export type ParamsGingado = {
 export const PARAMS_PADRAO: ParamsGingado = {
   ciclo: 1.4, bob: 12, incl: 2.5, squash: 0.015,
   atrasoCabeca: 0.08, atrasoNad: 0.12,
-  pernaF: 5, pernaT: 7, pe: 2,
+  pernaF: 5, pe: 2,
+  pontaGanho: 1.8, pontaAtraso: 0.06,
   nadFrenteBase: 18, nadFrenteSw: 4, nadTras: 3,
   cabecaContra: 0.6, cabecaNod: 1.3,
 };
@@ -42,8 +45,8 @@ export function criarGingado(raiz: Element, params: Partial<ParamsGingado> = {})
   const p: ParamsGingado = { ...PARAMS_PADRAO, ...params };
   const el = (n: string) => raiz.querySelector<SVGGElement>(`[data-parte="${n}"]`);
   const corpo = el("corpo"), cabeca = el("cabeca"), pernaF = el("perna-frente"),
-    pernaT = el("perna-tras"), pe = el("pe"), nadF = el("nadadeira-frente"), nadT = el("nadadeira-tras");
-  if (!corpo || !cabeca || !pernaF || !pernaT || !pe || !nadF || !nadT) {
+    ponta = el("nadadeira-tras-ponta"), pe = el("pe"), nadF = el("nadadeira-frente"), nadT = el("nadadeira-tras");
+  if (!corpo || !cabeca || !pernaF || !ponta || !pe || !nadF || !nadT) {
     throw new Error("gingado: rig incompleto");
   }
 
@@ -65,18 +68,20 @@ export function criarGingado(raiz: Element, params: Partial<ParamsGingado> = {})
 
     const sw = Math.sin(u * TAU);
     pernaF!.style.transform = `rotate(${-sw * p.pernaF * env}deg)`;
-    pernaT!.style.transform = `rotate(${-sw * p.pernaT * env}deg)`;
     pe!.style.transform = `rotate(${Math.sin(u * TAU * 2) * p.pe * env}deg)`;
 
     const un = fase(t, p.ciclo, p.atrasoNad);
     const swn = Math.sin(un * TAU) * 1.15;
     nadF!.style.transform = `rotate(${lerp(0, p.nadFrenteBase, env) + swn * p.nadFrenteSw * env}deg)`;
     nadT!.style.transform = `rotate(${swn * p.nadTras * env}deg)`;
+    // a ponta nasce no braço e chicoteia atrás dele: mais amplitude, mais atraso
+    const up = fase(t, p.ciclo, p.atrasoNad + p.pontaAtraso);
+    ponta!.style.transform = `rotate(${Math.sin(up * TAU) * 1.15 * p.nadTras * p.pontaGanho * env}deg)`;
   }
 
   /** Volta tudo à pose do logo. */
   function repouso() {
-    for (const g of [corpo, cabeca, pernaF, pernaT, pe, nadF, nadT]) g!.style.transform = "";
+    for (const g of [corpo, cabeca, pernaF, ponta, pe, nadF, nadT]) g!.style.transform = "";
   }
 
   return { aplicar, repouso, params: p };
