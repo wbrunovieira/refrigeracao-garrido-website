@@ -67,7 +67,14 @@ pixels. Três correções derivadas:
 - no canto inferior esquerdo, onde a impressão ficou suja, o anel é uma faixa
   uniforme de 9px acompanhando a curva.
 
-A marca estática mudou 0,02% dos pixels (a ilha), tudo correção de registro.
+**O G pendia 1,07° para a esquerda** — medido em três bordas da haste, com a
+linha de base das palavras a ~0° como referência. Mão do desenhista original.
+Foi endireitado nas máscaras (haste a +0,02° depois), e a coreografia usa isso
+como gesto: o G desce torto, balança sem se endireitar sozinho, e é o toque da
+nadadeira que o põe no prumo — passa 0,5° e assenta a 0°.
+
+A marca estática mudou só nisso e na ilha de azul removida, tudo correção de
+registro e de prumo.
 
 ## Etapas seguintes
 
