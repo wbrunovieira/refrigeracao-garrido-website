@@ -123,15 +123,16 @@ body {
    neutro: as cores originais dele precisam disso. */
 .barra-topo {
   background:
-    radial-gradient(72% 170% at 100% 0%,
-      color-mix(in oklab, var(--color-verde-500) 26%, transparent) 0%, transparent 64%),
-    radial-gradient(40% 130% at 60% 108%,
-      color-mix(in oklab, var(--color-azul-marca) 14%, transparent) 0%, transparent 70%),
-    radial-gradient(28% 110% at 36% -10%,
-      color-mix(in oklab, var(--color-ouro) 10%, transparent) 0%, transparent 70%),
-    linear-gradient(180deg,
+    radial-gradient(70% 180% at 100% 0%,
+      color-mix(in oklab, var(--color-verde-500) 42%, transparent) 0%, transparent 60%),
+    radial-gradient(30% 120% at 34% -10%,
+      color-mix(in oklab, var(--color-ouro) 16%, transparent) 0%, transparent 70%),
+    radial-gradient(42% 140% at 62% 110%,
+      color-mix(in oklab, var(--color-azul-marca) 18%, transparent) 0%, transparent 70%),
+    linear-gradient(105deg,
       var(--color-creme) 0%,
-      color-mix(in oklab, var(--color-creme) 96%, var(--color-verde-800)) 100%);
+      var(--color-creme) 28%,
+      color-mix(in oklab, var(--color-creme) 86%, var(--color-verde-500)) 100%);
 }
 
 /* Textura de serralheria: listras finas na diagonal, bem discretas. */

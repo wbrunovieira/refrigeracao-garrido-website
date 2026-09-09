@@ -93,6 +93,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="pt-BR"
       className={`${display.variable} ${corpo.variable} ${mono.variable} h-full`}
+      // O script inline abaixo põe data-anima no <html> antes da hidratação;
+      // sem isto o React acusa divergência com o HTML do servidor.
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col overflow-x-hidden">
         {/*
