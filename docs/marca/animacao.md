@@ -128,6 +128,24 @@ e o G responde com 0,3 %; a cada 4–7,5 s ele pisca (o olho ganhou path própri
 rig, `data-parte="olho"`). Intervalos aleatórios — nunca métricos. Para quando a
 marca sai da tela; na aba em segundo plano o próprio navegador congela o rAF.
 
+## Etapa 5 — Integração ✔
+
+Onde toca: **cabeçalho em repouso** (112 px) e **home provisória** (160 px), uma
+vez por sessão (`sessionStorage`, chave `garrido:marca-animada`). Rodapé segue com
+a marca estática. Página carregada já rolada não toca (`pularSeRolado`) — barra
+encolhida não é palco.
+
+**Sem flash.** O servidor renderiza a pose final; se o GSAP só movesse o G para
+cima depois da hidratação, a cliente veria o logo pronto por um instante e
+depois ele "desmontando". Um script inline no `<body>` roda antes do primeiro
+paint: se a cena vai tocar, marca `<html data-anima>`; o CSS pinta a cena na
+posição inicial sob essa marca; o GSAP faz `set` com os mesmos valores e tira a
+marca — nada pula. Se em 3 s nada assumiu (GSAP não carregou), a marca cai e a
+pose final aparece. `prefers-reduced-motion` nem marca.
+
+Desmontar no meio (troca de rota) limpa tudo com `clearProps` e volta à pose
+final, sem resíduo. A neve some sozinha 1,4 s depois do encaixe — não é do logo.
+
 ## Etapas seguintes
 
-5. Integração · 6. Polimento
+6. Polimento
