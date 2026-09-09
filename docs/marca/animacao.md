@@ -38,7 +38,37 @@ interno carrega a escala negativa em Y do vetorizador e colapsa se for tocado.
 Amplitudes acima de ~12° nas pernas começam a mostrar um micro-degrau no
 quadril — sub-pixel aos 112 px, mas o gingado não precisa de tanto.
 
+## Etapa 2 — Ciclo de caminhada ✔
+
+`src/lib/gingado.ts` — motor paramétrico. Cada parte é uma função do tempo:
+queda rápida no contato com baque de 1,5px, subida lenta até o ápice, squash
+de 1,5%, cabeça com 8% de atraso e aceno no contato, nadadeiras com 12% de
+atraso e overshoot. O envelope de chegada leva a amplitude a zero e sobe a
+nadadeira para a pose do logo. O bloco de gelo faz parte do osso-raiz: na
+silhueta ele lê como pé, e fixo no destino parecia pé faltando.
+
+## Etapa 3 — Coreografia ✔ (em revisão)
+
+`src/components/marca-animada.tsx` — GSAP orquestra; o gingado roda por
+dentro. O laboratório em `/animacao` tem pause (botão ou espaço), scrub e
+`?p=0.42` para congelar num ponto exato — é assim que os quadros são capturados.
+
+**O G teve que ser separado de novo.** Na vetorização, o contorno era "tinta
+escura a até 9px do azul", e isso engolia a ponta da nadadeira onde ela encosta
+no G: parado, invisível; em voo, o G levava um pedaço de pinguim junto, e o
+pinguim ficava com a nadadeira truncada. Refeito por crescimento a partir de
+sementes, com o anel do G e as partes do pinguim competindo pelos mesmos
+pixels. Três correções derivadas:
+
+- onde a nadadeira cobre a borda do G, o anel foi reconstruído por baixo (tinta
+  sobre tinta, como na impressão) — os pixels pertencem aos dois;
+- uma ilha de azul deslocado que sobrevivia sob a nadadeira foi removida: o G é
+  só o componente principal do azul;
+- no canto inferior esquerdo, onde a impressão ficou suja, o anel é uma faixa
+  uniforme de 9px acompanhando a curva.
+
+A marca estática mudou 0,02% dos pixels (a ilha), tudo correção de registro.
+
 ## Etapas seguintes
 
-2. Ciclo de caminhada · 3. Coreografia da cena · 4. Neve e vida ociosa ·
-5. Integração · 6. Polimento
+4. Neve e vida ociosa · 5. Integração · 6. Polimento

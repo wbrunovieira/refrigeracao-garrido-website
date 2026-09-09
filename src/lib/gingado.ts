@@ -47,8 +47,9 @@ export function criarGingado(raiz: Element, params: Partial<ParamsGingado> = {})
     throw new Error("gingado: rig incompleto");
   }
 
-  /** Pose em t (s). env: 1 = andando, 0 = pose do logo. x/y: deslocamento extra do corpo. */
-  function aplicar(t: number, env: number, x = 0, y = 0, rotExtra = 0) {
+  /** Pose em t (s). env: 1 = andando, 0 = pose do logo. x/y: deslocamento extra
+   *  do corpo; rotExtra inclina o corpo; cabecaExtra vira a cabeça (negativo = olha para cima). */
+  function aplicar(t: number, env: number, x = 0, y = 0, rotExtra = 0, cabecaExtra = 0) {
     const u = fase(t, p.ciclo);
     const u1 = (u * 2) % 1;
     const bob = passo(u1) * p.bob * env;
@@ -60,7 +61,7 @@ export function criarGingado(raiz: Element, params: Partial<ParamsGingado> = {})
     const uc = fase(t, p.ciclo, p.atrasoCabeca);
     const contra = Math.sin(uc * TAU) * p.incl * p.cabecaContra;
     const nod = Math.exp(-Math.pow(((uc * 2) % 1) / 0.12, 2)) * p.cabecaNod;
-    cabeca!.style.transform = `rotate(${(contra + nod) * env}deg)`;
+    cabeca!.style.transform = `rotate(${(contra + nod) * env + cabecaExtra}deg)`;
 
     const sw = Math.sin(u * TAU);
     pernaF!.style.transform = `rotate(${-sw * p.pernaF * env}deg)`;
