@@ -42,8 +42,11 @@ export function Balcao() {
             monte o seu pedido.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-creme/70">
-            Sete gavetas, o mesmo balcão. Marque o que você precisa e mande a lista
-            pronta no WhatsApp — a gente confere o estoque e responde com preço.
+            Sete gavetas, o mesmo balcão.
+          </p>
+          <p className="mt-3 max-w-2xl text-lg leading-relaxed text-creme/70">
+            Marque o que você precisa e a mensagem para o WhatsApp da loja se monta
+            sozinha. A gente confere o estoque e responde com preço.
           </p>
         </div>
 
@@ -136,37 +139,50 @@ export function Balcao() {
                 })}
               </div>
 
-              <div className="mt-8 flex flex-col gap-4 border-t border-verde-600/25 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                <p className="flex items-center gap-3 font-mono text-sm text-aco/70">
-                  {/* O pinguim do logo espera enquanto não há pedido. */}
-                  <Pinguim
-                    className={`h-9 w-auto shrink-0 text-aco/45 transition-all duration-500 ${
-                      pedido.length === 0 ? "opacity-100" : "w-0 opacity-0"
-                    }`}
-                  />
-                  {pedido.length === 0
-                    ? "Nenhum item na lista ainda"
-                    : `${pedido.length} ${pedido.length === 1 ? "item" : "itens"} na lista`}
-                  {pedido.length > 0 && (
-                    <button
-                      type="button"
-                      onClick={() => setPedido([])}
-                      className="link-texto ml-3 underline underline-offset-4 hover:text-ouro"
-                    >
-                      limpar
-                    </button>
-                  )}
-                </p>
-                <a
-                  href={whatsapp(mensagem)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="acao group inline-flex items-center justify-center gap-2.5 rounded-full bg-ouro px-6 py-3.5 font-semibold text-verde-950"
+              {/* A prévia é o que explica a mecânica: o visitante vê a mensagem se
+                  formando enquanto marca, e sabe exatamente o que vai sair. */}
+              <div className="mt-8 border-t border-verde-600/25 pt-6">
+                <p className="etiqueta text-aco/60">Assim vai chegar no WhatsApp da loja</p>
+                <div
+                  aria-live="polite"
+                  className="mt-3 max-w-xl whitespace-pre-line rounded-2xl rounded-tl-sm bg-verde-800/70 px-5 py-4 text-[15px] leading-relaxed text-creme ring-1 ring-verde-600/30"
                 >
-                  <Whatsapp className="size-5" />
-                  {pedido.length === 0 ? "Perguntar no WhatsApp" : "Enviar a lista"}
-                  <Seta className="seta-vai size-4" />
-                </a>
+                  {mensagem}
+                </div>
+
+                <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="flex items-center gap-3 font-mono text-sm text-aco/70">
+                    <Pinguim
+                      className={`h-9 w-auto shrink-0 text-aco/45 transition-all duration-500 ${
+                        pedido.length === 0 ? "opacity-100" : "w-0 opacity-0"
+                      }`}
+                    />
+                    {pedido.length === 0
+                      ? "Marque itens acima e eles entram na mensagem"
+                      : `${pedido.length} ${pedido.length === 1 ? "item marcado" : "itens marcados"}`}
+                    {pedido.length > 0 && (
+                      <button
+                        type="button"
+                        onClick={() => setPedido([])}
+                        className="link-texto ml-3 underline underline-offset-4 hover:text-ouro"
+                      >
+                        limpar
+                      </button>
+                    )}
+                  </p>
+                  <a
+                    href={whatsapp(mensagem)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="acao group inline-flex items-center justify-center gap-2.5 rounded-full bg-ouro px-6 py-3.5 font-semibold text-verde-950"
+                  >
+                    <Whatsapp className="size-5" />
+                    {pedido.length === 0
+                      ? "Perguntar pelo WhatsApp"
+                      : `Enviar ${pedido.length === 1 ? "1 item" : `${pedido.length} itens`} pelo WhatsApp`}
+                    <Seta className="seta-vai size-4" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
