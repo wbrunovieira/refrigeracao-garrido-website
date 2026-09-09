@@ -98,6 +98,11 @@ desenhada antes de tudo. Nada do cenário atravessa o pinguim, e onde uma parte
 sai do lugar aparece papel, não iceberg. Só cabeça e tronco carregam miolo
 próprio; o resto é coberto por essa camada.
 
+**A base da linha fina entra no pé.** No original ela termina em y=820 e o pé
+começa em y=821: um pixel de encosto, zero de sobreposição. Balançando pelo topo,
+a base varria ±20px e se descolava do pé. Agora ela entra 30px dentro do pé, que
+é desenhado por cima — o que entra some, e o balanço nunca abre vão.
+
 **O braço crescente é uma cadeia de três.** A ponta dele era um floco solto de
 79 px no original (falha de tinta), soldado no rig com 41 px de ponte. Para a
 "onda leve" do corpo, o braço foi dividido em base, meio e fim (cortes por x ao

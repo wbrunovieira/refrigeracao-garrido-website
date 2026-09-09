@@ -28,7 +28,7 @@ export const PARAMS_PADRAO: ParamsGingado = {
   ciclo: 1.4, bob: 12, incl: 2.5, squash: 0.015,
   atrasoCabeca: 0.08, atrasoNad: 0.12,
   pernaF: 5, pe: 2,
-  pontaGanho: 1.8, pontaAtraso: 0.06,
+  pontaGanho: 1.3, pontaAtraso: 0.06,
   ondaGanho: 0.8, ondaAtraso: 0.05,
   nadFrenteBase: 18, nadFrenteSw: 4, nadTras: 3,
   cabecaContra: 0.6, cabecaNod: 1.3,
