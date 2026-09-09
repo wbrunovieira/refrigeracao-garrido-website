@@ -46,8 +46,13 @@ export const negocio = {
   whatsapp: { numero: formataBR(WHATSAPP), e164: WHATSAPP },
   instagram: { handle: "@refrigeracaogarrido", url: "https://www.instagram.com/refrigeracaogarrido/" },
   mapa: "https://www.google.com/maps?cid=618575051065636225",
-  /** Lido no perfil do Google em agosto de 2026. Reconferir de tempos em tempos. */
-  google: { nota: 4.2, avaliacoes: 112 },
+  /**
+   * Link para avaliar. Hoje é a ficha no Maps (a avaliação fica a um toque);
+   * quando a cliente pegar o link curto no painel do Google Business
+   * (Perfil → Pedir avaliações), trocar aqui. Nota e contagem ficam fora do
+   * site de propósito: 4,2 não é argumento — o convite para avaliar é.
+   */
+  google: { avaliar: "https://www.google.com/maps?cid=618575051065636225" },
 } as const;
 
 /**

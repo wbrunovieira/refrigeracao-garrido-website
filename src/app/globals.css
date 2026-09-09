@@ -135,6 +135,18 @@ body {
       color-mix(in oklab, var(--color-creme) 86%, var(--color-verde-500)) 100%);
 }
 
+/* Fundo dos depoimentos: verde da página num canto, azul da marca no outro. */
+.brilho-depoimentos {
+  background:
+    radial-gradient(55% 70% at 0% 100%,
+      color-mix(in oklab, var(--color-verde-500) 30%, transparent) 0%, transparent 65%),
+    radial-gradient(45% 60% at 100% 0%,
+      color-mix(in oklab, var(--color-azul-marca) 22%, transparent) 0%, transparent 65%);
+}
+/* as aspas do depoimento crescem do nada quando o cartão entra */
+.js-ativo [data-revelar] .aspas { transform: scale(.4) rotate(-8deg); opacity: 0; transition: transform .9s cubic-bezier(.16,1,.3,1) .25s, opacity .6s ease .25s; }
+.js-ativo [data-revelar="visivel"] .aspas { transform: none; opacity: 1; }
+
 /* Textura de serralheria: listras finas na diagonal, bem discretas. */
 .hachura {
   background-image: repeating-linear-gradient(

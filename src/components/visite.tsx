@@ -1,6 +1,6 @@
 import { BotoesRota } from "@/components/botoes-rota";
 import { LinhaDagua } from "@/components/cenario";
-import { NotaGoogle } from "@/components/nota-google";
+import { AvalieNoGoogle } from "@/components/nota-google";
 import { StatusLoja } from "@/components/status-loja";
 import { Instagram, Pino, Relogio, Telefone, Whatsapp } from "@/components/icones";
 import { horaLegivel, horarios, negocio, whatsapp } from "@/lib/negocio";
@@ -25,7 +25,7 @@ export function Visite() {
               embaixo do toldo verde.
             </h2>
           </div>
-          <NotaGoogle escuro />
+          <AvalieNoGoogle escuro />
         </div>
 
         <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
