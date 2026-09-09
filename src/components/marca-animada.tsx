@@ -48,22 +48,22 @@ const CHAVE_SESSAO = "garrido:marca-animada";
  */
 type Floco = { x: number; r: number; dur: number; fase: number; balanco: number; op: number };
 const NEVE_FUNDO: Floco[] = [
-  { x: 120, r: 11, dur: 11.5, fase: 0.10, balanco: 14, op: 0.26 },
-  { x: 300, r: 9,  dur: 13.0, fase: 0.55, balanco: 10, op: 0.22 },
-  { x: 430, r: 12, dur: 10.5, fase: 0.30, balanco: 16, op: 0.28 },
-  { x: 610, r: 10, dur: 12.5, fase: 0.80, balanco: 12, op: 0.24 },
-  { x: 760, r: 11, dur: 11.0, fase: 0.45, balanco: 15, op: 0.26 },
-  { x: 900, r: 9,  dur: 13.5, fase: 0.05, balanco: 11, op: 0.22 },
-  { x: 1000, r: 12, dur: 10.0, fase: 0.68, balanco: 14, op: 0.28 },
-  { x: 520, r: 8,  dur: 14.0, fase: 0.92, balanco: 9,  op: 0.20 },
-  { x: 220, r: 10, dur: 12.0, fase: 0.38, balanco: 13, op: 0.24 },
+  { x: 120, r: 15, dur: 11.5, fase: 0.10, balanco: 14, op: 0.70 },
+  { x: 300, r: 13, dur: 13.0, fase: 0.55, balanco: 10, op: 0.62 },
+  { x: 430, r: 16, dur: 10.5, fase: 0.30, balanco: 16, op: 0.72 },
+  { x: 610, r: 14, dur: 12.5, fase: 0.80, balanco: 12, op: 0.66 },
+  { x: 760, r: 15, dur: 11.0, fase: 0.45, balanco: 15, op: 0.70 },
+  { x: 900, r: 13, dur: 13.5, fase: 0.05, balanco: 11, op: 0.62 },
+  { x: 1000, r: 16, dur: 10.0, fase: 0.68, balanco: 14, op: 0.72 },
+  { x: 520, r: 12, dur: 14.0, fase: 0.92, balanco: 9,  op: 0.58 },
+  { x: 220, r: 14, dur: 12.0, fase: 0.38, balanco: 13, op: 0.66 },
 ];
 const NEVE_FRENTE: Floco[] = [
-  { x: 70,  r: 17, dur: 8.5, fase: 0.20, balanco: 22, op: 0.42 },
-  { x: 360, r: 15, dur: 9.5, fase: 0.72, balanco: 18, op: 0.38 },
-  { x: 680, r: 18, dur: 8.0, fase: 0.48, balanco: 24, op: 0.44 },
-  { x: 860, r: 14, dur: 10.0, fase: 0.05, balanco: 17, op: 0.36 },
-  { x: 990, r: 16, dur: 9.0, fase: 0.85, balanco: 20, op: 0.40 },
+  { x: 70,  r: 24, dur: 8.5, fase: 0.20, balanco: 22, op: 1.0 },
+  { x: 360, r: 21, dur: 9.5, fase: 0.72, balanco: 18, op: 0.95 },
+  { x: 680, r: 26, dur: 8.0, fase: 0.48, balanco: 24, op: 1.0 },
+  { x: 860, r: 20, dur: 10.0, fase: 0.05, balanco: 17, op: 0.92 },
+  { x: 990, r: 23, dur: 9.0, fase: 0.85, balanco: 20, op: 0.98 },
 ];
 const NEVE_TOPO = 10;    // y de onde caem (acima da caixa: o svg tem overflow visível)
 const NEVE_CHAO = 720;   // y onde somem, na água
@@ -94,9 +94,9 @@ function Neve({ camada, flocos, simbolo }: { camada: string; flocos: Floco[]; si
 function SimboloFloco({ id }: { id: string }) {
   return (
     <symbol id={id} viewBox="-10 -10 20 20">
-      <g stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" fill="none">
+      <g stroke="currentColor" strokeWidth={2.6} strokeLinecap="round" fill="none">
         <path d="M0 0L0.00 -9.00 M0 0L-7.79 -4.50 M0 0L-7.79 4.50 M0 0L-0.00 9.00 M0 0L7.79 4.50 M0 0L7.79 -4.50" />
-        <path d="M0.00 -6.00l-2.37 -1.48 M0.00 -6.00l2.37 -1.48 M-5.20 -3.00l-2.47 1.31 M-5.20 -3.00l-0.10 -2.80 M-5.20 3.00l-0.10 2.80 M-5.20 3.00l-2.47 -1.31 M-0.00 6.00l2.37 1.48 M-0.00 6.00l-2.37 1.48 M5.20 3.00l2.47 -1.31 M5.20 3.00l0.10 2.80 M5.20 -3.00l0.10 -2.80 M5.20 -3.00l2.47 1.31" strokeWidth={1.3} />
+        <path d="M0.00 -6.00l-2.37 -1.48 M0.00 -6.00l2.37 -1.48 M-5.20 -3.00l-2.47 1.31 M-5.20 -3.00l-0.10 -2.80 M-5.20 3.00l-0.10 2.80 M-5.20 3.00l-2.47 -1.31 M-0.00 6.00l2.37 1.48 M-0.00 6.00l-2.37 1.48 M5.20 3.00l2.47 -1.31 M5.20 3.00l0.10 2.80 M5.20 -3.00l0.10 -2.80 M5.20 -3.00l2.47 1.31" strokeWidth={2.1} />
       </g>
     </symbol>
   );
