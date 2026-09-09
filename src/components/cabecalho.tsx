@@ -8,6 +8,7 @@ import { Whatsapp } from "@/components/icones";
 import { negocio, whatsapp } from "@/lib/negocio";
 
 const secoes = [
+  { id: "topo", texto: "Início" },
   { id: "balcao", texto: "O balcão" },
   { id: "assistencia", texto: "Assistência" },
   { id: "historia", texto: "História" },
@@ -21,9 +22,17 @@ export function Cabecalho() {
   const [aberto, setAberto] = useState(false);
   const [ativa, setAtiva] = useState<string | null>(null);
   const [marcador, setMarcador] = useState({ left: 0, width: 0 });
+  // O indicador só aparece depois que o primeiro item entrou — senão é um
+  // traço dourado sublinhando o nada.
+  const [itensEntraram, setItensEntraram] = useState(false);
 
   const navRef = useRef<HTMLElement>(null);
   const linksRef = useRef(new Map<string, HTMLAnchorElement>());
+
+  useEffect(() => {
+    const id = window.setTimeout(() => setItensEntraram(true), 1150);
+    return () => window.clearTimeout(id);
+  }, []);
 
   useEffect(() => {
     const aoRolar = () => setRolou(window.scrollY > 24);
@@ -48,8 +57,8 @@ export function Cabecalho() {
           setAtiva(topo.target.id);
           return;
         }
-        // Nenhuma seção na faixa: acima da primeira significa herói.
-        if (window.scrollY < window.innerHeight * 0.6) setAtiva(null);
+        // Nenhuma seção na faixa: acima da primeira significa Início.
+        if (window.scrollY < window.innerHeight * 0.6) setAtiva("topo");
       },
       { rootMargin: "-20% 0px -55% 0px", threshold: 0 },
     );
@@ -128,10 +137,10 @@ export function Cabecalho() {
             style={{
               transform: `translateX(${marcador.left}px)`,
               width: marcador.width,
-              opacity: marcador.width ? 1 : 0,
+              opacity: marcador.width && itensEntraram ? 1 : 0,
             }}
           />
-          {secoes.map((s) => (
+          {secoes.map((s, i) => (
             <a
               key={s.id}
               href={`#${s.id}`}
@@ -140,7 +149,8 @@ export function Cabecalho() {
                 else linksRef.current.delete(s.id);
               }}
               aria-current={ativa === s.id ? "true" : undefined}
-              className={`relative px-4 py-2 text-[15px] font-medium transition-colors duration-300 ${
+              style={{ "--i": i } as React.CSSProperties}
+              className={`surge relative px-4 py-2 text-[15px] font-medium transition-colors duration-300 ${
                 ativa === s.id ? "text-verde-900" : "text-tinta/75 hover:text-verde-900"
               }`}
             >
@@ -151,13 +161,14 @@ export function Cabecalho() {
 
         {/* Estado da loja e ação ficam em um bloco próprio, longe da navegação. */}
         <div className="ml-auto flex shrink-0 items-center gap-4 lg:ml-6">
-          <span className="hidden h-7 w-px bg-verde-950/15 xl:block" aria-hidden="true" />
-          <StatusLoja className="hidden rounded-full border border-verde-950/18 px-3.5 py-2 xl:inline-flex" claro />
+          <span className="surge hidden h-7 w-px bg-verde-950/15 xl:block" style={{ "--i": 5 } as React.CSSProperties} aria-hidden="true" />
+          <StatusLoja className="surge hidden rounded-full border border-verde-950/18 px-3.5 py-2 xl:inline-flex" style={{ "--i": 6 } as React.CSSProperties} claro />
           <a
             href={whatsapp("Olá! Vim pelo site da Refrigeração Garrido e preciso de uma peça.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden h-11 items-center gap-2 rounded-full bg-ouro px-5 text-sm font-semibold text-tinta shadow-[inset_0_0_0_1px_rgba(10,22,19,.12)] transition-transform hover:scale-[1.03] sm:inline-flex"
+            style={{ "--i": 7 } as React.CSSProperties}
+            className="surge surge-botao hidden h-11 items-center gap-2 rounded-full bg-ouro px-5 text-sm font-semibold text-tinta shadow-[inset_0_0_0_1px_rgba(10,22,19,.12)] transition-transform hover:scale-[1.03] sm:inline-flex"
           >
             <Whatsapp className="size-4" />
             WhatsApp
@@ -191,13 +202,14 @@ export function Cabecalho() {
       {aberto && (
         <div className="fixed inset-x-0 bottom-0 top-23 z-50 flex flex-col overflow-y-auto border-t border-verde-600/25 bg-verde-950 px-5 pb-10 pt-8 lg:hidden">
           <nav className="flex flex-col" aria-label="Seções do site">
-            {secoes.map((s) => (
+            {secoes.map((s, i) => (
               <a
                 key={s.id}
                 href={`#${s.id}`}
                 onClick={() => setAberto(false)}
                 aria-current={ativa === s.id ? "true" : undefined}
-                className={`display flex items-center gap-3 border-b border-verde-600/20 py-4 text-3xl transition-colors ${
+                style={{ "--i": i } as React.CSSProperties}
+                className={`surge surge-menu display flex items-center gap-3 border-b border-verde-600/20 py-4 text-3xl transition-colors ${
                   ativa === s.id ? "text-ouro" : "text-creme"
                 }`}
               >

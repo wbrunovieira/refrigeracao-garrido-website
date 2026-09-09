@@ -212,6 +212,27 @@ html[data-anima] [data-cena="pinguim"] > [data-parte="corpo"] {
   animation: pulsar 2.4s ease-in-out infinite;
 }
 
+/* Entrada dos itens da barra: cada um sobe 10px e aparece, em ordem, num
+   ritmo que cabe dentro da cena do logo. Começa depois que o pinguim já está
+   entrando, para a barra não disputar o primeiro olhar com ele. */
+@keyframes surgir {
+  from { opacity: 0; transform: translate3d(0, 10px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+.surge {
+  animation: surgir .8s cubic-bezier(.16, 1, .3, 1) both;
+  animation-delay: calc(700ms + var(--i, 0) * 110ms);
+}
+/* o botão de ação chega por último e assenta com um leve excesso */
+@keyframes surgir-botao {
+  from { opacity: 0; transform: translate3d(0, 10px, 0) scale(.96); }
+  70%  { opacity: 1; transform: translate3d(0, -1px, 0) scale(1.015); }
+  to   { opacity: 1; transform: none; }
+}
+.surge-botao { animation-name: surgir-botao; animation-duration: .9s; }
+/* no menu do celular a abertura é o gatilho, então sem a espera inicial */
+.surge-menu { animation-delay: calc(60ms + var(--i, 0) * 70ms); }
+
 /* Revelação no scroll. A classe .js-ativo só entra quando o observador sobe,
    então sem JavaScript o conteúdo aparece normalmente. */
 .js-ativo [data-revelar] {
@@ -232,7 +253,8 @@ html[data-anima] [data-cena="pinguim"] > [data-parte="corpo"] {
   .acende,
   .marquise,
   .ponto-vivo,
-  .mareja {
+  .mareja,
+  .surge {
     animation: none !important;
   }
   .js-ativo [data-revelar],

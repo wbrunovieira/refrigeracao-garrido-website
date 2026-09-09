@@ -47,10 +47,12 @@ function calcular(chave: string) {
 export function StatusLoja({
   className = "",
   claro = false,
+  style,
 }: {
   className?: string;
   /** Sobre fundo claro o ouro não tem contraste; o verde assume. */
   claro?: boolean;
+  style?: React.CSSProperties;
 }) {
   // O horário só existe no navegador: no servidor o snapshot é nulo e a
   // marcação sai neutra, sem divergência de hidratação.
@@ -58,7 +60,7 @@ export function StatusLoja({
 
   if (!chave) {
     return (
-      <span className={`etiqueta ${claro ? "text-verde-800/60" : "text-aco/60"} ${className}`}>
+      <span className={`etiqueta ${claro ? "text-verde-800/60" : "text-aco/60"} ${className}`} style={style}>
         Horário da loja
       </span>
     );
@@ -67,7 +69,7 @@ export function StatusLoja({
   const estado = calcular(chave);
 
   return (
-    <span className={`items-center gap-2 etiqueta ${className}`}>
+    <span className={`items-center gap-2 etiqueta ${className}`} style={style}>
       <span
         className={`ponto-vivo size-2 rounded-full ${
           estado.aberto ? (claro ? "bg-verde-500" : "bg-ouro") : claro ? "bg-verde-800/35" : "bg-aco/50"
