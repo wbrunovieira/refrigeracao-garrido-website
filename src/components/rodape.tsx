@@ -12,7 +12,7 @@ const secoes = [
 
 export function Rodape() {
   return (
-    <footer className="border-t border-verde-600/25 bg-verde-950 pb-10 pt-16">
+    <footer id="rodape" className="border-t border-verde-600/25 bg-verde-950 pb-10 pt-16">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">

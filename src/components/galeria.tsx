@@ -20,7 +20,7 @@ const fotos = [
 
 export function Galeria() {
   return (
-    <section className="py-24 sm:py-32">
+    <section id="galeria" className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-6" data-revelar>
           <div className="max-w-xl">

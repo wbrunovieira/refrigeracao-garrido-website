@@ -1,0 +1,163 @@
+/*
+ * Identidade da WB Digital Solutions nesta ferramenta.
+ *
+ * A página de revisão não é do site da The Dark Film — é o painel de trabalho entre as duas
+ * empresas. Por isso ela usa a marca de quem opera: o roxo do site da WB (#350545 profundo e
+ * #792990 vibrante), o âmbar de destaque e a Plus Jakarta Sans. Os tokens saem do
+ * `tailwind.config.ts` do projeto wbdigitalsolutions.
+ */
+.wb {
+  --wb-roxo: #350545;
+  --wb-roxo-vivo: #792990;
+  --wb-lilas: #aaa6c3;
+  --wb-ambar: #ffb947;
+  --wb-tinta: #1b1024;
+  --wb-fundo: #faf9fc;
+  --wb-linha: #e7e1ee;
+  --wb-gradiente: linear-gradient(90deg, #350545 0%, #792990 50%, #350545 100%);
+
+  /*
+   * Escala de texto secundário. A auditoria reprovou datas e legendas em 2,5:1 — eram
+   * cinzas do Tailwind escolhidos "porque ficam discretos". Discrição aqui se faz com
+   * tamanho e peso, não apagando o contraste: estes dois tons ficam em 9,1:1 e 6,0:1 sobre
+   * o fundo, então passam em AA com folga mesmo dentro dos cartões coloridos.
+   */
+  --wb-tinta-2: #4a4257;
+  --wb-tinta-3: #635b70;
+
+  /* Âmbar de fundo e âmbar de borda: o mesmo destaque em duas intensidades. */
+  --wb-ambar-leve: #fff6e3;
+  --wb-ambar-borda: #e8a02b;
+  --wb-ambar-tinta: #4a2c00;
+
+  /* Verde da aprovação. O emerald-600 do Tailwind dá 3,8:1 com texto branco e reprova; este
+     tom escurece o suficiente para 5,5:1 sem virar outro verde. */
+  --wb-verde: #047857;
+  --wb-verde-leve: #ecfdf5;
+  --wb-verde-tinta: #04543d;
+
+  /* Roxo diluído, para o que está com o outro lado: presente na varredura, sem gritar. */
+  --wb-roxo-leve: #f4eefa;
+  --wb-roxo-borda: #d9c8e6;
+}
+
+/* Brilho roxo no topo, como na home da WB. */
+.wb-capa {
+  position: relative;
+  isolation: isolate;
+  background: var(--wb-gradiente);
+  color: #fff;
+  overflow: hidden;
+}
+.wb-capa::after {
+  content: "";
+  position: absolute;
+  inset: -40% -10% auto -10%;
+  height: 180%;
+  background: radial-gradient(circle at top center, rgba(255, 185, 71, 0.22) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Barra de progresso com o gradiente da marca. */
+.wb-progresso {
+  background: var(--wb-gradiente);
+  background-size: 200% 100%;
+  animation: wb-desliza 6s linear infinite;
+}
+@keyframes wb-desliza {
+  to {
+    background-position: 200% 0;
+  }
+}
+
+/* Entrada dos cartões, escalonada por --i. */
+.wb-entra {
+  animation: wb-sobe 0.45s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 30ms);
+}
+@keyframes wb-sobe {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* Abertura das seções sem salto: grid 0fr → 1fr anima altura de conteúdo desconhecido. */
+.wb-sanfona {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wb-sanfona[data-aberta="true"] {
+  grid-template-rows: 1fr;
+}
+.wb-sanfona > div {
+  overflow: hidden;
+}
+
+.wb-cartao {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+@media (hover: hover) {
+  .wb-cartao:hover {
+    border-color: var(--wb-lilas);
+    box-shadow: 0 14px 34px -22px rgba(53, 5, 69, 0.5);
+  }
+}
+
+/*
+ * O cartão que espera por quem está lendo ganha uma faixa âmbar na lateral. É o único
+ * elemento estrutural com cor na lista, para que a varredura de 55 cartões no polegar
+ * encontre o que é dele sem ler nada.
+ */
+.wb-trilho {
+  position: relative;
+}
+.wb-trilho::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  border-radius: 999px 0 0 999px;
+  background: var(--wb-cor-trilho, transparent);
+}
+
+/* Confirmação de que o clique valeu: o cartão pisca uma vez na cor nova. */
+@keyframes wb-confirma {
+  0% { box-shadow: 0 0 0 0 var(--wb-cor-flash, rgba(4, 120, 87, 0.5)); }
+  100% { box-shadow: 0 0 0 12px rgba(0, 0, 0, 0); }
+}
+.wb-flash {
+  animation: wb-confirma 0.6s ease-out;
+}
+
+/* Foco visível de verdade, e igual em todo lugar. */
+.wb-foco:focus-visible {
+  outline: 2px solid var(--wb-roxo-vivo);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/*
+ * Compensa a barra fixa ao rolar até um cartão, e o teclado do celular ao focar o campo de
+ * texto: sem isto o botão Enviar nasce atrás do teclado do iPhone.
+ */
+.wb-alvo {
+  scroll-margin-top: 84px;
+  scroll-margin-bottom: 96px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wb-entra,
+  .wb-flash,
+  .wb-progresso {
+    animation: none;
+  }
+  .wb-sanfona,
+  .wb-cartao {
+    transition: none;
+  }
+}
