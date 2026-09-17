@@ -65,8 +65,8 @@ export function Balcao() {
                   aria-current={selecionada}
                   className={`cartao group flex items-center gap-4 rounded-xl border px-5 py-4 text-left ${
                     selecionada
-                      ? "translate-x-0 border-ouro/70 bg-verde-800 lg:translate-x-3"
-                      : "border-verde-600/25 bg-verde-900/50 hover:border-verde-500/50 hover:bg-verde-800/60"
+                      ? "translate-x-0 border-ouro/70 bg-azul-800 lg:translate-x-3"
+                      : "border-azul-600/25 bg-azul-900/50 hover:border-azul-500/50 hover:bg-azul-800/60"
                   }`}
                 >
                   <g.Icone
@@ -87,7 +87,7 @@ export function Balcao() {
                     </span>
                   </span>
                   {marcados > 0 && (
-                    <span className="grid size-6 shrink-0 place-items-center rounded-full bg-ouro font-mono text-xs font-bold text-verde-950">
+                    <span className="grid size-6 shrink-0 place-items-center rounded-full bg-ouro font-mono text-xs font-bold text-azul-950">
                       {marcados}
                     </span>
                   )}
@@ -97,7 +97,7 @@ export function Balcao() {
           </div>
 
           {/* Gaveta aberta */}
-          <div className="overflow-hidden rounded-3xl border border-verde-600/35 bg-verde-900/60">
+          <div className="overflow-hidden rounded-3xl border border-azul-600/35 bg-azul-900/60">
             <div className="relative h-56 sm:h-72">
               <Image
                 key={gaveta.foto}
@@ -108,7 +108,7 @@ export function Balcao() {
                 className="object-cover"
               />
               <div
-                className="absolute inset-0 bg-linear-to-t from-verde-900 via-verde-900/40 to-transparent"
+                className="absolute inset-0 bg-linear-to-t from-azul-900 via-azul-900/40 to-transparent"
                 aria-hidden="true"
               />
               <div className="absolute bottom-5 left-6 right-6">
@@ -130,7 +130,7 @@ export function Balcao() {
                       aria-pressed={marcado}
                       className={`contorno rounded-full border px-4 py-2 text-sm ${
                         marcado
-                          ? "border-ouro bg-ouro text-verde-950 font-semibold"
+                          ? "border-ouro bg-ouro text-azul-950 font-semibold"
                           : "border-creme/20 text-creme/80 hover:border-ouro/60 hover:text-creme"
                       }`}
                     >
@@ -142,11 +142,11 @@ export function Balcao() {
 
               {/* A prévia é o que explica a mecânica: o visitante vê a mensagem se
                   formando enquanto marca, e sabe exatamente o que vai sair. */}
-              <div className="mt-8 border-t border-verde-600/25 pt-6">
+              <div className="mt-8 border-t border-azul-600/25 pt-6">
                 <p className="etiqueta text-aco/60">Assim vai chegar no WhatsApp da loja</p>
                 <div
                   aria-live="polite"
-                  className="mt-3 max-w-xl whitespace-pre-line rounded-2xl rounded-tl-sm bg-verde-800/70 px-5 py-4 text-[15px] leading-relaxed text-creme ring-1 ring-verde-600/30"
+                  className="mt-3 max-w-xl whitespace-pre-line rounded-2xl rounded-tl-sm bg-azul-800/70 px-5 py-4 text-[15px] leading-relaxed text-creme ring-1 ring-azul-600/30"
                 >
                   {mensagem}
                 </div>
@@ -175,7 +175,7 @@ export function Balcao() {
                     href={whatsapp(mensagem)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="acao group inline-flex items-center justify-center gap-2.5 rounded-full bg-ouro px-6 py-3.5 font-semibold text-verde-950"
+                    className="acao group inline-flex items-center justify-center gap-2.5 rounded-full bg-ouro px-6 py-3.5 font-semibold text-azul-950"
                   >
                     <Whatsapp className="size-5" />
                     {pedido.length === 0

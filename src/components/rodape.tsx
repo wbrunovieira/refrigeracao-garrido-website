@@ -12,11 +12,11 @@ const secoes = [
 
 export function Rodape() {
   return (
-    <footer id="rodape" className="border-t border-verde-600/25 bg-verde-950 pb-10 pt-16">
+    <footer id="rodape" className="border-t border-azul-600/25 bg-azul-950 pb-10 pt-16">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
-            {/* O rodapé é verde: aqui a marca precisa da placa para ter fundo claro. */}
+            {/* O rodapé é escuro: aqui a marca precisa da placa para ter fundo claro. */}
             <Marca placa altura="h-24" />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-creme/60">
               Peças de reposição, refrigeração comercial, cozinha industrial e assistência
@@ -81,7 +81,7 @@ export function Rodape() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-verde-600/25 pt-7 text-xs text-aco/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-3 border-t border-azul-600/25 pt-7 text-xs text-aco/45 sm:flex-row sm:items-center sm:justify-between">
           <p>
             {negocio.razaoSocial} · CNPJ {negocio.cnpj} · IE {negocio.inscricaoEstadual} · Insc.
             Municipal {negocio.inscricaoMunicipal} · © {new Date().getFullYear()}

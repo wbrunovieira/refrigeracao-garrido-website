@@ -32,18 +32,18 @@ export default function Laboratorio() {
   return (
     <main className="min-h-dvh bg-creme px-8 py-10 text-tinta outline-none" tabIndex={0} onKeyDown={aoTeclar}>
       <p className="etiqueta text-azul-marca">Laboratório · etapa 3</p>
-      <h1 className="display mt-2 text-3xl text-verde-900">A chegada e o encaixe do G</h1>
+      <h1 className="display mt-2 text-3xl text-azul-900">A chegada e o encaixe do G</h1>
 
       <div className="mt-10 w-[640px] max-w-full">
         <MarcaAnimada modo="sempre" aoPronta={aoPronta} />
       </div>
 
-      <p className="mt-3 font-mono text-xs text-verde-800/50">espaço também pausa e continua</p>
+      <p className="mt-3 font-mono text-xs text-azul-800/50">espaço também pausa e continua</p>
       <div className="mt-6 flex items-center gap-4 font-mono text-sm">
         <button
           type="button"
           onClick={() => { cena.current?.restart(); setPausado(false); }}
-          className="rounded-full border border-verde-900/30 px-5 py-2 hover:border-verde-600"
+          className="rounded-full border border-azul-900/30 px-5 py-2 hover:border-azul-600"
         >
           repetir
         </button>
@@ -53,7 +53,7 @@ export default function Laboratorio() {
             const c = cena.current; if (!c) return;
             if (c.paused()) { c.play(); setPausado(false); } else { c.pause(); setPausado(true); }
           }}
-          className="rounded-full bg-verde-700 px-5 py-2 text-creme hover:bg-verde-600"
+          className="rounded-full bg-azul-700 px-5 py-2 text-creme hover:bg-azul-600"
         >
           {pausado ? "continuar" : "pausar"}
         </button>
@@ -65,7 +65,7 @@ export default function Laboratorio() {
             className="w-72"
           />
         </label>
-        <span className="text-verde-800/60">duração {dur.toFixed(2)}s</span>
+        <span className="text-azul-800/60">duração {dur.toFixed(2)}s</span>
       </div>
     </main>
   );

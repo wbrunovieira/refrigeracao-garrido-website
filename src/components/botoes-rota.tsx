@@ -34,7 +34,7 @@ export function BotoesRota({ escuro = false }: { escuro?: boolean }) {
           className={`contorno inline-flex items-center gap-2.5 rounded-full border px-5 py-3 text-sm font-semibold ${
             escuro
               ? "border-creme/25 text-creme"
-              : "border-verde-900/15 bg-creme text-verde-900"
+              : "border-azul-900/15 bg-creme text-azul-900"
           } ${r.classes}`}
         >
           <r.Icone className="size-4.5" />

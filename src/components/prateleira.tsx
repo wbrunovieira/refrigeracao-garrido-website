@@ -23,7 +23,7 @@ export function Prateleira() {
   return (
     <div
       id="prateleira"
-      className="relative overflow-hidden border-y border-verde-600/25 bg-verde-900/70 py-5"
+      className="relative overflow-hidden border-y border-azul-600/25 bg-azul-900/70 py-5"
       aria-hidden="true"
     >
       <div className="marquise flex w-max gap-3">

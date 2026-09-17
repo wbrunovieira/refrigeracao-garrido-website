@@ -100,10 +100,10 @@ export function Cabecalho() {
   return (
     <>
     <header
-      className={`barra-topo fixed inset-x-0 top-0 z-50 overflow-hidden border-b border-verde-800
+      className={`barra-topo fixed inset-x-0 top-0 z-50 overflow-hidden border-b border-azul-800
         transition-shadow duration-500 ${
           compacto
-            ? "shadow-[0_1px_0_rgba(4,18,15,.06),0_10px_28px_-14px_rgba(4,18,15,.30)]"
+            ? "shadow-[0_1px_0_rgba(9,19,26,.06),0_10px_28px_-14px_rgba(9,19,26,.30)]"
             : "shadow-none"
         }`}
     >
@@ -151,7 +151,7 @@ export function Cabecalho() {
               aria-current={ativa === s.id ? "true" : undefined}
               style={{ "--i": i } as React.CSSProperties}
               className={`surge link-nav relative px-4 py-2 text-[15px] font-medium ${
-                ativa === s.id ? "text-verde-900" : "text-tinta/75 hover:text-verde-900"
+                ativa === s.id ? "text-azul-900" : "text-tinta/75 hover:text-azul-900"
               }`}
             >
               {s.texto}
@@ -161,14 +161,14 @@ export function Cabecalho() {
 
         {/* Estado da loja e ação ficam em um bloco próprio, longe da navegação. */}
         <div className="ml-auto flex shrink-0 items-center gap-3 sm:gap-4 lg:ml-6">
-          <span className="surge hidden h-7 w-px bg-verde-950/15 xl:block" style={{ "--i": 5 } as React.CSSProperties} aria-hidden="true" />
-          <StatusLoja className="surge hidden rounded-full border border-verde-950/18 px-3.5 py-2 xl:inline-flex" style={{ "--i": 6 } as React.CSSProperties} claro />
+          <span className="surge hidden h-7 w-px bg-azul-950/15 xl:block" style={{ "--i": 5 } as React.CSSProperties} aria-hidden="true" />
+          <StatusLoja className="surge hidden rounded-full border border-azul-950/18 px-3.5 py-2 xl:inline-flex" style={{ "--i": 6 } as React.CSSProperties} claro />
           {/* Em telas menores o status encurta: "Aberto até 18h30" cabe ao lado do menu.
               O WhatsApp no celular é o botão flutuante — não repete aqui. */}
           <StatusLoja
             curto
             claro
-            className="surge hidden rounded-full border border-verde-950/18 px-2.5 py-1 text-[0.62rem] tracking-[0.1em] min-[390px]:inline-flex sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-[0.14em] xl:hidden"
+            className="surge hidden rounded-full border border-azul-950/18 px-2.5 py-1 text-[0.62rem] tracking-[0.1em] min-[390px]:inline-flex sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-[0.14em] xl:hidden"
             style={{ "--i": 6 } as React.CSSProperties}
           />
           <a
@@ -176,7 +176,7 @@ export function Cabecalho() {
             target="_blank"
             rel="noopener noreferrer"
             style={{ "--i": 7 } as React.CSSProperties}
-            className="surge surge-botao acao hidden h-11 items-center gap-2 rounded-full bg-ouro px-5 text-sm font-semibold text-tinta shadow-[inset_0_0_0_1px_rgba(10,22,19,.12)] sm:inline-flex"
+            className="surge surge-botao acao hidden h-11 items-center gap-2 rounded-full bg-ouro px-5 text-sm font-semibold text-tinta shadow-[inset_0_0_0_1px_rgba(9,16,21,.12)] sm:inline-flex"
           >
             <Whatsapp className="size-4" />
             WhatsApp
@@ -185,7 +185,7 @@ export function Cabecalho() {
           <button
             type="button"
             onClick={() => setAberto((v) => !v)}
-            className="icone-circulo grid size-11 place-items-center rounded-full border border-verde-950/20 text-verde-900 lg:hidden"
+            className="icone-circulo grid size-11 place-items-center rounded-full border border-azul-950/20 text-azul-900 lg:hidden"
             aria-expanded={aberto}
             aria-label={aberto ? "Fechar menu" : "Abrir menu"}
           >
@@ -208,7 +208,7 @@ export function Cabecalho() {
     </header>
 
       {aberto && (
-        <div className="fixed inset-x-0 bottom-0 top-23 z-50 flex flex-col overflow-y-auto border-t border-verde-600/25 bg-verde-950 px-5 pb-10 pt-8 lg:hidden">
+        <div className="fixed inset-x-0 bottom-0 top-23 z-50 flex flex-col overflow-y-auto border-t border-azul-600/25 bg-azul-950 px-5 pb-10 pt-8 lg:hidden">
           <nav className="flex flex-col" aria-label="Seções do site">
             {secoes.map((s, i) => (
               <a
@@ -217,7 +217,7 @@ export function Cabecalho() {
                 onClick={() => setAberto(false)}
                 aria-current={ativa === s.id ? "true" : undefined}
                 style={{ "--i": i } as React.CSSProperties}
-                className={`surge surge-menu display flex items-center gap-3 border-b border-verde-600/20 py-4 text-3xl transition-colors ${
+                className={`surge surge-menu display flex items-center gap-3 border-b border-azul-600/20 py-4 text-3xl transition-colors ${
                   ativa === s.id ? "text-ouro" : "text-creme"
                 }`}
               >
@@ -233,13 +233,13 @@ export function Cabecalho() {
           </nav>
 
           <div className="mt-auto pt-10">
-            <StatusLoja className="inline-flex rounded-full border border-verde-600/40 bg-verde-900/60 px-3.5 py-2" />
+            <StatusLoja className="inline-flex rounded-full border border-azul-600/40 bg-azul-900/60 px-3.5 py-2" />
             <a
               href={whatsapp("Olá! Vim pelo site da Refrigeração Garrido.")}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setAberto(false)}
-              className="acao mt-5 flex items-center justify-center gap-2.5 rounded-full bg-ouro px-6 py-4 font-semibold text-verde-950"
+              className="acao mt-5 flex items-center justify-center gap-2.5 rounded-full bg-ouro px-6 py-4 font-semibold text-azul-950"
             >
               <Whatsapp className="size-5" />
               Falar no WhatsApp

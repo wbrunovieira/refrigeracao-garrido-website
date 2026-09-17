@@ -40,7 +40,7 @@ export function Heroi() {
               href={whatsapp("Olá! Vim pelo site da Refrigeração Garrido.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="acao group inline-flex items-center gap-2.5 rounded-full bg-linear-to-r from-ouro to-ouro-claro px-7 py-4 font-semibold text-verde-950 shadow-[0_10px_40px_-12px] shadow-ouro/60"
+              className="acao group inline-flex items-center gap-2.5 rounded-full bg-linear-to-r from-ouro to-ouro-claro px-7 py-4 font-semibold text-azul-950 shadow-[0_10px_40px_-12px] shadow-ouro/60"
             >
               <Whatsapp className="size-5" />
               Falar no WhatsApp
@@ -60,7 +60,7 @@ export function Heroi() {
 
         <div className="relative">
           {/* O toldo é a marca da loja: entra como a primeira imagem da página. */}
-          <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-verde-600/40">
+          <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-azul-600/40">
             <Image
               src="/fotos/fachada-toldo.webp"
               alt="Fachada da Refrigeração Garrido com o toldo verde e o letreiro amarelo"
@@ -70,7 +70,7 @@ export function Heroi() {
               className="object-cover"
             />
             <div
-              className="absolute inset-0 bg-linear-to-t from-verde-950 via-verde-950/25 to-transparent"
+              className="absolute inset-0 bg-linear-to-t from-azul-950 via-azul-950/25 to-transparent"
               aria-hidden="true"
             />
           </div>

@@ -25,7 +25,7 @@ export function HorizonteIcebergs({ className = "" }: { className?: string }) {
       aria-hidden="true"
       className={`pointer-events-none absolute inset-x-0 bottom-0 overflow-hidden ${className}`}
     >
-      <Icebergs className="h-auto w-full min-w-[820px] text-verde-500/12" />
+      <Icebergs className="h-auto w-full min-w-[820px] text-azul-500/12" />
     </div>
   );
 }

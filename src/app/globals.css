@@ -1,31 +1,33 @@
 @import "tailwindcss";
 
 /*
-  Paleta amostrada da própria fachada: o verde do toldo, o amarelo das letras
-  e o creme da placa. Nada aqui é inventado — é a loja em código.
+  Paleta da marca: o azul do logo do cartão (#5B87A6) é o 500; os tons escuros
+  são o mesmo matiz (205°) com menos luz, para fundo com contraste. O amarelo
+  vem das letras da fachada e o creme, da placa. A cliente pediu o site na cor
+  do logo — antes era o verde do toldo.
 */
 @theme {
-  --color-verde-950: #04120F;
-  --color-verde-900: #071C18;
-  --color-verde-800: #0B2A24;
-  --color-verde-700: #12403A;
-  --color-verde-600: #1E5A4F;
-  --color-verde-500: #2F7A68;
-  --color-verde-400: #4E9C86;
+  --color-azul-950: #09131A;
+  --color-azul-900: #101E28;
+  --color-azul-800: #182C39;
+  --color-azul-700: #274153;
+  --color-azul-600: #3E6179;
+  --color-azul-500: #5B87A6;
+  --color-azul-400: #7DA4BF;
 
   --color-ouro: #F0C048;
   --color-ouro-claro: #FFDC7A;
   --color-ouro-escuro: #C99A24;
 
-  /* Eco do azul do logo, escurecido para ter contraste sobre o creme (~4.6:1).
+  /* O azul do logo escurecido para ter contraste sobre o creme (5.3:1).
      Uso restrito aos rótulos das seções claras — em botão ou link brigaria com
      o ouro, que é a cor de ação. */
   --color-azul-marca: #3F6B88;
 
   --color-creme: #FBF6EA;
   --color-creme-2: #F1E9D7;
-  --color-aco: #B7C4BF;
-  --color-tinta: #0A1613;
+  --color-aco: #BAC3C9;
+  --color-tinta: #091015;
 
   --font-display: var(--fonte-display), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--fonte-corpo), ui-sans-serif, system-ui, sans-serif;
@@ -42,7 +44,7 @@ html {
 }
 
 body {
-  background: var(--color-verde-950);
+  background: var(--color-azul-950);
   color: var(--color-creme);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -50,7 +52,7 @@ body {
 
 ::selection {
   background: var(--color-ouro);
-  color: var(--color-verde-950);
+  color: var(--color-azul-950);
 }
 
 :focus-visible {
@@ -96,17 +98,17 @@ body {
 }
 
 .vidro {
-  background: color-mix(in oklab, var(--color-verde-800) 72%, transparent);
+  background: color-mix(in oklab, var(--color-azul-800) 72%, transparent);
   backdrop-filter: blur(14px) saturate(140%);
-  border: 1px solid color-mix(in oklab, var(--color-verde-400) 24%, transparent);
+  border: 1px solid color-mix(in oklab, var(--color-azul-400) 24%, transparent);
 }
 
 /* Brilho ambiente: a luz do toldo acesa sobre a calçada. */
 .aura {
   background:
-    radial-gradient(60% 55% at 15% 0%, color-mix(in oklab, var(--color-verde-500) 45%, transparent) 0%, transparent 70%),
+    radial-gradient(60% 55% at 15% 0%, color-mix(in oklab, var(--color-azul-500) 45%, transparent) 0%, transparent 70%),
     radial-gradient(45% 45% at 92% 18%, color-mix(in oklab, var(--color-ouro) 20%, transparent) 0%, transparent 68%),
-    radial-gradient(70% 60% at 50% 110%, color-mix(in oklab, var(--color-verde-700) 60%, transparent) 0%, transparent 72%);
+    radial-gradient(70% 60% at 50% 110%, color-mix(in oklab, var(--color-azul-700) 60%, transparent) 0%, transparent 72%);
 }
 
 .risco-ouro {
@@ -121,14 +123,14 @@ body {
   mask: url("/marca/elementos/agua.svg") repeat-x center / auto 100%;
 }
 
-/* A barra do topo: creme, mas não chapado. Um sopro do verde da página entra
+/* A barra do topo: creme, mas não chapado. Um sopro do azul da página entra
    pelo canto direito, um sopro do azul da marca sobe do rodapé da barra, e o
    creme escurece um nada para baixo. Sob o logo (à esquerda) o chão fica
    neutro: as cores originais dele precisam disso. */
 .barra-topo {
   background:
     radial-gradient(70% 180% at 100% 0%,
-      color-mix(in oklab, var(--color-verde-500) 42%, transparent) 0%, transparent 60%),
+      color-mix(in oklab, var(--color-azul-500) 42%, transparent) 0%, transparent 60%),
     radial-gradient(30% 120% at 34% -10%,
       color-mix(in oklab, var(--color-ouro) 16%, transparent) 0%, transparent 70%),
     radial-gradient(42% 140% at 62% 110%,
@@ -136,14 +138,14 @@ body {
     linear-gradient(105deg,
       var(--color-creme) 0%,
       var(--color-creme) 28%,
-      color-mix(in oklab, var(--color-creme) 86%, var(--color-verde-500)) 100%);
+      color-mix(in oklab, var(--color-creme) 86%, var(--color-azul-500)) 100%);
 }
 
-/* Fundo dos depoimentos: verde da página num canto, azul da marca no outro. */
+/* Fundo dos depoimentos: azul da página num canto, azul da marca no outro. */
 .brilho-depoimentos {
   background:
     radial-gradient(55% 60% at 0% 72%,
-      color-mix(in oklab, var(--color-verde-500) 30%, transparent) 0%, transparent 65%),
+      color-mix(in oklab, var(--color-azul-500) 30%, transparent) 0%, transparent 65%),
     radial-gradient(45% 60% at 100% 0%,
       color-mix(in oklab, var(--color-azul-marca) 22%, transparent) 0%, transparent 65%);
   /* some antes das bordas: sem linha de corte entre as seções */
@@ -199,19 +201,19 @@ html[data-anima] [data-cena="pinguim"] > [data-parte="corpo"] {
   transition-duration: 110ms;
   box-shadow: 0 4px 12px -8px color-mix(in oklab, var(--color-ouro) 60%, transparent);
 }
-/* a mesma ação em verde, sobre fundo claro */
-.acao-verde {
+/* a mesma ação em azul, sobre fundo claro */
+.acao-azul {
   transition:
     transform var(--dur-hover) var(--ease-suave),
     box-shadow var(--dur-hover) var(--ease-suave),
     background-color var(--dur-hover) var(--ease-suave);
 }
-.acao-verde:hover {
+.acao-azul:hover {
   transform: translateY(-1px);
-  background-color: var(--color-verde-600);
-  box-shadow: 0 12px 30px -12px color-mix(in oklab, var(--color-verde-700) 60%, transparent);
+  background-color: var(--color-azul-600);
+  box-shadow: 0 12px 30px -12px color-mix(in oklab, var(--color-azul-700) 60%, transparent);
 }
-.acao-verde:active { transform: translateY(0) scale(.985); transition-duration: 110ms; }
+.acao-azul:active { transform: translateY(0) scale(.985); transition-duration: 110ms; }
 
 /* botão de contorno: borda acende, fundo ganha um véu, levanta 1px */
 .contorno {
@@ -225,7 +227,7 @@ html[data-anima] [data-cena="pinguim"] > [data-parte="corpo"] {
 .contorno:hover { transform: translateY(-1px); }
 .contorno:active { transform: translateY(0) scale(.985); transition-duration: 110ms; }
 .contorno-ouro:hover  { border-color: var(--color-ouro); color: var(--color-ouro); background-color: color-mix(in oklab, var(--color-ouro) 8%, transparent); }
-.contorno-verde:hover { border-color: var(--color-verde-600); color: var(--color-verde-700); background-color: color-mix(in oklab, var(--color-verde-600) 7%, transparent); }
+.contorno-azul:hover { border-color: var(--color-azul-600); color: var(--color-azul-700); background-color: color-mix(in oklab, var(--color-azul-600) 7%, transparent); }
 
 /* link de navegação: sublinhado que cresce a partir da esquerda */
 .link-nav { position: relative; transition: color var(--dur-hover) var(--ease-suave); }
@@ -264,7 +266,7 @@ html[data-anima] [data-cena="pinguim"] > [data-parte="corpo"] {
     border-color var(--dur-hover) var(--ease-suave),
     color var(--dur-hover) var(--ease-suave);
 }
-.icone-circulo:hover { transform: translateY(-1px); background-color: var(--color-ouro); border-color: var(--color-ouro); color: var(--color-verde-950); }
+.icone-circulo:hover { transform: translateY(-1px); background-color: var(--color-ouro); border-color: var(--color-ouro); color: var(--color-azul-950); }
 .icone-circulo:active { transform: translateY(0) scale(.95); transition-duration: 110ms; }
 
 /* seta que acompanha: deslocamento com o mesmo easing */
@@ -272,8 +274,8 @@ html[data-anima] [data-cena="pinguim"] > [data-parte="corpo"] {
 .group:hover .seta-vai { transform: translateX(4px); }
 
 @media (prefers-reduced-motion: reduce) {
-  .acao, .acao-verde, .contorno, .cartao, .icone-circulo, .link-nav::after, .seta-vai { transition: none; }
-  .acao:hover, .acao-verde:hover, .contorno:hover, .cartao:hover, .icone-circulo:hover { transform: none; }
+  .acao, .acao-azul, .contorno, .cartao, .icone-circulo, .link-nav::after, .seta-vai { transition: none; }
+  .acao:hover, .acao-azul:hover, .contorno:hover, .cartao:hover, .icone-circulo:hover { transform: none; }
 }
 
 /* --- Movimento --------------------------------------------------------- */

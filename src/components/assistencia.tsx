@@ -25,25 +25,25 @@ function chamado(s: Servico) {
 
 function Linha({ servico }: { servico: Servico }) {
   return (
-    <li className="border-t border-verde-900/10 first:border-t-0">
+    <li className="border-t border-azul-900/10 first:border-t-0">
       <a
         href={chamado(servico)}
         target="_blank"
         rel="noopener noreferrer"
         className="group flex items-center gap-5 py-5 transition-[padding] duration-[var(--dur-hover)] ease-[var(--ease-suave)] hover:pl-3"
       >
-        <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-verde-900/6 text-verde-700 transition-[background-color,color,transform] duration-[var(--dur-hover)] ease-[var(--ease-suave)] group-hover:-translate-y-0.5 group-hover:bg-verde-700 group-hover:text-creme">
+        <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-azul-900/6 text-azul-700 transition-[background-color,color,transform] duration-[var(--dur-hover)] ease-[var(--ease-suave)] group-hover:-translate-y-0.5 group-hover:bg-azul-700 group-hover:text-creme">
           <servico.Icone className="size-6" />
         </span>
 
         <span className="min-w-0 flex-1">
-          <span className="display block text-xl text-verde-900 sm:text-2xl">{servico.nome}</span>
-          <span className="mt-1 block text-sm leading-relaxed text-verde-800/65">
+          <span className="display block text-xl text-azul-900 sm:text-2xl">{servico.nome}</span>
+          <span className="mt-1 block text-sm leading-relaxed text-azul-800/65">
             {servico.descricao}
           </span>
         </span>
 
-        <span className="etiqueta hidden shrink-0 items-center gap-2 text-verde-700 opacity-0 transition-[opacity,transform] duration-[var(--dur-hover)] ease-[var(--ease-suave)] translate-x-1 group-hover:translate-x-0 group-hover:opacity-100 sm:flex">
+        <span className="etiqueta hidden shrink-0 items-center gap-2 text-azul-700 opacity-0 transition-[opacity,transform] duration-[var(--dur-hover)] ease-[var(--ease-suave)] translate-x-1 group-hover:translate-x-0 group-hover:opacity-100 sm:flex">
           Chamar
           <Seta className="size-4" />
         </span>
@@ -61,12 +61,12 @@ export function Assistencia() {
           {/* Coluna fixa: o argumento fica à vista enquanto a lista rola. */}
           <div className="lg:sticky lg:top-28 lg:self-start" data-revelar>
             <p className="etiqueta text-azul-marca">Assistência técnica</p>
-            <h2 className="display mt-4 text-[clamp(2.25rem,5vw,3.5rem)] text-verde-900">
+            <h2 className="display mt-4 text-[clamp(2.25rem,5vw,3.5rem)] text-azul-900">
               Quando a peça
               <br />
               não resolve sozinha.
             </h2>
-            <p className="mt-6 leading-relaxed text-verde-800/75">
+            <p className="mt-6 leading-relaxed text-azul-800/75">
               Nem tudo é troca de peça. A gente atende residência e comércio em{" "}
               {negocio.endereco.cidade} e região — diagnóstico, conserto e instalação
               feitos por quem faz isso há décadas.
@@ -78,14 +78,14 @@ export function Assistencia() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="acao-verde group mt-8 inline-flex items-center gap-2.5 rounded-full bg-verde-700 px-7 py-4 font-semibold text-creme"
+              className="acao-azul group mt-8 inline-flex items-center gap-2.5 rounded-full bg-azul-700 px-7 py-4 font-semibold text-creme"
             >
               <Whatsapp className="size-5" />
               Descrever o problema
               <Seta className="seta-vai size-4" />
             </a>
 
-            <p className="mt-8 border-t border-verde-900/10 pt-6 text-sm leading-relaxed text-verde-800/55">
+            <p className="mt-8 border-t border-azul-900/10 pt-6 text-sm leading-relaxed text-azul-800/55">
               Toque em um equipamento ao lado e o WhatsApp já abre com o chamado
               começado.
             </p>
@@ -95,9 +95,9 @@ export function Assistencia() {
             {grupos.map((g, i) => (
               <div key={g.chave} data-revelar data-atraso={i * 120}>
                 <div className="flex items-baseline gap-4">
-                  <h3 className="display text-lg text-verde-900">{g.titulo}</h3>
-                  <span className="h-px flex-1 bg-verde-900/15" aria-hidden="true" />
-                  <span className="etiqueta text-verde-800/45">{g.nota}</span>
+                  <h3 className="display text-lg text-azul-900">{g.titulo}</h3>
+                  <span className="h-px flex-1 bg-azul-900/15" aria-hidden="true" />
+                  <span className="etiqueta text-azul-800/45">{g.nota}</span>
                 </div>
 
                 <ul className="mt-2">

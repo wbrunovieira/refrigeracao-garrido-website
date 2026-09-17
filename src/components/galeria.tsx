@@ -55,7 +55,7 @@ export function Galeria() {
               key={f.src}
               data-revelar
               data-atraso={i * 55}
-              className={`cartao group relative overflow-hidden rounded-xl border border-verde-600/25 hover:border-verde-500/50 ${f.largura ?? ""}`}
+              className={`cartao group relative overflow-hidden rounded-xl border border-azul-600/25 hover:border-azul-500/50 ${f.largura ?? ""}`}
             >
               <Image
                 src={f.src}
@@ -64,7 +64,7 @@ export function Galeria() {
                 sizes="(max-width: 768px) 50vw, 25vw"
                 className="object-cover transition-transform duration-700 ease-[var(--ease-suave)] group-hover:scale-[1.06]"
               />
-              <figcaption className="absolute inset-x-0 bottom-0 translate-y-full bg-linear-to-t from-verde-950 to-transparent p-4 text-xs text-creme/90 transition-transform duration-[var(--dur-hover)] ease-[var(--ease-suave)] group-hover:translate-y-0">
+              <figcaption className="absolute inset-x-0 bottom-0 translate-y-full bg-linear-to-t from-azul-950 to-transparent p-4 text-xs text-creme/90 transition-transform duration-[var(--dur-hover)] ease-[var(--ease-suave)] group-hover:translate-y-0">
                 {f.alt}
               </figcaption>
             </figure>

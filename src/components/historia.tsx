@@ -16,7 +16,7 @@ export function Historia() {
 
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
         <div className="relative order-2 lg:order-1">
-          <div className="foto-chega relative aspect-4/3 overflow-hidden rounded-[2rem] border border-verde-600/40" data-revelar>
+          <div className="foto-chega relative aspect-4/3 overflow-hidden rounded-[2rem] border border-azul-600/40" data-revelar>
             <Image
               src="/fotos/equipe-fachada.webp"
               alt="Equipe da Refrigeração Garrido na porta da loja, sob o letreiro"
@@ -25,7 +25,7 @@ export function Historia() {
               className="object-cover"
             />
           </div>
-          <div className="foto-chega relative -mt-10 ml-6 mr-2 aspect-3/2 overflow-hidden rounded-2xl border border-verde-600/40 sm:ml-16 sm:w-2/3" data-revelar data-atraso="220">
+          <div className="foto-chega relative -mt-10 ml-6 mr-2 aspect-3/2 overflow-hidden rounded-2xl border border-azul-600/40 sm:ml-16 sm:w-2/3" data-revelar data-atraso="220">
             <Image
               src="/fotos/equipe-balcao.webp"
               alt="Atendimento no balcão da loja, conferindo peças em uma caixa"
@@ -62,7 +62,7 @@ export function Historia() {
             atendimento que não empurra o que você não precisa.
           </p>
 
-          <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-verde-600/30 pt-8">
+          <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-azul-600/30 pt-8">
             {fatos.map((f, i) => (
               <div key={f.rotulo} className="flex flex-col-reverse gap-2" data-revelar data-atraso={420 + i * 90}>
                 <dt className="etiqueta text-aco/55">{f.rotulo}</dt>

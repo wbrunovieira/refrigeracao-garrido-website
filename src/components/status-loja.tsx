@@ -51,7 +51,7 @@ export function StatusLoja({
   style,
 }: {
   className?: string;
-  /** Sobre fundo claro o ouro não tem contraste; o verde assume. */
+  /** Sobre fundo claro o ouro não tem contraste; o azul assume. */
   claro?: boolean;
   /** Versão curta para espaços apertados: "Aberto até 18h30". */
   curto?: boolean;
@@ -63,7 +63,7 @@ export function StatusLoja({
 
   if (!chave) {
     return (
-      <span className={`etiqueta ${claro ? "text-verde-800/60" : "text-aco/60"} ${className}`} style={style}>
+      <span className={`etiqueta ${claro ? "text-azul-800/60" : "text-aco/60"} ${className}`} style={style}>
         Horário da loja
       </span>
     );
@@ -75,7 +75,7 @@ export function StatusLoja({
     <span className={`items-center gap-2 etiqueta ${className}`} style={style}>
       <span
         className={`ponto-vivo size-2 rounded-full ${
-          estado.aberto ? (claro ? "bg-verde-500" : "bg-ouro") : claro ? "bg-verde-800/35" : "bg-aco/50"
+          estado.aberto ? (claro ? "bg-azul-500" : "bg-ouro") : claro ? "bg-azul-800/35" : "bg-aco/50"
         }`}
         aria-hidden="true"
       />
@@ -83,10 +83,10 @@ export function StatusLoja({
         className={
           estado.aberto
             ? claro
-              ? "text-verde-700"
+              ? "text-azul-700"
               : "text-ouro-claro"
             : claro
-              ? "text-verde-800/70"
+              ? "text-azul-800/70"
               : "text-aco/80"
         }
       >

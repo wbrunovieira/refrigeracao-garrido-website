@@ -33,10 +33,10 @@ export default function EmConstrucao() {
         <MarcaAnimada modo="sempre" className="mx-auto h-32 w-auto sm:h-40" />
 
         <p className="etiqueta mt-10 text-azul-marca">Site em construção</p>
-        <h1 className="display mt-4 text-[clamp(1.9rem,4.5vw,3rem)] text-verde-900">
+        <h1 className="display mt-4 text-[clamp(1.9rem,4.5vw,3rem)] text-azul-900">
           A loja continua aberta.
         </h1>
-        <p className="mx-auto mt-5 max-w-lg leading-relaxed text-verde-800/75">
+        <p className="mx-auto mt-5 max-w-lg leading-relaxed text-azul-800/75">
           Estamos preparando o site novo. Enquanto isso, é só chamar — há{" "}
           {anosDeCasa()} anos no mesmo balcão, no Centro de {negocio.endereco.cidade}.
         </p>
@@ -46,7 +46,7 @@ export default function EmConstrucao() {
             href={whatsapp("Olá! Vim pelo site da Refrigeração Garrido.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="acao inline-flex items-center gap-2.5 rounded-full bg-ouro px-7 py-4 font-semibold text-tinta shadow-[inset_0_0_0_1px_rgba(10,22,19,.12)]"
+            className="acao inline-flex items-center gap-2.5 rounded-full bg-ouro px-7 py-4 font-semibold text-tinta shadow-[inset_0_0_0_1px_rgba(9,16,21,.12)]"
           >
             <Whatsapp className="size-5" />
             Falar no WhatsApp
@@ -55,16 +55,16 @@ export default function EmConstrucao() {
             href={negocio.mapa}
             target="_blank"
             rel="noopener noreferrer"
-            className="contorno contorno-verde inline-flex items-center gap-2.5 rounded-full border border-verde-900/20 px-7 py-4 font-medium text-verde-900"
+            className="contorno contorno-azul inline-flex items-center gap-2.5 rounded-full border border-azul-900/20 px-7 py-4 font-medium text-azul-900"
           >
             <Pino className="size-4.5" />
             Como chegar
           </a>
         </div>
 
-        <dl className="mx-auto mt-12 grid max-w-xl gap-6 border-t border-verde-900/12 pt-8 text-left sm:grid-cols-3">
+        <dl className="mx-auto mt-12 grid max-w-xl gap-6 border-t border-azul-900/12 pt-8 text-left sm:grid-cols-3">
           <div>
-            <dt className="etiqueta flex items-center gap-2 text-verde-800/50">
+            <dt className="etiqueta flex items-center gap-2 text-azul-800/50">
               <Telefone className="size-3.5" /> Telefone
             </dt>
             <dd className="mt-2 space-y-1">
@@ -72,7 +72,7 @@ export default function EmConstrucao() {
                 <a
                   key={t.numero}
                   href={t.href}
-                  className="link-texto block font-mono text-sm text-verde-900 hover:text-verde-600"
+                  className="link-texto block font-mono text-sm text-azul-900 hover:text-azul-600"
                 >
                   {t.numero}
                 </a>
@@ -80,20 +80,20 @@ export default function EmConstrucao() {
             </dd>
           </div>
           <div>
-            <dt className="etiqueta flex items-center gap-2 text-verde-800/50">
+            <dt className="etiqueta flex items-center gap-2 text-azul-800/50">
               <Pino className="size-3.5" /> Endereço
             </dt>
-            <dd className="mt-2 text-sm leading-relaxed text-verde-900">
+            <dd className="mt-2 text-sm leading-relaxed text-azul-900">
               {negocio.endereco.rua}
               <br />
               {negocio.endereco.bairro} · {negocio.endereco.cidade}/{negocio.endereco.uf}
             </dd>
           </div>
           <div>
-            <dt className="etiqueta flex items-center gap-2 text-verde-800/50">
+            <dt className="etiqueta flex items-center gap-2 text-azul-800/50">
               <Relogio className="size-3.5" /> Horário
             </dt>
-            <dd className="mt-2 text-sm leading-relaxed text-verde-900">
+            <dd className="mt-2 text-sm leading-relaxed text-azul-900">
               Seg a sex, {horaLegivel(horarios[1].abre!)} às {horaLegivel(horarios[1].fecha!)}
               <br />
               Sáb, {horaLegivel(horarios[6].abre!)} às {horaLegivel(horarios[6].fecha!)}
@@ -107,14 +107,14 @@ export default function EmConstrucao() {
             href={negocio.instagram.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="link-texto inline-flex items-center gap-2 text-sm text-verde-800/70 hover:text-verde-600"
+            className="link-texto inline-flex items-center gap-2 text-sm text-azul-800/70 hover:text-azul-600"
           >
             <Instagram className="size-4" />
             {negocio.instagram.handle}
           </a>
           <a
             href={`mailto:${negocio.email}`}
-            className="link-texto font-mono text-sm text-verde-800/70 hover:text-verde-600"
+            className="link-texto font-mono text-sm text-azul-800/70 hover:text-azul-600"
           >
             {negocio.email}
           </a>

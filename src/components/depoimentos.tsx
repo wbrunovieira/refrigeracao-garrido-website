@@ -34,7 +34,7 @@ function Estrelas({ n, className = "size-4" }: { n: number; className?: string }
 export function Depoimentos() {
   return (
     <section id="depoimentos" className="relative overflow-hidden py-24 sm:py-28">
-      {/* um sopro de luz: o verde da página num canto, o azul da marca no outro */}
+      {/* um sopro de luz: o azul da página num canto, o azul da marca no outro */}
       <div className="brilho-depoimentos absolute inset-0 -z-10" aria-hidden="true" />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -49,7 +49,7 @@ export function Depoimentos() {
           <figure
             data-revelar
             data-atraso={120}
-            className="relative rounded-3xl border border-verde-600/30 bg-verde-900/50 p-8 sm:p-10 lg:col-span-2"
+            className="relative rounded-3xl border border-azul-600/30 bg-azul-900/50 p-8 sm:p-10 lg:col-span-2"
           >
             <span
               className="aspas display absolute -top-3 left-7 text-7xl leading-none text-ouro/45"
@@ -61,7 +61,7 @@ export function Depoimentos() {
             <blockquote className="mt-5 text-lg leading-relaxed text-creme/85 sm:text-xl">
               {destaque.texto}
             </blockquote>
-            <figcaption className="mt-6 border-t border-verde-600/25 pt-4">
+            <figcaption className="mt-6 border-t border-azul-600/25 pt-4">
               <p className="font-medium text-creme">{destaque.autor}</p>
               <p className="etiqueta mt-1 text-aco/50">{destaque.origem}</p>
             </figcaption>
@@ -87,7 +87,7 @@ export function Depoimentos() {
               href={negocio.google.avaliar}
               target="_blank"
               rel="noopener noreferrer"
-              className="acao group mt-8 inline-flex w-fit items-center gap-2.5 rounded-full bg-ouro px-6 py-3.5 font-semibold text-verde-950"
+              className="acao group mt-8 inline-flex w-fit items-center gap-2.5 rounded-full bg-ouro px-6 py-3.5 font-semibold text-azul-950"
             >
               Avaliar no Google
               <Seta className="seta-vai size-4" />
@@ -99,7 +99,7 @@ export function Depoimentos() {
               key={d.autor}
               data-revelar
               data-atraso={360 + i * 90}
-              className="relative rounded-3xl border border-verde-600/30 bg-verde-900/40 p-7"
+              className="relative rounded-3xl border border-azul-600/30 bg-azul-900/40 p-7"
             >
               <span
                 className="aspas display absolute -top-2 left-6 text-5xl leading-none text-ouro/40"
