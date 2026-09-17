@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Instrument_Sans, Space_Mono } from "next/font/google";
-import { negocio, anosDeCasa, horarios, horaLegivel } from "@/lib/negocio";
+import { negocio, horarios, horaLegivel } from "@/lib/negocio";
 import "./globals.css";
 
 const display = Bricolage_Grotesque({
@@ -23,18 +23,22 @@ const mono = Space_Mono({
 });
 
 const site = "https://refrigeracaogarrido.com.br";
-const descricao = `Há ${anosDeCasa()} anos no Centro de Petrópolis. Peças de reposição, refrigeração comercial, cozinha industrial e assistência técnica no balcão da Rua Marechal Floriano Peixoto, 192.`;
+// Até 160 caracteres, com o que a pessoa busca e o que a loja é — nesta ordem.
+const descricao = `Peças para geladeira, máquina de lavar e secadora no balcão, refrigeração comercial e assistência técnica. A tradição da refrigeração em Petrópolis desde ${negocio.fundacao}.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site),
   title: {
-    default: `${negocio.nome} — Peças e assistência técnica em Petrópolis`,
+    // Termo de busca primeiro, marca depois: quem procura pelo nome acha de qualquer jeito.
+    default: `Peças para geladeira, máquina de lavar e secadora em Petrópolis | ${negocio.nome}`,
     template: `%s · ${negocio.nome}`,
   },
   description: descricao,
   keywords: [
     "refrigeração Petrópolis",
     "peças de geladeira Petrópolis",
+    "peças de máquina de lavar Petrópolis",
+    "peças de secadora Petrópolis",
     "assistência técnica máquina de lavar Petrópolis",
     "fogão industrial Petrópolis",
     "balcão refrigerado Petrópolis",
@@ -45,9 +49,9 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: site,
     siteName: negocio.nome,
-    title: `${negocio.nome} — desde ${negocio.fundacao} em Petrópolis`,
+    title: `${negocio.nome} — a tradição da refrigeração em Petrópolis`,
     description: descricao,
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Refrigeração Garrido — peças e assistência técnica em Petrópolis" }],
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Refrigeração Garrido — peças para geladeira, máquina de lavar e secadora em Petrópolis" }],
   },
   twitter: { card: "summary_large_image" },
   alternates: { canonical: site },

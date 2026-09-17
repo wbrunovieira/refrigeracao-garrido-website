@@ -18,18 +18,27 @@ export function Heroi() {
             {negocio.endereco.rua} · {negocio.endereco.bairro}, {negocio.endereco.cidade}
           </p>
 
-          <h1 className="display mt-6 text-[clamp(3rem,9vw,6.5rem)] text-creme">
-            Quebrou?
+          {/* H1 = o que a pessoa busca (peça + aparelho) mais a promessa da loja: está
+              no balcão, hoje. H2 = por que confiar: a tradição e a cidade. As ideias
+              vieram da própria loja; a redação é nossa. */}
+          <h1 className="display mt-6 text-wrap text-[clamp(2.25rem,4.6vw,3.6rem)] text-creme">
+            Quebrou a geladeira,
             <br />
-            A peça está
+            a máquina de lavar
             <br />
-            <span className="acende text-ouro">no balcão.</span>
+            ou a secadora?
+            <br />
+            <span className="acende text-ouro">A peça está no balcão.</span>
           </h1>
 
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-creme/75">
-            Há {anosDeCasa()} anos no Centro de Petrópolis, vendendo peça de reposição,
-            refrigeração comercial e equipamento de cozinha industrial — e consertando
-            o que dá para consertar.
+          <h2 className="mt-6 max-w-xl font-display text-[clamp(1.25rem,2.4vw,1.75rem)] font-semibold leading-snug tracking-tight text-creme/90">
+            A tradição da refrigeração em Petrópolis — há {anosDeCasa()} anos no mesmo
+            endereço do Centro.
+          </h2>
+
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-creme/75">
+            Peça de reposição na prateleira, refrigeração comercial, equipamento de
+            cozinha industrial e assistência técnica de quem faz isso desde {negocio.fundacao}.
           </p>
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-creme">
             Você descreve o problema, a gente acha a peça.
