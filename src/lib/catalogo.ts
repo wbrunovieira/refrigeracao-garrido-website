@@ -59,8 +59,11 @@ export const gavetas: Gaveta[] = [
       "Filtros secadores",
       "Gás refrigerante",
     ],
-    foto: "/fotos/fachada-toldo.webp",
-    alt: "Fachada da Refrigeração Garrido na Rua Marechal Floriano Peixoto",
+    // A única foto que não é da loja: aqui o que importa é o equipamento em uso,
+    // e a fachada já aparece no herói e na galeria. CC0 (rawpixel/Wikimedia
+    // Commons), sem exigência de crédito.
+    foto: "/fotos/balcao-refrigerado.webp",
+    alt: "Balcão frigorífico com prateleiras de vidro cheias de mercadoria",
     Icone: BalcaoRefrigerado,
   },
   {
