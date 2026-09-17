@@ -224,4 +224,12 @@ export const marcas = [
   { nome: "Metalúrgica Alado", logo: "/marcas/alado.png", largura: 1000, altura: 296 },
   { nome: "CP Placas Eletrônicas", logo: "/marcas/cp-placas-eletronicas.svg", largura: 352, altura: 139 },
   { nome: "Alumínio Nacional", logo: "/marcas/aluminio-nacional.png", largura: 800, altura: 239 },
+  // Marcas de eletrodomésticos que a loja atende (lista da cliente, 09/2026). Logos em SVG
+  // do Wikimedia Commons (domínio público / marca registrada dos fabricantes).
+  { nome: "Brastemp", logo: "/marcas/brastemp.svg", largura: 500, altura: 48 },
+  { nome: "Consul", logo: "/marcas/consul.svg", largura: 500, altura: 128 },
+  { nome: "Electrolux", logo: "/marcas/electrolux.svg", largura: 436, altura: 100 },
+  { nome: "Samsung", logo: "/marcas/samsung.svg", largura: 1800, altura: 480 },
+  { nome: "LG", logo: "/marcas/lg.svg", largura: 600, altura: 275 },
+  { nome: "Midea", logo: "/marcas/midea.svg", largura: 122, altura: 47 },
 ];

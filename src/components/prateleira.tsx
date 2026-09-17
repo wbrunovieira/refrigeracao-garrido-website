@@ -36,7 +36,7 @@ export function Prateleira() {
 
       <div className="border-t border-azul-600/20" />
 
-      <Faixa rotulo="Marcas" inversa copias={6}>
+      <Faixa rotulo="Marcas" inversa copias={4}>
         {marcas.map((m) => (
           <span
             key={m.nome}
