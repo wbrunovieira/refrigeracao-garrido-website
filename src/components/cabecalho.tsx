@@ -163,7 +163,7 @@ export function Cabecalho() {
         <div className="ml-auto flex shrink-0 items-center gap-3 sm:gap-4 lg:ml-6">
           <span className="surge hidden h-7 w-px bg-azul-950/15 xl:block" style={{ "--i": 5 } as React.CSSProperties} aria-hidden="true" />
           <StatusLoja className="surge hidden rounded-full border border-azul-950/18 px-3.5 py-2 xl:inline-flex" style={{ "--i": 6 } as React.CSSProperties} claro />
-          {/* Em telas menores o status encurta: "Aberto até 18h30" cabe ao lado do menu.
+          {/* Em telas menores o status encurta: "Aberto até 18h" cabe ao lado do menu.
               O WhatsApp no celular é o botão flutuante — não repete aqui. */}
           <StatusLoja
             curto

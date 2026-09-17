@@ -65,14 +65,14 @@ export const negocio = {
  */
 export const anosDeCasa = () => new Date().getFullYear() - negocio.fundacao;
 
-/** 0 = domingo. Minutos desde a meia-noite. */
+/** 0 = domingo. Minutos desde a meia-noite. Semana até 18h, confirmado pela cliente em 09/2026. */
 export const horarios = [
   { dia: 0, rotulo: "Domingo", abre: null, fecha: null },
-  { dia: 1, rotulo: "Segunda", abre: 540, fecha: 1110 },
-  { dia: 2, rotulo: "Terça", abre: 540, fecha: 1110 },
-  { dia: 3, rotulo: "Quarta", abre: 540, fecha: 1110 },
-  { dia: 4, rotulo: "Quinta", abre: 540, fecha: 1110 },
-  { dia: 5, rotulo: "Sexta", abre: 540, fecha: 1110 },
+  { dia: 1, rotulo: "Segunda", abre: 540, fecha: 1080 },
+  { dia: 2, rotulo: "Terça", abre: 540, fecha: 1080 },
+  { dia: 3, rotulo: "Quarta", abre: 540, fecha: 1080 },
+  { dia: 4, rotulo: "Quinta", abre: 540, fecha: 1080 },
+  { dia: 5, rotulo: "Sexta", abre: 540, fecha: 1080 },
   { dia: 6, rotulo: "Sábado", abre: 540, fecha: 780 },
 ] as const;
 

@@ -53,7 +53,7 @@ export function StatusLoja({
   className?: string;
   /** Sobre fundo claro o ouro não tem contraste; o azul assume. */
   claro?: boolean;
-  /** Versão curta para espaços apertados: "Aberto até 18h30". */
+  /** Versão curta para espaços apertados: "Aberto até 18h". */
   curto?: boolean;
   style?: React.CSSProperties;
 }) {
