@@ -7,13 +7,13 @@
   do logo — antes era o verde do toldo.
 */
 @theme {
-  --color-azul-950: #0A1624;
-  --color-azul-900: #112236;
-  --color-azul-800: #1C314A;
-  --color-azul-700: #2B4564;
-  --color-azul-600: #436489;
+  --color-azul-950: #112236;
+  --color-azul-900: #192F48;
+  --color-azul-800: #243E5C;
+  --color-azul-700: #325276;
+  --color-azul-600: #486B93;
   --color-azul-500: #5B87A6;
-  --color-azul-400: #7EA1C8;
+  --color-azul-400: #84A6CD;
 
   --color-ouro: #F0C048;
   --color-ouro-claro: #FFDC7A;
