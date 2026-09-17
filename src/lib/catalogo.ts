@@ -214,7 +214,14 @@ export const servicos: Servico[] = [
 ];
 
 /**
- * Só marcas que aparecem na fachada e nos posts da loja.
- * Ampliar depois de confirmar a lista com a cliente.
+ * Só marcas que aparecem na fachada e nos posts da loja, com o logo oficial de
+ * cada uma (public/marcas, baixado do site do fabricante). "Metax" saiu da
+ * lista em 09/2026: não existe fabricante com esse nome no ramo — era leitura
+ * errada de foto; provavelmente Metvisa. Confirmar com a cliente antes de repor.
  */
-export const marcas = ["Gelopar", "Alado", "Nacional", "CP Eletrônica", "Metax"];
+export const marcas = [
+  { nome: "Gelopar", logo: "/marcas/gelopar.png", largura: 367, altura: 79 },
+  { nome: "Metalúrgica Alado", logo: "/marcas/alado.png", largura: 1000, altura: 296 },
+  { nome: "CP Placas Eletrônicas", logo: "/marcas/cp-placas-eletronicas.svg", largura: 352, altura: 139 },
+  { nome: "Alumínio Nacional", logo: "/marcas/aluminio-nacional.png", largura: 800, altura: 239 },
+];

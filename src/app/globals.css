@@ -325,6 +325,10 @@ html[data-anima] [data-cena="pinguim"] > [data-parte="corpo"] {
 .marquise {
   animation: deslizar 34s linear infinite;
 }
+/* as marcas passam no sentido contrário e mais devagar: vitrine, não prateleira */
+.marquise-inversa {
+  animation: deslizar 46s linear infinite reverse;
+}
 
 .mareja {
   animation: marejar 80s linear infinite;
@@ -388,6 +392,7 @@ html:not(.js-ativo) .risco-cresce::before { transform: none; }
   .entrada > *,
   .acende,
   .marquise,
+  .marquise-inversa,
   .ponto-vivo,
   .mareja,
   .surge {
