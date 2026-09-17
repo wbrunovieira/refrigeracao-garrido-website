@@ -2,18 +2,18 @@
 
 /*
   Paleta da marca: o azul do logo do cartão (#5B87A6) é o 500; os tons escuros
-  são o mesmo matiz (205°) com menos luz, para fundo com contraste. O amarelo
+  são um azul franco (212°), mais saturado, com menos luz, para fundo com contraste. O amarelo
   vem das letras da fachada e o creme, da placa. A cliente pediu o site na cor
   do logo — antes era o verde do toldo.
 */
 @theme {
-  --color-azul-950: #09131A;
-  --color-azul-900: #101E28;
-  --color-azul-800: #182C39;
-  --color-azul-700: #274153;
-  --color-azul-600: #3E6179;
+  --color-azul-950: #0A1624;
+  --color-azul-900: #112236;
+  --color-azul-800: #1C314A;
+  --color-azul-700: #2B4564;
+  --color-azul-600: #436489;
   --color-azul-500: #5B87A6;
-  --color-azul-400: #7DA4BF;
+  --color-azul-400: #7EA1C8;
 
   --color-ouro: #F0C048;
   --color-ouro-claro: #FFDC7A;
@@ -26,8 +26,8 @@
 
   --color-creme: #FBF6EA;
   --color-creme-2: #F1E9D7;
-  --color-aco: #BAC3C9;
-  --color-tinta: #091015;
+  --color-aco: #BCC6D2;
+  --color-tinta: #0A141F;
 
   --font-display: var(--fonte-display), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--fonte-corpo), ui-sans-serif, system-ui, sans-serif;
