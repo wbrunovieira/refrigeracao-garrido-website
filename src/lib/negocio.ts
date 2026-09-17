@@ -31,6 +31,8 @@ export const negocio = {
   inscricaoMunicipal: "4733",
   email: "refrigeracaogarrido@yahoo.com.br",
   fundacao: 1971,
+  /** Mês de fundação (1 = janeiro), informado pela cliente. */
+  fundacaoMes: 1,
   chamada: "Peças, equipamentos e assistência técnica em Petrópolis",
   endereco: {
     /** A loja ocupa três números; o cartão diz "192 a 212". */
@@ -60,10 +62,23 @@ export const negocio = {
 } as const;
 
 /**
- * Calculado a cada chamada, não ao carregar o módulo: com a página
- * regenerada todo dia (revalidate), o número vira sozinho na virada do ano.
+ * Anos completos desde a fundação (janeiro de 1971), na hora de Petrópolis.
+ *
+ * Calculado a cada chamada, não ao carregar o módulo: com a página regenerada
+ * todo dia (revalidate), o número vira sozinho no aniversário. O mês entra na
+ * conta para o site nunca anunciar um ano que ainda não completou.
  */
-export const anosDeCasa = () => new Date().getFullYear() - negocio.fundacao;
+export function anosDeCasa() {
+  const [ano, mes] = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Sao_Paulo",
+    year: "numeric",
+    month: "2-digit",
+  })
+    .format(new Date())
+    .split("-")
+    .map(Number);
+  return ano - negocio.fundacao - (mes < negocio.fundacaoMes ? 1 : 0);
+}
 
 /** 0 = domingo. Minutos desde a meia-noite. Semana até 18h, confirmado pela cliente em 09/2026. */
 export const horarios = [
