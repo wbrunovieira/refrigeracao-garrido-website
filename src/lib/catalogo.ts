@@ -187,8 +187,8 @@ export type Servico = {
 
 /**
  * Assistência técnica. O cartão declara consertos em geladeiras domésticas e
- * comerciais, máquinas de lavar e secadoras. Balcão, câmara fria, fogão e
- * ar-condicionado são inferidos — confirmar com a cliente.
+ * comerciais, máquinas de lavar, secadoras e lava e seca. Balcão, câmara fria,
+ * fogão e ar-condicionado são inferidos — confirmar com a cliente.
  */
 export const servicos: Servico[] = [
   {
@@ -206,6 +206,14 @@ export const servicos: Servico[] = [
     chamado: "Minha máquina de lavar (ou secadora) está com problema.",
     publico: "residencia",
     Icone: MaquinaLavar,
+  },
+  {
+    id: "lava-e-seca",
+    nome: "Lava e seca",
+    descricao: "Lava mas não seca, para no meio do ciclo, não aquece ou dá erro no painel.",
+    chamado: "Minha lava e seca está com problema.",
+    publico: "residencia",
+    Icone: LavaESeca,
   },
   {
     id: "balcao",
