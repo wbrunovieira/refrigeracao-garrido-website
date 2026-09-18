@@ -55,7 +55,17 @@ export const metadata: Metadata = {
     siteName: negocio.nome,
     title: `${negocio.nome} — a tradição da refrigeração em Petrópolis`,
     description: descricao,
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Refrigeração Garrido — peças para geladeira, máquina de lavar e secadora em Petrópolis" }],
+    /*
+     * Duas artes, e a ordem importa: o WhatsApp usa a primeira que serve, e a
+     * quadrada e leve (25 KB) é a que ele mostra como prévia pequena ao lado
+     * do texto. A larga fica para o Facebook, o LinkedIn e o X, que montam o
+     * cartão grande. Para trocar o formato da prévia no WhatsApp, basta
+     * inverter a ordem.
+     */
+    images: [
+      { url: "/og-quadrado.jpg", width: 600, height: 600, alt: "Marca da Refrigeração Garrido — a peça está no balcão" },
+      { url: "/og.jpg", width: 1200, height: 630, alt: "Refrigeração Garrido — peças para geladeira, máquina de lavar e secadora em Petrópolis" },
+    ],
   },
   twitter: { card: "summary_large_image" },
   alternates: { canonical: site },
