@@ -13,7 +13,7 @@ export function Visite() {
   )}&z=17&output=embed`;
 
   return (
-    <section id="visite" className="painel relative py-24 sm:py-32">
+    <section id="visite" className="painel fundo-catedral relative overflow-hidden py-24 sm:py-32">
       <LinhaDagua className="absolute inset-x-0 top-6 text-azul-marca/25" />
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-6" data-revelar>

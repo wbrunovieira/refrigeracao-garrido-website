@@ -11,7 +11,7 @@ const fatos: { valor: string; rotulo: string; conta?: number }[] = [
 
 export function Historia() {
   return (
-    <section id="historia" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="historia" className="fundo-catedral relative overflow-hidden py-24 sm:py-32">
       <div className="aura absolute inset-0 -z-10 opacity-60" aria-hidden="true" />
 
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">

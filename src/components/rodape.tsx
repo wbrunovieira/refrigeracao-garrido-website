@@ -81,7 +81,30 @@ export function Rodape() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-azul-600/25 pt-7 text-xs text-aco/45 sm:flex-row sm:items-center sm:justify-between">
+        {/* A licença da foto da Catedral (CC BY) exige crédito ao autor: é aqui. */}
+        <p className="mt-12 text-[11px] leading-relaxed text-aco/35">
+          Foto da Catedral de São Pedro de Alcântara ao fundo:{" "}
+          <a
+            href="https://commons.wikimedia.org/w/index.php?curid=127485057"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-texto hover:text-aco/60"
+          >
+            Rodrigo Soldon
+          </a>
+          , sob licença{" "}
+          <a
+            href="https://creativecommons.org/licenses/by/2.0/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-texto hover:text-aco/60"
+          >
+            CC BY 2.0
+          </a>
+          .
+        </p>
+
+        <div className="mt-6 flex flex-col gap-3 border-t border-azul-600/25 pt-7 text-xs text-aco/45 sm:flex-row sm:items-center sm:justify-between">
           <p>
             {negocio.razaoSocial} · CNPJ {negocio.cnpj} · IE {negocio.inscricaoEstadual} · Insc.
             Municipal {negocio.inscricaoMunicipal} · © {new Date().getFullYear()}

@@ -155,6 +155,36 @@ body {
 .js-ativo [data-revelar] .aspas { transform: scale(.4) rotate(-8deg); opacity: 0; transition: transform .9s cubic-bezier(.16,1,.3,1) .25s, opacity .6s ease .25s; }
 .js-ativo [data-revelar="visivel"] .aspas { transform: none; opacity: 1; }
 
+/*
+ * Petrópolis ao fundo: a torre da Catedral, bem apagada, atrás de duas seções.
+ * É lastro de lugar, não ilustração — por isso entra como camada decorativa
+ * com máscara nas bordas, para não brigar com o texto nem cortar seco.
+ */
+.fundo-catedral::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("/fotos/catedral-petropolis.webp") center 28% / cover no-repeat;
+  opacity: 0.16;
+  mask-image: linear-gradient(to bottom, transparent, #000 22%, #000 72%, transparent);
+  pointer-events: none;
+}
+/*
+ * No painel claro o fundo próprio da seção é pintado pelo elemento, então uma
+ * camada em z-index negativo fica ATRÁS dele e some. Aqui o ::before sobe para
+ * o nível zero e o conteúdo é que ganha posição — fica entre o creme e o texto.
+ */
+.painel.fundo-catedral::before {
+  z-index: 0;
+  opacity: 0.1;
+  mix-blend-mode: multiply;
+}
+.painel.fundo-catedral > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* Textura de serralheria: listras finas na diagonal, bem discretas. */
 .hachura {
   background-image: repeating-linear-gradient(
