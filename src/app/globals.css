@@ -185,6 +185,12 @@ body {
   z-index: 1;
 }
 
+/* O pinguim que atravessa o rodapé anda no chão da página: o bloco de gelo do
+   logo fica de fora, senão ele arrastaria a pedra junto a cada passo. */
+.pinguim-anda [data-parte="gelo"] {
+  display: none;
+}
+
 /* Textura de serralheria: listras finas na diagonal, bem discretas. */
 .hachura {
   background-image: repeating-linear-gradient(

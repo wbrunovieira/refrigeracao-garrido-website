@@ -1,4 +1,6 @@
 import { AssinaturaWB } from "@/components/assinatura-wb";
+import { LinhaDagua } from "@/components/cenario";
+import { PinguimAndando } from "@/components/pinguim-andando";
 import { Marca } from "@/components/marca";
 import { Instagram, Whatsapp } from "@/components/icones";
 import { negocio, whatsapp } from "@/lib/negocio";
@@ -12,7 +14,7 @@ const secoes = [
 
 export function Rodape() {
   return (
-    <footer id="rodape" className="border-t border-azul-600/25 bg-azul-950 pb-10 pt-16">
+    <footer id="rodape" className="overflow-hidden border-t border-azul-600/25 bg-azul-950 pb-6 pt-16">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
@@ -111,6 +113,12 @@ export function Rodape() {
           </p>
           <AssinaturaWB className="text-creme/70" />
         </div>
+      </div>
+
+      {/* A faixa onde o pinguim passeia: água do logo no chão, ele por cima. */}
+      <div className="relative mt-8 h-24 sm:h-28">
+        <LinhaDagua className="absolute inset-x-0 bottom-0 text-azul-500/25" />
+        <PinguimAndando className="absolute inset-0" />
       </div>
     </footer>
   );
