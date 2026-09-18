@@ -12,7 +12,7 @@ type Props = {
 export function AssinaturaWB({ className = "", variante = "moldura" }: Props) {
   return (
     <div className={`flex flex-col items-center gap-2 sm:flex-row sm:gap-3 ${className}`}>
-      <span className="flex items-center gap-2 text-[0.7rem] opacity-60 sm:text-xs">
+      <span className="flex items-center gap-2 text-[0.7rem] opacity-80 sm:text-xs">
         <span className="font-light">Desenvolvido com</span>
         <span className="relative inline-flex">
           <svg viewBox="0 0 24 24" className="size-3 animate-pulse fill-current sm:size-3.5" role="img" aria-label="amor">

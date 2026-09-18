@@ -23,7 +23,7 @@ const curtos = [
 
 function Estrelas({ n, className = "size-4" }: { n: number; className?: string }) {
   return (
-    <div className="flex gap-0.5 text-ouro" aria-label={`${n} de 5 estrelas`}>
+    <div className="flex gap-0.5 text-ouro" role="img" aria-label={`${n} de 5 estrelas`}>
       {[1, 2, 3, 4, 5].map((i) => (
         <Estrela key={i} className={className} preenchida={i <= n ? 1 : 0} />
       ))}
@@ -63,7 +63,7 @@ export function Depoimentos() {
             </blockquote>
             <figcaption className="mt-6 border-t border-azul-600/25 pt-4">
               <p className="font-medium text-creme">{destaque.autor}</p>
-              <p className="etiqueta mt-1 text-aco/50">{destaque.origem}</p>
+              <p className="etiqueta mt-1 text-aco/75">{destaque.origem}</p>
             </figcaption>
           </figure>
 
@@ -111,7 +111,7 @@ export function Depoimentos() {
               <blockquote className="mt-4 text-lg leading-snug text-creme/85">{d.texto}</blockquote>
               <figcaption className="mt-5">
                 <p className="font-medium text-creme">{d.autor}</p>
-                <p className="etiqueta mt-1 text-aco/50">{d.origem}</p>
+                <p className="etiqueta mt-1 text-aco/75">{d.origem}</p>
               </figcaption>
             </figure>
           ))}

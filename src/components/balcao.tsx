@@ -76,7 +76,7 @@ export function Balcao() {
                     }`}
                   />
                   <span className="min-w-0 flex-1">
-                    <span className="etiqueta block text-aco/50">
+                    <span className="etiqueta block text-aco/75">
                       Gav. {String(i + 1).padStart(2, "0")}
                     </span>
                     <span

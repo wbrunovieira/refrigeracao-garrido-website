@@ -48,6 +48,9 @@ export function Prateleira() {
               alt={m.nome}
               width={m.largura}
               height={m.altura}
+              // A cartela mostra o logo com 28px de altura; sem isto o Next
+              // servia a imagem em 2048px de largura para caber num polegar.
+              sizes="140px"
               className="h-7 w-auto"
             />
           </span>
@@ -81,7 +84,7 @@ function Faixa({
 }) {
   return (
     <div className="flex items-stretch">
-      <span className="etiqueta relative z-10 flex w-32 shrink-0 items-center bg-azul-900 pl-5 text-aco/60 sm:w-44 sm:pl-8">
+      <span className="etiqueta relative z-10 flex w-32 shrink-0 items-center bg-azul-900 pl-5 text-aco/80 sm:w-44 sm:pl-8">
         {rotulo}
         <span
           className="pointer-events-none absolute inset-y-0 -right-6 w-6 bg-linear-to-r from-azul-900 to-transparent"

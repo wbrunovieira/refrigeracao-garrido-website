@@ -47,7 +47,7 @@ export function Rodape() {
           </div>
 
           <nav aria-label="Rodapé">
-            <p className="etiqueta text-aco/50">Navegar</p>
+            <p className="etiqueta text-aco/75">Navegar</p>
             <ul className="mt-4 space-y-2.5">
               {secoes.map((s) => (
                 <li key={s.href}>
@@ -60,7 +60,7 @@ export function Rodape() {
           </nav>
 
           <div>
-            <p className="etiqueta text-aco/50">Contato</p>
+            <p className="etiqueta text-aco/75">Contato</p>
             <ul className="mt-4 space-y-2.5 font-mono text-sm text-creme/70">
               {negocio.telefones.map((t) => (
                 <li key={t.numero}>
@@ -84,13 +84,13 @@ export function Rodape() {
         </div>
 
         {/* A licença da foto da Catedral (CC BY) exige crédito ao autor: é aqui. */}
-        <p className="mt-12 text-[11px] leading-relaxed text-aco/35">
+        <p className="mt-12 text-[11px] leading-relaxed text-aco/60">
           Foto da Catedral de São Pedro de Alcântara ao fundo:{" "}
           <a
             href="https://commons.wikimedia.org/w/index.php?curid=127485057"
             target="_blank"
             rel="noopener noreferrer"
-            className="link-texto hover:text-aco/60"
+            className="link-texto underline-offset-2 hover:text-creme"
           >
             Rodrigo Soldon
           </a>
@@ -99,14 +99,14 @@ export function Rodape() {
             href="https://creativecommons.org/licenses/by/2.0/"
             target="_blank"
             rel="noopener noreferrer"
-            className="link-texto hover:text-aco/60"
+            className="link-texto underline-offset-2 hover:text-creme"
           >
             CC BY 2.0
           </a>
           .
         </p>
 
-        <div className="mt-6 flex flex-col gap-3 border-t border-azul-600/25 pt-7 text-xs text-aco/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-6 flex flex-col gap-3 border-t border-azul-600/25 pt-7 text-xs text-aco/70 sm:flex-row sm:items-center sm:justify-between">
           <p>
             {negocio.razaoSocial} · CNPJ {negocio.cnpj} · IE {negocio.inscricaoEstadual} · Insc.
             Municipal {negocio.inscricaoMunicipal} · © {new Date().getFullYear()}

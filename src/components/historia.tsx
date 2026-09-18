@@ -65,7 +65,7 @@ export function Historia() {
           <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-azul-600/30 pt-8">
             {fatos.map((f, i) => (
               <div key={f.rotulo} className="flex flex-col-reverse gap-2" data-revelar data-atraso={420 + i * 90}>
-                <dt className="etiqueta text-aco/55">{f.rotulo}</dt>
+                <dt className="etiqueta text-aco/75">{f.rotulo}</dt>
                 <dd className="display text-2xl text-ouro sm:text-3xl">
                   {/* o número de anos conta até o valor: é o dado que mais impressiona */}
                   {f.conta ? <Contagem ate={f.conta} /> : f.valor}
