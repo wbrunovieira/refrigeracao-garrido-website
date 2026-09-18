@@ -56,14 +56,15 @@ export const metadata: Metadata = {
     title: `${negocio.nome} — a tradição da refrigeração em Petrópolis`,
     description: descricao,
     /*
-     * Duas artes, e a ordem importa: o WhatsApp usa a primeira que serve, e a
-     * quadrada e leve (25 KB) é a que ele mostra como prévia pequena ao lado
-     * do texto. A larga fica para o Facebook, o LinkedIn e o X, que montam o
-     * cartão grande. Para trocar o formato da prévia no WhatsApp, basta
-     * inverter a ordem.
+     * Duas artes, e a ordem importa: o WhatsApp usa a primeira que serve, e é
+     * o TAMANHO dela que decide o formato da prévia — abaixo de 300px de lado
+     * ele desenha o cartão pequeno, com a miniatura ao lado do texto; acima
+     * disso, o cartão grande que ocupa a tela. Daí os 200x200: só a marca,
+     * porque em miniatura qualquer frase seria ilegível. A larga vem depois,
+     * para o Facebook e o LinkedIn, que escolhem a melhor da lista.
      */
     images: [
-      { url: "/og-quadrado.jpg", width: 600, height: 600, alt: "Marca da Refrigeração Garrido — a peça está no balcão" },
+      { url: "/og-quadrado.jpg", width: 200, height: 200, alt: "Marca da Refrigeração Garrido" },
       { url: "/og.jpg", width: 1200, height: 630, alt: "Refrigeração Garrido — peças para geladeira, máquina de lavar e secadora em Petrópolis" },
     ],
   },
