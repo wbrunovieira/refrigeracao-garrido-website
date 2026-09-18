@@ -84,7 +84,7 @@ export function Rodape() {
         </div>
 
         {/* A licença da foto da Catedral (CC BY) exige crédito ao autor: é aqui. */}
-        <p className="mt-12 text-[11px] leading-relaxed text-aco/60">
+        <p className="mt-12 text-[11px] leading-relaxed text-aco/75">
           Foto da Catedral de São Pedro de Alcântara ao fundo:{" "}
           <a
             href="https://commons.wikimedia.org/w/index.php?curid=127485057"

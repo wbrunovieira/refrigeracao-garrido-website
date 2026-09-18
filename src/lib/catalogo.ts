@@ -256,10 +256,10 @@ export const servicos: Servico[] = [
  * errada de foto; provavelmente Metvisa. Confirmar com a cliente antes de repor.
  */
 export const marcas = [
-  { nome: "Gelopar", logo: "/marcas/gelopar.png", largura: 367, altura: 79 },
-  { nome: "Metalúrgica Alado", logo: "/marcas/alado.png", largura: 1000, altura: 296 },
+  { nome: "Gelopar", logo: "/marcas/gelopar.png", largura: 260, altura: 56 },
+  { nome: "Metalúrgica Alado", logo: "/marcas/alado.png", largura: 189, altura: 56 },
   { nome: "CP Placas Eletrônicas", logo: "/marcas/cp-placas-eletronicas.svg", largura: 352, altura: 139 },
-  { nome: "Alumínio Nacional", logo: "/marcas/aluminio-nacional.png", largura: 800, altura: 239 },
+  { nome: "Alumínio Nacional", logo: "/marcas/aluminio-nacional.png", largura: 187, altura: 56 },
   // Marcas de eletrodomésticos que a loja atende (lista da cliente, 09/2026). Logos em SVG
   // do Wikimedia Commons (domínio público / marca registrada dos fabricantes).
   { nome: "Brastemp", logo: "/marcas/brastemp.svg", largura: 500, altura: 48 },

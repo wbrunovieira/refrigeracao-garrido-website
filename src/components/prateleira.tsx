@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { marcas } from "@/lib/catalogo";
 
 const tipos = [
@@ -43,14 +42,18 @@ export function Prateleira() {
             title={m.nome}
             className="flex h-14 shrink-0 items-center rounded-md bg-creme px-5"
           >
-            <Image
+            {/* <img> puro, e não next/image: os arquivos já estão no tamanho
+                exato da cartela (SVG ou PNG de 56px de altura). Passar dez
+                logos repetidos pelo otimizador custava quarenta elementos com
+                srcset e pesava no trabalho de layout do celular. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src={m.logo}
               alt={m.nome}
               width={m.largura}
               height={m.altura}
-              // A cartela mostra o logo com 28px de altura; sem isto o Next
-              // servia a imagem em 2048px de largura para caber num polegar.
-              sizes="140px"
+              loading="lazy"
+              decoding="async"
               className="h-7 w-auto"
             />
           </span>
