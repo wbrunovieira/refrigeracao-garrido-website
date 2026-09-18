@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Instrument_Sans, Space_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Medicao } from "@/components/medicao";
 import { negocio, horarios, horaISO } from "@/lib/negocio";
 import "./globals.css";
 
@@ -138,6 +141,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(dadosEstruturados) }}
         />
         {children}
+        {/* Medição sem cookies: não pede consentimento e não identifica ninguém.
+            Analytics conta visitas e cliques; Speed Insights mede o que a
+            cliente e os visitantes sentem de verdade no celular deles. */}
+        <Analytics />
+        <Medicao />
+        <SpeedInsights />
       </body>
     </html>
   );
