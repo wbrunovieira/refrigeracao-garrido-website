@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Instrument_Sans, Space_Mono } from "next/font/google";
-import { negocio, horarios, horaLegivel } from "@/lib/negocio";
+import { negocio, horarios, horaISO } from "@/lib/negocio";
 import "./globals.css";
 
 const display = Bricolage_Grotesque({
@@ -29,8 +29,9 @@ const descricao = `Peças para geladeira, máquina de lavar e secadora no balcã
 export const metadata: Metadata = {
   metadataBase: new URL(site),
   title: {
-    // Termo de busca primeiro, marca depois: quem procura pelo nome acha de qualquer jeito.
-    default: `Peças para geladeira, máquina de lavar e secadora em Petrópolis | ${negocio.nome}`,
+    // Termo de busca primeiro, marca depois: quem procura pelo nome acha de
+    // qualquer jeito. Até ~60 caracteres, senão o Google corta no resultado.
+    default: `Peças para geladeira e máquina de lavar em Petrópolis | Garrido`,
     template: `%s · ${negocio.nome}`,
   },
   description: descricao,
@@ -65,9 +66,25 @@ const dadosEstruturados = {
   legalName: negocio.razaoSocial,
   foundingDate: String(negocio.fundacao),
   description: descricao,
+  "@id": `${site}/#loja`,
   url: site,
-  image: `${site}/og.jpg`,
-  telephone: negocio.telefones.map((t) => t.numero),
+  image: [`${site}/og.jpg`, `${site}/fotos/fachada-toldo.webp`],
+  logo: `${site}/marca/garrido-marca-completa.svg`,
+  slogan: "A tradição da refrigeração em Petrópolis.",
+  // Faixa de preço é o único campo de dinheiro que o Google pede; "$$" diz
+  // "preço de bairro", que é o que a loja pratica.
+  priceRange: "$$",
+  areaServed: [
+    { "@type": "City", name: "Petrópolis" },
+    { "@type": "AdministrativeArea", name: "Região Serrana do Rio de Janeiro" },
+  ],
+  hasMap: negocio.mapa,
+  // Em formato internacional: é assim que o Google casa o número com a ficha
+  // do Google Business e com o discador do celular.
+  telephone: [
+    ...negocio.telefones.map((t) => t.href.replace("tel:", "")),
+    `+${negocio.whatsapp.e164}`,
+  ],
   email: negocio.email,
   sameAs: [negocio.instagram.url, negocio.mapa],
   address: {
@@ -88,8 +105,8 @@ const dadosEstruturados = {
     .map((h) => ({
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][h.dia],
-      opens: horaLegivel(h.abre!).replace("h", ":").padEnd(5, "0"),
-      closes: horaLegivel(h.fecha!).replace("h", ":").padEnd(5, "0"),
+      opens: horaISO(h.abre!),
+      closes: horaISO(h.fecha!),
     })),
 };
 

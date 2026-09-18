@@ -97,6 +97,11 @@ export function horaLegivel(min: number) {
   return m === 0 ? `${h}h` : `${h}h${String(m).padStart(2, "0")}`;
 }
 
+/** "09:00" — o formato que o schema.org espera, diferente do que se lê na tela. */
+export function horaISO(min: number) {
+  return `${String(Math.floor(min / 60)).padStart(2, "0")}:${String(min % 60).padStart(2, "0")}`;
+}
+
 /** Link de WhatsApp com a mensagem já escrita. */
 export function whatsapp(mensagem: string) {
   return `https://wa.me/${negocio.whatsapp.e164}?text=${encodeURIComponent(mensagem)}`;
