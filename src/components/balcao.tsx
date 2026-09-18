@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
-import { gavetas } from "@/lib/catalogo";
+import { gavetas, numeroPorExtenso } from "@/lib/catalogo";
 import { whatsapp } from "@/lib/negocio";
 import { Seta, Whatsapp } from "@/components/icones";
 import { Pinguim } from "@/components/marca-elementos";
@@ -42,8 +42,9 @@ export function Balcao() {
             <br />
             pergunte se tem.
           </h2>
+          {/* O número vem da lista: gaveta nova não deixa a frase mentindo. */}
           <p className="mt-6 text-lg leading-relaxed text-creme/70">
-            Sete gavetas, o mesmo balcão.
+            {numeroPorExtenso(gavetas.length)} gavetas, o mesmo balcão.
           </p>
           <p className="mt-3 max-w-2xl text-lg leading-relaxed text-creme/70">
             Marque o que você procura e a pergunta para o WhatsApp da loja se monta

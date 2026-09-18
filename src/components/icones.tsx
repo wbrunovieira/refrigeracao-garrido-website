@@ -48,6 +48,21 @@ export function MaquinaLavar(p: Props) {
   );
 }
 
+/** Lava e seca: a mesma caixa da lavadora, com o calor da secagem no tambor. */
+export function LavaESeca(p: Props) {
+  return (
+    <Base {...p}>
+      <rect x="3.5" y="2.5" width="17" height="19" rx="2.2" />
+      <path d="M3.5 7h17" />
+      <circle cx="12" cy="14.2" r="4.6" />
+      <path d="M10.2 16.2c0-1.2 1.6-1.6 1.6-2.8s-1-1.4-1-1.4" />
+      <path d="M13 16.2c0-1.2 1.6-1.6 1.6-2.8s-1-1.4-1-1.4" />
+      <path d="M16.5 4.8h1.2" />
+      <circle cx="7" cy="4.8" r=".6" fill="currentColor" stroke="none" />
+    </Base>
+  );
+}
+
 export function BalcaoRefrigerado(p: Props) {
   return (
     <Base {...p}>

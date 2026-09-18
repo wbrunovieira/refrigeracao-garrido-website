@@ -7,6 +7,7 @@ import {
   Filtro,
   FogaoIndustrial,
   Geladeira,
+  LavaESeca,
   MaquinaLavar,
   PlacaEletronica,
 } from "@/components/icones";
@@ -46,6 +47,24 @@ export const gavetas: Gaveta[] = [
     foto: "/fotos/pecas-maquina-lavar.webp",
     alt: "Cruzeta de tanque de máquina de lavar sobre o balcão da loja",
     Icone: MaquinaLavar,
+  },
+  {
+    id: "lava-e-seca",
+    nome: "Lava e seca",
+    resumo: "Lava e seca é outra máquina por dentro — e a peça é outra também.",
+    itens: [
+      "Resistências de secagem",
+      "Placas e módulos",
+      "Rolamentos e retentores",
+      "Amortecedores e molas",
+      "Bombas de dreno",
+      "Correias",
+      "Borrachas de porta",
+      "Sensores e termostatos",
+    ],
+    foto: "/fotos/pecas-alado.webp",
+    alt: "Kit de rolamento e retentor para máquina de lavar, na embalagem",
+    Icone: LavaESeca,
   },
   {
     id: "refrigeracao",
@@ -106,8 +125,11 @@ export const gavetas: Gaveta[] = [
     itens: [
       "Capacitores",
       "Relés e protetores térmicos",
+      "Placas de lavadora",
+      "Motores e bombas de lavadora",
+      "Pressostatos e timers",
+      "Chicotes e terminais",
       "Chaves e contatoras",
-      "Cabos e terminais",
       "Fusíveis",
       "Módulos de comando",
     ],
@@ -120,8 +142,10 @@ export const gavetas: Gaveta[] = [
     nome: "Filtros e purificadores",
     resumo: "Do filtro de barro da avó ao refil do purificador novo.",
     itens: [
+      "Refis Planeta Água",
+      "Refil para vários purificadores",
       "Filtros de barro",
-      "Velas e refis",
+      "Velas cerâmicas",
       "Torneiras e boias",
       "Purificadores",
       "Mangueiras",
@@ -236,3 +260,9 @@ export const marcas = [
   { nome: "LG", logo: "/marcas/lg.svg", largura: 600, altura: 275 },
   { nome: "Midea", logo: "/marcas/midea.svg", largura: 122, altura: 47 },
 ];
+
+/** Para frases curtas: "Oito gavetas" lê melhor que "8 gavetas". */
+export function numeroPorExtenso(n: number) {
+  const nomes = ["zero", "Uma", "Duas", "Três", "Quatro", "Cinco", "Seis", "Sete", "Oito", "Nove", "Dez"];
+  return nomes[n] ?? String(n);
+}
