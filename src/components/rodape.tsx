@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AssinaturaWB } from "@/components/assinatura-wb";
 import { LinhaDagua } from "@/components/cenario";
 import { PinguimAndando } from "@/components/pinguim-andando";
@@ -109,7 +110,10 @@ export function Rodape() {
         <div className="mt-6 flex flex-col gap-3 border-t border-azul-600/25 pt-7 text-xs text-aco/70 sm:flex-row sm:items-center sm:justify-between">
           <p>
             {negocio.razaoSocial} · CNPJ {negocio.cnpj} · IE {negocio.inscricaoEstadual} · Insc.
-            Municipal {negocio.inscricaoMunicipal} · © {new Date().getFullYear()}
+            Municipal {negocio.inscricaoMunicipal} · © {new Date().getFullYear()} ·{" "}
+            <Link href="/privacidade" className="link-texto hover:text-creme">
+              Privacidade
+            </Link>
           </p>
           <AssinaturaWB className="text-creme/70" />
         </div>

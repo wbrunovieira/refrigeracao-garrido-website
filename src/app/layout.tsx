@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Instrument_Sans, Space_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -59,6 +59,12 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image" },
   alternates: { canonical: site },
+};
+
+/** A barra do navegador no celular acompanha a cor da página. */
+export const viewport: Viewport = {
+  themeColor: "#112236",
+  colorScheme: "dark",
 };
 
 /** Dados estruturados para o Google Business e a busca local. */
