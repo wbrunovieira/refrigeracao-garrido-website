@@ -62,8 +62,9 @@ export const gavetas: Gaveta[] = [
       "Borrachas de porta",
       "Sensores e termostatos",
     ],
-    foto: "/fotos/pecas-alado.webp",
-    alt: "Kit de rolamento e retentor para máquina de lavar, na embalagem",
+    // Foto de apoio (CC0, via Openverse): a loja ainda não tem foto de lava e seca.
+    foto: "/fotos/lava-e-seca.webp",
+    alt: "Lavadora e secadora lado a lado, com as portas de vidro à mostra",
     Icone: LavaESeca,
   },
   {
